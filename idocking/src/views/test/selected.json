@@ -1,0 +1,269 @@
+[{
+	"code": "G",
+	"name": "一般项目",
+	"data": [{
+		"id": 30,
+		"categoryCode": "G",
+		"code": "G0201",
+		"name": "船舶在坞费",
+		"description": "Per day in dock",
+		"risks": null,
+		"attachments": null,
+		"specification": {
+			"id": 4,
+			"name": "卓航一号2020年坞修"
+		},
+		"selfRepair": false,
+		"status": "APPROVED",
+		"orderNumber": null,
+		"valid": true,
+		"budget": 6000.0000
+	}, {
+		"id": 27,
+		"categoryCode": "G",
+		"code": "G0101",
+		"name": "船舶进/出坞",
+		"description": "Docking and undocking ( blocks arrangement, dock gate open/close, pumping water)",
+		"risks": null,
+		"attachments": null,
+		"specification": {
+			"id": 4,
+			"name": "卓航一号2020年坞修"
+		},
+		"selfRepair": false,
+		"status": "DRAFTING",
+		"orderNumber": null,
+		"valid": true,
+		"budget": 3000.0000
+	}, {
+		"id": 28,
+		"categoryCode": "G",
+		"code": "G0401",
+		"name": "拖轮费",
+		"description": null,
+		"risks": null,
+		"attachments": null,
+		"specification": {
+			"id": 4,
+			"name": "卓航一号2020年坞修"
+		},
+		"selfRepair": false,
+		"status": "APPROVED",
+		"orderNumber": null,
+		"valid": true,
+		"budget": 9000.0000
+	}, {
+		"id": 29,
+		"categoryCode": "G",
+		"code": "G0601",
+		"name": "码头费",
+		"description": null,
+		"risks": null,
+		"attachments": null,
+		"specification": {
+			"id": 4,
+			"name": "卓航一号2020年坞修"
+		},
+		"selfRepair": false,
+		"status": "DRAFTING",
+		"orderNumber": null,
+		"valid": true,
+		"budget": 2100.0000
+	}],
+	"fullName": "G.一般项目"
+}, {
+	"code": "H",
+	"name": "船体部分",
+	"data": [{
+		"id": 16,
+		"categoryCode": "H",
+		"code": "H0107",
+		"name": "船壳板颗粒喷砂处理",
+		"description": "Detailed specification including size, amount, dimension, material etc.\n- For calculation purposes, use touch up areas as 10% of bottom and 15% of area above waterline. All paints to be supplied by Owner.-The above areas are only for calculation purposes. Completespecification for painting will be submitted when ship arrives yard.\n-Surface preparation, painting and drying time between coats should be done according to instruction of paint supplier's representative.\n- Please quote your scheduled price and total price, including disposal of empty paint buckets.-Final cleaning, blasting and painting to be decided after inspection.\n-Area/s that requires part/spot blasting must be to Sa2.-Sufficient protection are to be provided to anodes, ICCP reference cells,  stern tube, rubber pintle, speed log and depth sounder sensors during high pressure washing, sweep and grit blasting and painting.\n-Please quote for high pressure washing of entire hull and sweepblasting of vertical sides and flat bottom.-Ship side openings to be plugged up during painting and blastingand removal after completion",
+		"risks": "No risk",
+		"attachments": null,
+		"specification": {
+			"id": 4,
+			"name": "卓航一号2020年坞修"
+		},
+		"selfRepair": false,
+		"status": "APPROVED",
+		"orderNumber": null,
+		"valid": true,
+		"budget": 2000.0000
+	}, {
+		"id": 18,
+		"categoryCode": "H",
+		"code": "H0201",
+		"name": "船体油漆平底部分",
+		"description": "<p>\n    <span style=\"color: #a31515;\"></span>\n</p>\n<p>\n    <span style=\"color: #a31515;\"></span>\n</p>\n<p>\n    Detailed specification including size, amount, dimension, material etc.\n</p>\n<p>\n    - For calculation purposes, use touch up areas as 10% of bottom and 15% of area above waterline. All paints to be supplied by Owner.-The above areas are only for calculation purposes. Completespecification for painting will be submitted when ship arrives yard.\n</p>\n<p>\n    -Surface preparation, painting and drying time between coats should be done according to instruction of paint supplier&#39;s representative.\n</p>\n<p>\n    - Please quote your scheduled price and total price, including disposal of empty paint buckets.-Final cleaning, blasting and painting to be decided after inspection.\n</p>\n<p>\n    -Area/s that requires part/spot blasting must be to Sa2.-Sufficient protection are to be provided to anodes, ICCP reference cells,&nbsp; stern tube, rubber pintle, speed log and depth sounder sensors during high pressure washing, sweep and grit blasting and painting.\n</p>\n<p>\n    -Please quote for high pressure washing of entire hull and sweepblasting of vertical sides and flat bottom.-Ship side openings to be plugged up during painting and blastingand removal after completion\n</p>\n<p>\n    <br/>\n</p>",
+		"risks": null,
+		"attachments": null,
+		"specification": {
+			"id": 4,
+			"name": "卓航一号2020年坞修"
+		},
+		"selfRepair": false,
+		"status": "DRAFTING",
+		"orderNumber": null,
+		"valid": true,
+		"budget": null
+	}],
+	"fullName": "H.船体部分"
+}, {
+	"code": "O",
+	"name": "舾装部分",
+	"data": [{
+		"id": 19,
+		"categoryCode": "O",
+		"code": "O0101",
+		"name": "锚和锚链",
+		"description": "<p>\n    <span style=\"color: #a31515;\"></span>\n</p>\n<p>\n    <span style=\"color: #a31515;\"></span>\n</p>\n<p>\n    Port &amp; stbd anchor:&nbsp;\n</p>\n<p>\n    -To be washed with high pressure water. Once dry, both anchors to be painted with Owner&#39;s supplied paint\n</p>\n<p>\n    Port anchor chain: 330 mtr / 27.5 one shot / 12 shots\n</p>\n<p>\n    Stbd anchor chain: 330 mtr / 27.5 one shot / 12 shots\n</p>\n<p>\n    -Both anchor chains to be ranged down to the dock and washed with high pressure water\n</p>\n<p>\n    -Calibrate wear on chain. Chain links to be marked.\n</p>\n<p>\n    -Weight of anchor: 7425 kg\n</p>\n<p>\n    -Original Diameter of chain: 78 mm\n</p>\n<p>\n    -All studs to be checked and repaired / replaced as required\n</p>\n<p>\n    -Port anchor chain on 5th shackles to weld new stud on chain\n</p>",
+		"risks": null,
+		"attachments": null,
+		"specification": {
+			"id": 4,
+			"name": "卓航一号2020年坞修"
+		},
+		"selfRepair": false,
+		"status": "APPROVED",
+		"orderNumber": null,
+		"valid": true,
+		"budget": null
+	}, {
+		"id": 20,
+		"categoryCode": "O",
+		"code": "O0103",
+		"name": "清洁锚链舱",
+		"description": "<p>\n    <span style=\"color: #a31515;\"></span>\n</p>\n<p>\n    <span style=\"color: #a31515;\"></span>\n</p>\n<p>\n    &nbsp;-Port and stbd chain locker to be cleared of mud and sediments.\n</p>\n<p>\n    -Port chain locker: 2.64m dia. X 10.5m height\n</p>\n<p>\n    -Stbd chain locker: 2.64m dia x 10.5m height\n</p>\n<p>\n    -To be washed with high pressure water and apply coating\n</p>\n<p>\n    <br/>\n</p>\n<p>\n    Please quote separately for coating (Bitumistic paint) of lockers for lower 3 meters height with Owners supplied paint.\n</p>",
+		"risks": null,
+		"attachments": null,
+		"specification": {
+			"id": 4,
+			"name": "卓航一号2020年坞修"
+		},
+		"selfRepair": false,
+		"status": "APPROVED",
+		"orderNumber": null,
+		"valid": true,
+		"budget": null
+	}, {
+		"id": 21,
+		"categoryCode": "O",
+		"code": "O0301",
+		"name": "海底格栅/出海阀箱",
+		"description": "<p>\n    <span style=\"color: #a31515;\"></span>\n</p>\n<p>\n    <span style=\"color: #a31515;\"></span>\n</p>\n<p>\n    Detailed specification including size, amount, dimension, material etc.\n</p>\n<p>\n    - For calculation purposes, use touch up areas as 10% of bottom and 15% of area above waterline. All paints to be supplied by Owner.-The above areas are only for calculation purposes. Completespecification for painting will be submitted when ship arrives yard.\n</p>\n<p>\n    -Surface preparation, painting and drying time between coats should be done according to instruction of paint supplier&#39;s representative.\n</p>\n<p>\n    - Please quote your scheduled price and total price, including disposal of empty paint buckets.-Final cleaning, blasting and painting to be decided after inspection.\n</p>\n<p>\n    -Area/s that requires part/spot blasting must be to Sa2.-Sufficient protection are to be provided to anodes, ICCP reference cells,&nbsp; stern tube, rubber pintle, speed log and depth sounder sensors during high pressure washing, sweep and grit blasting and painting.\n</p>\n<p>\n    -Please quote for high pressure washing of entire hull and sweepblasting of vertical sides and flat bottom.-Ship side openings to be plugged up during painting and blastingand removal after completion\n</p>\n<p>\n    <br/>\n</p>",
+		"risks": null,
+		"attachments": null,
+		"specification": {
+			"id": 4,
+			"name": "卓航一号2020年坞修"
+		},
+		"selfRepair": false,
+		"status": "DRAFTING",
+		"orderNumber": null,
+		"valid": true,
+		"budget": null
+	}, {
+		"id": 22,
+		"categoryCode": "O",
+		"code": "O0401",
+		"name": "舵叶",
+		"description": "<p>\n    <span style=\"color: #a31515;\"></span>\n</p>\n<p>\n    <span style=\"color: #a31515;\"></span>\n</p>\n<p>\n    Detailed specification including size, amount, dimension, material etc.\n</p>\n<p>\n    - For calculation purposes, use touch up areas as 10% of bottom and 15% of area above waterline. All paints to be supplied by Owner.-The above areas are only for calculation purposes. Completespecification for painting will be submitted when ship arrives yard.\n</p>\n<p>\n    -Surface preparation, painting and drying time between coats should be done according to instruction of paint supplier&#39;s representative.\n</p>\n<p>\n    - Please quote your scheduled price and total price, including disposal of empty paint buckets.-Final cleaning, blasting and painting to be decided after inspection.\n</p>\n<p>\n    -Area/s that requires part/spot blasting must be to Sa2.-Sufficient protection are to be provided to anodes, ICCP reference cells,&nbsp; stern tube, rubber pintle, speed log and depth sounder sensors during high pressure washing, sweep and grit blasting and painting.\n</p>\n<p>\n    -Please quote for high pressure washing of entire hull and sweepblasting of vertical sides and flat bottom.-Ship side openings to be plugged up during painting and blastingand removal after completion\n</p>\n<p>\n    <br/>\n</p>",
+		"risks": null,
+		"attachments": null,
+		"specification": {
+			"id": 4,
+			"name": "卓航一号2020年坞修"
+		},
+		"selfRepair": false,
+		"status": "DRAFTING",
+		"orderNumber": null,
+		"valid": true,
+		"budget": null
+	}],
+	"fullName": "O.舾装部分"
+}, {
+	"code": "M",
+	"name": "轮机部分",
+	"data": [{
+		"id": 34,
+		"categoryCode": "M",
+		"code": "M0101",
+		"name": "主机空气系统",
+		"description": "<p>\n    <span style=\"color: #a31515;\"></span>\n</p>\n<p>\n    <span style=\"color: #a31515;\"></span>\n</p>\n<p style=\"white-space: normal;\">\n    Detailed specification including size, amount, dimension, material etc.\n</p>\n<p style=\"white-space: normal;\">\n    - For calculation purposes, use touch up areas as 10% of bottom and 15% of area above waterline. All paints to be supplied by Owner.-The above areas are only for calculation purposes. Completespecification for painting will be submitted when ship arrives yard.\n</p>\n<p style=\"white-space: normal;\">\n    -Surface preparation, painting and drying time between coats should be done according to instruction of paint supplier&#39;s representative.\n</p>\n<p style=\"white-space: normal;\">\n    - Please quote your scheduled price and total price, including disposal of empty paint buckets.-Final cleaning, blasting and painting to be decided after inspection.\n</p>\n<p style=\"white-space: normal;\">\n    -Area/s that requires part/spot blasting must be to Sa2.-Sufficient protection are to be provided to anodes, ICCP reference cells,&nbsp; stern tube, rubber pintle, speed log and depth sounder sensors during high pressure washing, sweep and grit blasting and painting.\n</p>\n<p style=\"white-space: normal;\">\n    -Please quote for high pressure washing of entire hull and sweepblasting of vertical sides and flat bottom.-Ship side openings to be plugged up during painting and blastingand removal after completion\n</p>\n<p>\n    <br/>\n</p>",
+		"risks": "no risk",
+		"attachments": null,
+		"specification": {
+			"id": 4,
+			"name": "卓航一号2020年坞修"
+		},
+		"selfRepair": false,
+		"status": "DRAFTING",
+		"orderNumber": null,
+		"valid": true,
+		"budget": null
+	}, {
+		"id": 24,
+		"categoryCode": "M",
+		"code": "M0401",
+		"name": "艉管及前后密封装置检修",
+		"description": "<p>\n    &nbsp;-Upon entering the dock, ship&#39;s staff to shut off lube oil valves and drain the system\n</p>\n<p>\n    <br/>\n</p>\n<p>\n    Forward stern tube seal\n</p>\n<p>\n    -Seal cover to be removed\n</p>\n<p>\n    -Take out the old rings and inspect surface of aft chrome liner. Shiftliner position if required under supervision of Maker&#39;s representative.\n</p>\n<p>\n    -Renew two nos seal rings by bonding device , Maker&#39;srepresentative&nbsp;\n</p>\n<p>\n    <br/>\n</p>\n<p>\n    Aft stern tube seal\n</p>\n<p>\n    -Immediately when the dock is dry, top and bottom clearance to betaken and recorded in the presence of Owner&#39;s Representative.&nbsp;\n</p>\n<p>\n    -Poker gauge to be provided by Chief Engineer.\n</p>\n<p>\n    -Split rope guard to be removed.*Seal cover to be removed.\n</p>\n<p>\n    -Take out the old rings and inspect surface of aft chrome liner. Shiftliner position if required under supervision of Maker&#39;s representative.\n</p>\n<p>\n    -Renew four nos seal rings by bonding device (Maker&#39;s representative)\n</p>\n<p>\n    -Re-take top and bottom clearance witnessed by Class and Owner&#39;sRepresentative.\n</p>\n<p>\n    -Fill up lub oil on chamber between 1st and 2nd seal , check for leaks.\n</p>\n<p>\n    -Secure all plugs with non-corrosive locking wire (Yard supply)\n</p>\n<p>\n    -Fill up the system with lubricating oil as instructed by Maker&#39;srepresentative.\n</p>\n<p>\n    -Refit seal cover with new O-ring. Owner&#39;s supply.*Refit the split rope guard.\n</p>\n<p>\n    <br/>\n</p>\n<p>\n    Suitable protections are to be provided when stern tube partsare dismantled to avoid ingress of dust, water, grit blasting sand etc during repair works.&nbsp;\n</p>\n<p>\n    <br/>\n</p>",
+		"risks": null,
+		"attachments": null,
+		"specification": {
+			"id": 4,
+			"name": "卓航一号2020年坞修"
+		},
+		"selfRepair": false,
+		"status": "APPROVED",
+		"orderNumber": null,
+		"valid": true,
+		"budget": null
+	}, {
+		"id": 25,
+		"categoryCode": "M",
+		"code": "M0801",
+		"name": "舵机检修",
+		"description": "<p>\n    Replace steering gear actuator seals\n</p>\n<p>\n    -Drain the actuator for hydraulic oil through the bottom drain holes\n</p>\n<p>\n    -Make sure that the vent plugs are open*Remove the actuator cover\n</p>\n<p>\n    -Inspect actuator and cover. Clean\n</p>\n<p>\n    -Replace seals (owner supply) in this order:When rotor has been dismounted from rudderstock and liftedout of the housing:\n</p>\n<p>\n    1.Bottom ring seal\n</p>\n<p>\n    2.Lower vane sealAfter the rotor has been lowered in to the housing:\n</p>\n<p>\n    3.Vertical vane seals with springs\n</p>\n<p>\n    4.Vertical segment seals with springs\n</p>\n<p>\n    5.Top vane seals6.Cover ring seal\n</p>\n<p>\n    -Grease all new seals before assembly\n</p>\n<p>\n    -Assemble the actuator and fill up with oil (650 ltrs Tellus S2 VX 68 Owner supply).\n</p>\n<p>\n    <br/>\n</p>",
+		"risks": null,
+		"attachments": null,
+		"specification": {
+			"id": 4,
+			"name": "卓航一号2020年坞修"
+		},
+		"selfRepair": false,
+		"status": "APPROVED",
+		"orderNumber": null,
+		"valid": true,
+		"budget": null
+	}, {
+		"id": 26,
+		"categoryCode": "M",
+		"code": "M1801",
+		"name": "机舱行车检修",
+		"description": "<p>\n    <br/>\n</p>\n<p>\n    Engine room overhead crane x 1; Type MSB-6.5\n</p>\n<p>\n    Hoisting load = 6500 kg\n</p>\n<p>\n    Test load = 8125 kg\n</p>\n<p>\n    Load test (overload of 125%) to be carried out. Certificate to be issued.\n</p>\n<p>\n    <br/>\n</p>",
+		"risks": null,
+		"attachments": null,
+		"specification": {
+			"id": 4,
+			"name": "卓航一号2020年坞修"
+		},
+		"selfRepair": false,
+		"status": "DRAFTING",
+		"orderNumber": null,
+		"valid": true,
+		"budget": null
+	}],
+	"fullName": "M.轮机部分"
+}, {
+	"code": "E",
+	"name": "电气部分",
+	"data": [],
+	"fullName": "E.电气部分"
+}, {
+	"code": "S",
+	"name": "杂项",
+	"data": [],
+	"fullName": "S.杂项"
+}]

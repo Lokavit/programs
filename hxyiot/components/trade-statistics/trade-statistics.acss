@@ -1,0 +1,47 @@
+/* 交易统计 标题部分 */
+
+.trade_statistics_title {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  background-color: #ececec;
+}
+
+/* 交易统计 标题部分 左边文字 */
+
+.trade_statistics_title label {
+  display: block;
+  font-size: 0.3rem;
+  line-height: 0.7rem;
+}
+
+/* 交易统计 标题部分 右边等式 */
+
+.trade_statistics_title text {
+  display: block;
+  font-size: 0.23rem;
+  line-height: 0.7rem;
+  color: #828282;
+}
+
+.trade_statistics_info {
+  padding: 0.2rem;
+  /* border-bottom: 0.3rem solid #ececec; */
+}
+.trade_statistics_info_item {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.trade_statistics_info_item label {
+  display: block;
+  font-size: 0.25rem;
+  color: #828282;
+}
+
+.trade_statistics_info_item text {
+  display: block;
+}

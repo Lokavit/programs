@@ -1,0 +1,49 @@
+page{
+  background-color: #f5f5f5;
+}
+.whiteBj{
+  background-color: #ffffff;
+  width:750.4rpx;
+  height:120rpx;
+  line-height: 120rpx;
+  margin-top:40rpx;
+  font-size:34rpx;
+  font-weight:500;
+  color:#333333;
+}
+.first:nth-child(1) .whiteBj{
+  margin-top:32rpx;
+}
+.first:nth-child(1) .tip{
+  margin:32rpx 0 0 30rpx;
+}
+.whiteBj text{
+  margin-left:30rpx;
+}
+.whiteBj image{
+  width:54rpx;
+  height:54rpx;
+  float:right;
+  margin:33rpx 32rpx 0 0;
+}
+.tip{
+  font-size:24rpx;
+  color:#666666;
+  margin:20rpx 0 0 30rpx;
+}
+.tips{
+  font-size: 24rpx;
+  color: #666;
+  margin-top: -30rpx;
+  margin-left: 30rpx;
+}
+.switch-item{
+  float:right;
+  margin-right:30rpx;  
+}
+.prints{
+  margin: 180rpx auto;
+  text-align: center;
+  padding: 25rpx;
+  background-color: rgb(243, 204, 131);
+}

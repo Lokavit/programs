@@ -1,0 +1,238 @@
+
+
+.navpanel {
+    width : 230px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    background: #fff;
+    box-shadow: 2px 0 18px 0px rgba(0, 0, 0, 0.16);
+    overflow: visible;
+    z-index: 1;
+    flex-shrink: 0;
+}
+.navs{
+    margin: 0;
+    list-style: none;
+    height: 60px;
+    text-align: center;
+    padding: 0;
+    padding-top: 10px;
+    flex-shrink: 0;
+}
+.navs li{
+    display: inline-block;
+    width: 45%;
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+    box-sizing: content-box;
+    border-bottom: none;
+    font-size: 16px;
+    vertical-align: bottom;
+    cursor: pointer;
+    position: relative;
+}
+.navs li.nav_active{
+    color: #ff8800;
+}
+.navs li.nav_active:before{
+    content: "";
+    display: block;
+    height: 2px;
+    position: absolute;
+    width: 90%;
+    background: #ff8800;
+    bottom: 0px;
+    left: 5%;
+}
+.searchinput{
+    width: 90%;
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    flex-shrink: 0;
+}
+
+.searchinput:before {
+    display: block;
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    content:'';
+    background-image: url('./icon--search.png');
+    right: 2px;
+    top: 2px;
+    background-size: 24px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.searchinput input {
+    height: 35px;
+    border-radius: 20px;
+    border: 1px solid #d2d2d2;
+    padding-right: 30px;
+    padding-left: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+.searchinput input:focus{
+    outline: none;
+    border: 2px solid #4d97ff;
+}
+.nav_content{
+    margin-top: 20px;
+    overflow: auto;
+    flex: 1;
+}
+.minebag{
+    margin:0;
+    padding:0;
+    list-style: none;
+    padding-bottom: 30px;
+    border-bottom: 1px solid rgb(162, 162, 162);
+}
+.minebag__li{
+    height: 40px;
+    line-height: 40px;
+    padding-left: 40px;
+    color: #777777;
+    position: relative;
+}
+.minebag__li:before{
+    content:'';
+    display: block;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-image: url("./bag.png");
+    left: 10px;
+    top: 11px;
+    background-repeat: no-repeat;
+    background-size: 20px;
+}
+.minebag__li_default{
+    composes: minebag__li;
+
+}
+.minebag__li_add{
+    composes: minebag__li;
+}
+.minebag__li_add:before{
+    content:'';
+    display: block;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-image: url("./icon_plus.png");
+    left: 10px;
+    top: 11px;
+    background-repeat: no-repeat;
+    background-size: 20px;
+}
+.minebag__li_default:before{
+    content:'';
+    display: block;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-image: url("./heart.png");
+    left: 10px;
+    top: 11px;
+    background-repeat: no-repeat;
+    background-size: 20px;
+}
+.minebag__li--hover{
+    background-color: #ff8800;
+    color: white;
+}
+.minebag__li--active{
+    composes: minebag__li_default;
+    background-color: #ff8800;
+    color: white;
+}
+.minebag__li--active:before{
+    content:'';
+    display: block;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-image: url("./bag_active.png");
+    left: 10px;
+    top: 11px;
+    background-repeat: no-repeat;
+    background-size: 20px;
+}
+.minebag__li_default--active{
+    composes: minebag__li--active;
+}
+.minebag__li_default--active:before{
+    content:'';
+    display: block;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-image: url("./heart_active.png");
+    left: 10px;
+    top: 11px;
+    background-repeat: no-repeat;
+    background-size: 20px;
+}
+.bag__opts{
+    position: absolute;
+    bottom: 3px;
+    right: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    height: 30px;
+    line-height: 30px;
+}
+.bag__opt{
+    margin-left: 6px;
+    font-size: 20px;
+}
+.bag__optpanel{
+
+}
+.bag_opt{
+    
+}
+.hide {
+    display: none
+}
+.category {
+    margin:0;
+    padding: 0;
+    margin-bottom: 20px;
+}
+.category__title {
+    padding: 0 25px 0 15px;
+    height: 30px;
+    line-height: 30px;
+    padding-left: 20px;
+    cursor: pointer;
+}
+.category__icon{
+    vertical-align: -2px;
+}
+.category__ul{
+    list-style: none;
+    margin: 0;
+    padding: 10px;
+    background: #f2f2f2;
+}
+.category__ul--hide{
+    composes: category__ul;
+    display: none;
+}
+.category__li{
+    height: 40px;
+    line-height: 40px;
+    padding-left: 30px;
+}
+.category__li--active{
+    composes: category__li;
+    background: #ff8800;
+    color: white;
+}

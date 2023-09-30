@@ -1,0 +1,18 @@
+<view>
+  <view class="top">
+    <image src="../../img/huabei-icon.png"/>
+    <view>商品金额</view>
+    <view><image src="../../img/qian.png"/>{{shop_money}}</view>
+  </view>
+  <view class="qishu">
+    <label>请选择分期期数</label>
+    <view class="qilist">
+      <view  a:for="{{data}}" class="item {{item.fee_cur}}" data-id="{{index}}" data-amount="{{item.total_amount}}" data-qs="{{item.hb_fq_num}}" data-mq="{{item.hb_mq_h}}" onTap="fenqiTap">
+        <text>分{{item.hb_fq_num}}期({{item.hbfq}})</text>
+        <text>¥ {{item.hb_mq_h}}/期</text>
+      </view>      
+    </view>
+    <view class="clear"></view>
+  </view>
+  <view class="btn {{bg}}" onTap="button">确认</view>
+</view>

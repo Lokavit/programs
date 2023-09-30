@@ -1,0 +1,24 @@
+
+/* 底部信息 */
+
+.footer {
+  position: fixed;
+  bottom: 0.3rem;
+  left: 1rem;
+}
+
+/* 底部信息 banner */
+
+.footer image {
+  height: 1rem;
+}
+
+/* 底部信息 客服电话 */
+
+.footer text {
+  display: block;
+  text-align: center;
+  font-size: 0.3rem;
+  margin-top: 0.1rem;
+  color: #29A1F7;
+}

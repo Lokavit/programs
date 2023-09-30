@@ -1,0 +1,37 @@
+<view>
+  <view class="register_tip">
+    <image src="../../img/register/biaoti-feihuiyuan.png"/>
+  </view>
+
+  <view class="member_info">
+    <view class="info_section">
+      <image mode="scaleToFill" src="../../img/register/huiyuan-xingming.png"/>
+      <input type="text" placeholder="请输入会员名" onInput="nameTap" value="{{name}}" onFocus="onfocus" onBlur="onblur"/>
+      </view>
+    <view class="info_section">
+      <image mode="scaleToFill" class="img" src="../../img/register/huiyuan-iphone.png"/>
+      
+      <!-- <input type="" class='{{changecss}}' focus="blur"  placeholder="请输入手机号" value="{{phone}}" /> -->
+      <text style="display:{{show == 0 ? 'none':'inline-block'}}"  class='{{gb_css}}'></text>
+      <view class='{{changecss}} gb_w'  onTap="phone_css" >{{phone}}</view>
+      <text style="display:{{show1 == 0 ? 'none':'inline-block'}}"  class='{{gb_css}}' ></text>
+      
+      <view style='display: {{hiddenshow == 0 ? "none":"block"}}' >{{phonevalue}}</view>
+    </view>
+  </view>
+
+  <view class="jianpan">
+    <image onTap="touch" data-phone="1" mode="scaleToFill" src="../../img/register/1.png"/>
+    <image onTap="touch" data-phone="2" mode="scaleToFill" src="../../img/register/2.png"/>
+    <image onTap="touch" data-phone="3" mode="scaleToFill" src="../../img/register/3.png"/>
+    <image onTap="touch" data-phone="4" mode="scaleToFill" src="../../img/register/4.png"/>
+    <image onTap="touch" data-phone="5" mode="scaleToFill" src="../../img/register/5.png"/>
+    <image onTap="touch" data-phone="6" mode="scaleToFill" src="../../img/register/6.png"/>
+    <image onTap="touch" data-phone="7" mode="scaleToFill" src="../../img/register/7.png"/>
+    <image onTap="touch" data-phone="8" mode="scaleToFill" src="../../img/register/8.png"/>
+    <image onTap="touch" data-phone="9" mode="scaleToFill" src="../../img/register/9.png"/>
+    <image onTap="touch" data-phone="del" mode="scaleToFill" src="../../img/register/delete.png"/>
+    <image onTap="touch" data-phone="0" mode="scaleToFill" src="../../img/register/0.png"/>
+    <image onTap="touch" data-phone="submit" mode="scaleToFill" src="{{kaitong}}"/>
+  </view>
+</view>

@@ -1,0 +1,6 @@
+{
+  "defaultTitle": "程序设置",
+  "usingComponents": {
+    "system-info": "/components/system-info/system-info"
+  }
+}

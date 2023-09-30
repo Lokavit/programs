@@ -1,0 +1,24 @@
+<!-- 待支付 -->
+<!-- <view style="display:{{!payResult.code?'block':'none'}};padding:0.1rem">
+  <label style="display:block;font-size:0.5rem">付款金额:</label>
+  <label style="display:block;font-size:0.5rem">{{payAmountDec}}</label>
+</view> -->
+<!-- 支付方式选择 -->
+<!-- <view class="pay_method_wrapper">
+  <view onTap="selectPayMethod" a:for="{{payMethods}}" data-code="{{item.code}}">{{item.name}}</view>
+</view> -->
+<!-- 支付结果显示 -->
+<view style="display:{{payResult.code?'block':'none'}};padding:0.1rem">
+  <view style="font-size:0.6rem;text-align:center;">{{payResult.msg}}</view>
+  <label a:for="{{payInfo}}" style="display:block;font-size:0.3rem">{{item.label}}:
+    <text style="font-size:0.3rem;float:right;">{{item.value}}</text>
+  </label>
+  <!-- 广告 刷脸没有。但刷脸自带领券即相关操作 -->
+  <view style="display:{{adList?'block':'none'}};padding:3rem 0 0.5rem 0;text-align:center;" onTap="getReward">
+    <image class="pay_success_ad" mode="widthFix" src="{{adList}}" />
+  </view>
+</view>
+<!-- 支付失败 或许可以再做点儿什么 -->
+<view style="display:{{!payResult.code?'block':'none'}}">
+  <view style="font-size:0.6rem;text-align:center;">{{payResult.msg}}</view>
+</view>

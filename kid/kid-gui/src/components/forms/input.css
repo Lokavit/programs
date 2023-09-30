@@ -1,0 +1,52 @@
+@import "../../css/units.css";
+@import "../../css/colors.css";
+
+.input-form {
+  height: 2rem;
+  padding: 0 0.75rem;
+  font-size: 0.625rem;
+  font-weight: bold;
+  color: $text-primary;
+
+  border: 1px solid #ccc;
+  border-radius: 2rem;
+
+  outline: none;
+  cursor: text;
+  transition: 0.25s ease-out; /* @todo: standardize with var */
+  box-shadow: none;
+
+  /*
+        For truncating overflowing text gracefully
+        Min-width is for a bug: https://css-tricks.com/flexbox-truncated-text
+        @todo: move this out into a mixin or a helper component
+    */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+
+  /* width: 9rem; */
+}
+
+.input-form:hover {
+  border-color: #66afe9;
+}
+
+.input-form:focus {
+  /* border-color: $motion-primary;
+    box-shadow: 0 0 0 0.25rem $motion-transparent; */
+  border-color: #66afe9;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+    0 0 8px rgba(102, 175, 233, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+    0 0 8px rgba(102, 175, 233, 0.6);
+}
+
+.input-small {
+  width: 3rem;
+  padding: 0 0.5rem;
+  text-overflow: clip;
+  text-align: center;
+}

@@ -1,0 +1,39 @@
+{
+  "name": "kid-vm",
+  "version": "0.2.0",
+  "description": "Virtual Machine for Scratch 3.0",
+  "author": "Massachusetts Institute of Technology",
+  "license": "BSD-3-Clause",
+  "homepage": "https://github.com/LLK/kid-vm#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/LLK/kid-vm.git"
+  },
+  "main": "./dist/node/kid-vm.js",
+  "browser": "./src/index.js",
+  "scripts": {
+    "build": "webpack --colors --bail"
+  },
+  "dependencies": {
+    "decode-html": "2.0.0",
+    "diff-match-patch": "1.0.4",
+    "format-message": "6.2.1",
+    "htmlparser2": "3.10.0",
+    "immutable": "3.8.1",
+    "jszip": "^3.1.5",
+    "nets": "3.2.0",
+    "scratch-translate-extension-languages": "0.0.20191118205314",
+    "worker-loader": "^1.1.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/plugin-transform-runtime": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "babel-loader": "^8.2.2",
+    "expose-loader": "0.7.5",
+    "format-message-cli": "6.2.0",
+    "scratch-l10n": "^3.1.20181129221712",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12"
+  }
+}

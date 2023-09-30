@@ -1,0 +1,521 @@
+@font-face {
+  font-family: Satve;
+  src: url("../fonts/SATVE.OTF");
+}
+
+// @font-face {
+//   font-family: SourceHanSansSC;
+//   src: url("../fonts/SourceHanSansSC-Regular.otf");
+// }
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-family: Satve, Microsoft Yahei, PingFang SC Arial, Helvetica, sans-serif;
+  margin: 0;
+  // width: 100%;
+  // height: 100%;
+  // background-color: #05286a;
+
+  ul {
+    list-style: none;
+  }
+}
+
+/* flex row 水平布局 */
+.layout-flex-row {
+  display: flex;
+  flex-flow: row;
+  align-items: flex-start;
+}
+
+
+/* header 页首容器 flex布局 */
+.header_container {
+  /* 脱离文档流，使之固定于页面指定位置，且层级最高 */
+  position: fixed;
+  z-index: 999; // 层级调高，避免遮住窗体
+  width: 100vw;
+  height: 40px; // 指定高度
+  background-color: #FFF;
+  display: flex;
+  /* 两端对齐，项目之间的间隔都相等 */
+  justify-content: space-between;
+  box-shadow: 0 0 3px rgba(64, 70, 102, 0.16);
+
+  div {
+    flex: auto;
+    line-height: 40px;
+  }
+
+  /* 页首 左区域 */
+  .header_left {
+    display: flex;
+    justify-content: flex-start;
+
+    /* 页首 左区域 LOGO */
+    img {
+      width: 39px;
+      padding: 5px 8px;
+    }
+
+    /* 页首 左区域 文字样式 */
+    span {
+      color: #282e4c;
+      font-size: 15px;
+      font-weight: bold;
+    }
+  }
+
+  /* 页首 右区域 */
+  .header_right {
+    display: flex;
+    justify-content: flex-end;
+
+    /* 页首 右区域 头像 */
+    img {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      margin: 10px;
+    }
+
+    /* 页首 右区域 文字 */
+    span {
+      font-size: 12px;
+      padding: 0 10px;
+    }
+
+    /* 页首 右区域 操作组图标 */
+    i {
+      display: inline-block;
+      padding: 0 10px;
+      line-height: 40px;
+      color: #282e4c;
+      font-size: 14px;
+    }
+
+    /* 页首 右区域 最后一个元素右内边距追加 */
+    &:last-child {
+      padding-right: 10px;
+    }
+
+    /* 页首 右区域 操作组图标滑入样式 */
+    i:hover {
+      color: #05286A;
+      cursor: pointer;
+    }
+  }
+}
+
+/* nav 左导航 */
+.nav_container {
+  /* 脱离文档流，使之固定于页面指定位置，且层级仅次于 header */
+  position: fixed;
+  /* 脱离文档流后，此处需将距顶下移，即减去header的高度 */
+  top: 40px;
+  z-index: 998;
+  width: 188px;
+  height: calc(100vh - 40px);
+  background-color: #404666;
+
+  .el-menu--collapse {
+    // width: 60px;
+    width: 188px;
+  }
+
+  .el-menu {
+    height: 100%;
+    border-right-color: #404666;
+    background-color: #404666;
+  }
+
+  .el-submenu__title {
+
+    /* 左侧一级导航，文字默认颜色 */
+    span {
+      color: #cdced5;
+      // font-size: 14px;
+    }
+
+    /* 左侧一级导航，图标默认颜色 */
+    i {
+      color: #748cb5;
+    }
+
+    span {
+      padding-left: 8px;
+      font-weight: 600;
+      font-size: 14px;
+    }
+  }
+
+  .el-submenu__icon-arrow .el-icon-arrow-down {
+    color: #dcdfe6;
+  }
+
+  .el-submenu__title:focus,
+  .el-submenu__title:hover {
+    outline: 0;
+    background-color: #707896;
+    color: #fff;
+
+    /* 左侧一级导航，鼠标滑入，图标颜色置为:白 */
+    i,
+    span {
+      color: #cdced5;
+    }
+  }
+
+  /* 二级导航每项高度 */
+  .el-submenu .el-menu-item {
+    height: 40px;
+    line-height: 40px;
+    min-width: 188px; // 覆盖库的默认200px
+    // i,span{
+    color: #B8B9c3;
+    font-size: 12px;
+    // }
+  }
+
+  /* 二级导航 鼠标滑入及激活效果 */
+  .el-menu-item:focus,
+  .el-menu-item:hover {
+    outline: 0;
+    background-color: #535c7a;
+    color: #fff;
+  }
+
+  .el-menu-item.is-active {
+    background-color: #05286a;
+    color: #fff;
+  }
+
+  .el-menu-item.is-active {
+    color: #fff;
+  }
+
+  .ship_left {
+    position: absolute;
+    z-index: 0;
+    width: 188px;
+    // height: auto;
+    // background-color: #B8B9c3;
+    bottom: 0;
+    left: -69px;
+
+    i {
+      color: rgba(0, 0, 0, 0.12);
+    }
+  }
+}
+
+/* 主内容区域 */
+.main_container {
+  position: fixed;
+  top: 40px;
+  left: 188px;
+
+  background-color: #F9F9Fb;
+  width: calc(100% - 188px);
+  height: calc(100% - 40px);
+
+  .modal_container {
+    position: relative;
+    // padding: 10px;
+    // width: calc(100vw - 188px);
+    // height: calc(100vh - 48px);
+  }
+
+  .company_idea {
+    position: fixed;
+    z-index: -1;
+    right: 20px;
+    bottom: 20px;
+
+    h2,
+    p {
+      color: #606266;
+    }
+  }
+}
+
+/*  footer 底部工作台 */
+.footer_container {
+  position: fixed;
+  z-index: 999;
+  background-color: #404666;
+  width: calc(100% - 188px);
+  left: 188px;
+  bottom: 0;
+  padding: 6px 10px 0 10px;
+  display: flex;
+  max-width: calc(100% - 188px);
+  min-height: 32px;
+  flex-wrap: wrap-reverse;
+
+  /* 任务栏激活项的样式 */
+  .task_active {
+    background-color: #FFF !important;
+    border-bottom: 2px solid #5678F0;
+
+    span {
+      color: #343434;
+    }
+  }
+
+  div {
+    flex: none;
+    box-shadow: 0 0 0 1px rgba(171, 173, 206, 0.53);
+    border-radius: 2px;
+    background-color: #707489;
+    cursor: pointer;
+    min-width: 88px;
+    height: 26px;
+    line-height: 24px;
+    padding: 0 10px;
+    padding-right: 0;
+    margin-right: 6px;
+    margin-bottom: 6px;
+
+    span {
+      font-size: 12px;
+      color: #D5D5D5;
+    }
+
+    i {
+      float: right;
+      margin: 6px;
+      font-size: 8px;
+      color: #D5D5D5;
+      /* 基于12px进行缩放 */
+      -webkit-transform: scale(0.8);
+    }
+
+    &:hover {
+      background-color: #B5B7CA;
+
+      span {
+        color: #454545;
+      }
+
+      i {
+        color: #454545;
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+/*定义滚动条高宽及背景
+   高宽分别对应横竖滚动条的尺寸*/
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  // background-color: #F5F5F5;
+}
+
+/*定义滑块 内阴影+圆角*/
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.12);
+  /* box-shadow: inset 0 0 6px rgba(0, 0, 0, .3); */
+}
+
+/* span 鼠标滑入变色及鼠标变手，表示该元素可操作 */
+.span-hover {
+  &:hover {
+    color: #05286a;
+    cursor: pointer;
+  }
+}
+
+/* 滾動條 */
+.scrollbar {
+  max-height: auto;
+  overflow-y: scroll;
+  // background-color: #F5F5F5;
+  //
+}
+
+.scrollbar_inset_div {
+  width: 100%;
+  height: auto;
+  /* border: 1px solid #ccc; */
+  box-shadow: inset 0px 0px 2px #d9d9d9;
+  margin-top: 20px;
+}
+
+/*定义滚动条高宽及背景
+   高宽分别对应横竖滚动条的尺寸*/
+.scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  // background-color: #F5F5F5;
+}
+
+/*定义滑块 内阴影+圆角*/
+.scrollbar::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.12);
+  /* box-shadow: inset 0 0 6px rgba(0, 0, 0, .3); */
+}
+
+// /* 表单页面的表单区域样式 */
+// .form_container {
+//     background-color: rgba(240, 240, 244, 1);
+//     // margin: 0 auto;
+//     display: flex;
+//     // padding-left: 20px;
+//     // padding-right: 20px;
+//     // padding-top: 18px;
+
+//     padding: 20px;
+
+//     justify-content: space-around;
+
+//     .flex_item {
+//         flex: auto;
+//     }
+// }
+
+/* 表单类型窗体 主表区域 包裹器 */
+.form_container {
+  /* 上右下左 6px为含校验提示的底边，若无校验则需style设置14px。即(6+14) */
+  padding: 20px 20px 6px 0;
+  // background-color: rgba(240, 240, 244, 1);
+  background-color: #f9f9fb;
+}
+
+/* 表单类型窗体 主表区域 每行flex布局 */
+.form_row {
+  display: flex;
+  // // padding: 0 20px;
+  // padding-right: 0;
+  justify-content: space-between; // 两端对齐，项目之间的间隔都相等
+
+  // 因el-ui中的el-input包裹了div，此处改为使用 aside 标签来包裹label+el-input的方式
+  aside {
+    flex: auto; // 每一个label+el-input的包裹器大小自适应
+    width: 0; // 防止 均分时，各别项不等分
+    display: flex; // 每一项的内布局，即 label+el-input各占一部分
+    // margin: 0;
+    justify-content: space-between; // 两端对齐，项目之间的间隔都相等
+  }
+
+  /* 表单每项 label元素 最小宽度80px */
+  label {
+    line-height: 28px;
+    font-size: 12px;
+    text-align: right; // 文字label居右
+    min-width: 80px; // 最小宽度
+    /* 该外边距值，用于视觉上列分的间距，不破坏外部p标签宽度值 */
+    margin-left: 20px;
+  }
+
+  /* 表单每项 输入项 与label平级，通常为div包裹 */
+  label+div {
+    margin-left: 8px; // 输入项与label之间的间距
+    flex: auto;
+    width: 0;
+  }
+
+  /* 表单中每项的验证提示文本 */
+  .el-form-item__error {
+    color: #F56C6C;
+    font-size: 12px;
+    // transform: scale(0.9);
+    line-height: 1;
+    padding-top: 2px;
+    position: absolute;
+    padding-left: 10%;
+    top: 100%;
+    left: 0;
+  }
+
+  // .el-form-item.is-error .el-input__inner,
+  // .el-form-item.is-error .el-input__inner:focus,
+  // .el-form-item.is-error .el-textarea__inner,
+  // .el-form-item.is-error .el-textarea__inner:focus {
+  //   border-color: #DCDFE6;
+  // }
+
+  /* 表单中每项 外边距 距离底部的值 */
+  .el-form-item--mini.el-form-item {
+    margin-bottom: 14px;
+  }
+}
+
+/* 每行的第一列，左外边距置为0 */
+// &:first-child {
+//   margin-left: 0;
+// }
+
+/* 查询条 第四列从右起排列按钮组，此处使用 el-btn-info 的变更形式 */
+.el-button--info,
+.el-button--info:focus {
+  background-color: rgba(0, 0, 0, 0);
+  border-color: rgba(0, 0, 0, 0);
+  color: #093284;
+  border-radius: 20px;
+  padding: 0;
+  line-height: 28px;
+  width: 70px;
+  height: 26px;
+
+  // 图标
+  i {
+    font-weight: 900;
+    font-size: 11px;
+  }
+
+  // 文字
+  span {
+    font-size: 12px;
+    font-weight: 900;
+  }
+}
+
+/* 查询条 第四列从右起排列按钮组，鼠标滑入效果,按钮激活效果 */
+.el-button--info:hover,
+.el-button--info:active {
+  background-color: rgba(0, 0, 0, 0);
+  border-color: #05286a;
+  color: #093284;
+}
+
+
+
+/* 自定义搜索 */
+.search {
+  padding: 0 6px;
+  border: 1px solid #707489;
+  border-radius: 2px;
+  width: max-content;
+
+  input {
+    border: 0;
+    padding: 0;
+    outline: none;
+    background-color: rgba(0, 0, 0, 0);
+  }
+
+  i {
+    line-height: 17px;
+    color: #05286A;
+  }
+
+}
+
+.search:active,
+.search:focus {
+  border-color: #05286a;
+}

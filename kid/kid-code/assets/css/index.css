@@ -1,0 +1,174 @@
+html,
+body {
+  background-color: #fff;
+  font-family: sans-serif;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+}
+
+button {
+  background-color: #ffd205;
+  color: rgb(39, 51, 51);
+  border: 1px solid rgba(0, 0, 0, 0);
+  line-height: 2rem;
+  width: 8rem;
+  border-radius: 12px;
+}
+button:hover {
+  cursor: pointer;
+  background-color: orange;
+}
+.header_container {
+  height: 60px;
+  background-color: #ffd205;
+  display: flex;
+  /* 两端对齐，项目之间的间隔都相等 */
+  justify-content: flex-start;
+  z-index: 999;
+}
+.header_container > div {
+  padding: 10px 20px 10px 20px;
+  /* 该属性会使 两端对齐失效 */
+  /* flex: auto;  */
+  line-height: 40px;
+  width: auto;
+}
+.header_nav {
+  /* display: flex; */
+  /* 两端对齐，项目之间的间隔都相等 */
+  /* justify-content: flex-start; */
+  position: absolute;
+  left: 13%;
+}
+
+.header_nav > div {
+  min-width: 60px;
+  font-size: large;
+  font-weight: 700;
+  color: #f5f5f5;
+  margin-left: 50px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.dropdown {
+  position: relative;
+}
+.dropdown_menu {
+  position: absolute;
+  z-index: 9999;
+  top: 40px;
+  left: 2px;
+}
+.dropdown_menu > button {
+  width: 124px;
+  background-color: orange;
+  border-radius: 0;
+}
+.dropdown_menu > button:hover {
+  background-color: rgba(221, 150, 59, 0.7);
+}
+
+#file {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  opacity: 0;
+}
+
+.header_right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.show {
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s linear;
+}
+.hide {
+  visibility: visible;
+  transition: all 0.2s linear;
+}
+
+main {
+  height: calc(100% - 60px);
+  background-color: burlywood;
+  z-index: 666;
+}
+
+#blocklyDiv {
+  height: 100%;
+  width: 60%;
+}
+
+#code {
+  position: absolute;
+  top: 60px;
+  right: 0;
+  bottom: 0;
+  width: 40%;
+  height: 70%;
+  margin: 0;
+  background-color: #fff;
+}
+#code > button {
+  margin: 10px;
+}
+
+/* 舞台区 */
+.state {
+  position: absolute;
+  top: 70%;
+  right: 0;
+  bottom: 0;
+  width: 40%;
+  height: 30%;
+  margin: 0;
+  background-color: black;
+  color: white;
+}
+.state > h1 {
+  font-size: large;
+  font-weight: 900;
+  color: aqua;
+}
+
+/* 滾動條 */
+.scrollbar {
+  /* max-height: auto; */
+  overflow-y: scroll;
+  /* background-color: #F5F5F5; */
+}
+
+.scrollbar_inset_div {
+  width: 100%;
+  /* height: auto; */
+  /* border: 1px solid #ccc; */
+  /* box-shadow: inset 0px 0px 2px #d9d9d9; */
+}
+
+/*定义滚动条高宽及背景
+高宽分别对应横竖滚动条的尺寸*/
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  background-color: #f5f5f5;
+}
+
+/*定义滑块 内阴影+圆角*/
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  /* 滑动条背景色 ,需显示则将其打开 */
+  background-color: rgba(0, 0, 0, 0.5);
+  /* box-shadow: inset 0 0 6px rgba(0, 0, 0, .3); */
+}
+
+footer {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}

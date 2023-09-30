@@ -1,0 +1,143 @@
+{
+  "Material": {
+    "title": "物料主数据",
+    "thead": [{
+        "prop": "itemCode",
+        "label": "物料编码"
+      },
+      {
+        "prop": "itemDescription",
+        "label": "物料描述"
+      },
+      {
+        "prop": "itemGroupCode",
+        "label": "物料组编码"
+      },
+      {
+        "prop": "itemGroupName",
+        "label": "物料组名称"
+      }, {
+        "prop": "managementType",
+        "label": "物料管理方式"
+      }
+    ]
+  },
+  "MaterialGroup": {
+    "title": "物料组",
+    "thead": [{
+        "prop": "itemGroupCode",
+        "label": "物料组编码"
+      },
+      {
+        "prop": "itemGroupName",
+        "label": "物料组名称"
+      }
+    ]
+  },
+  "Warehouse": {
+    "title": "仓库",
+    "thead": [{
+        "prop": "whsCode",
+        "label": "仓库编码"
+      },
+      {
+        "prop": "whsName",
+        "label": "仓库名称"
+      }
+    ]
+  },
+  "Vendor": {
+    "title": "供应商",
+    "thead": [{
+        "prop": "code",
+        "label": "供应商编码"
+      },
+      {
+        "prop": "name",
+        "label": "供应商名称"
+      }
+    ]
+  },
+  "Uom": {
+    "title": "计量单位",
+    "thead": [{
+        "prop": "uomCode",
+        "label": "计量单位编码"
+      },
+      {
+        "prop": "uomName",
+        "label": "计量单位名称"
+      }
+    ]
+  },
+  "Employee": {
+    "title": "采购员",
+    "thead": [{
+        "prop": "code",
+        "label": "采购员编码"
+      },
+      {
+        "prop": "fullName",
+        "label": "采购员名称"
+      }
+    ]
+  },
+  "Project": {
+    "title": "项目",
+    "thead": [{
+      "prop": "entry",
+      "label": "项目编号"
+    }, {
+      "prop": "name",
+      "label": "项目名称"
+    }]
+  },
+  "WorkObject": {
+    "title": "作业类型",
+    "thead": [{
+      "prop": "entry",
+      "label": "编号"
+    }, {
+      "prop": "name",
+      "label": "名称"
+    }, {
+      "prop": "projectEntry",
+      "label": "项目编码"
+    }]
+  },
+  "Activity": {
+    "title": "中日程",
+    "thead": [{
+      "prop": "entry",
+      "label": "编号"
+    }, {
+      "prop": "projectEntry",
+      "label": "项目编码"
+    }, {
+      "prop": "projectName",
+      "label": "项目名称"
+    }]
+  },
+  "WorkTeam": {
+    "title": "作业单位",
+    "thead": [{
+      "prop": "entry",
+      "label": "编号"
+    }, {
+      "prop": "name",
+      "label": "名称"
+    }, {
+      "prop": "workArea",
+      "label": "作业类型"
+    }, {
+      "prop": "membership",
+      "label": "总人数"
+    }, {
+      "prop": "effectiveMembership",
+      "label": "操作人数"
+    }, {
+      "prop": "effectivePeriod",
+      "label": "作业时长"
+    }]
+  }
+}

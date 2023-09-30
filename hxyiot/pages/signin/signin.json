@@ -1,0 +1,6 @@
+{
+  "defaultTitle": "账号绑定",
+  "usingComponents": {
+    "system-info": "/components/system-info/system-info"
+  }
+}

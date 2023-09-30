@@ -1,0 +1,44 @@
+page{
+  background-color: #f5f5f5;
+}
+.top{
+  width:750.4rpx;
+  height:420rpx;
+  background-color: #fff;
+  text-align: center;
+}
+.top image{
+  width:140rpx;
+  height:140rpx;
+  margin:120rpx 0 40rpx 0;
+}
+.top view{
+  color:#9B9B9B;
+  font-size:26rpx;
+}
+.xia{
+  background-color: #fff;
+}
+.box .bottom{
+  width:750.4rpx;
+  height:106rpx;
+  line-height: 106rpx;
+  margin-top:20rpx;  
+  overflow: hidden;
+  border-bottom:1rpx solid #ddd;  
+}
+.box .bottom:nth-child(3){
+  margin-top:0rpx;
+}
+.box .bottom label{
+  font-size:30rpx;
+  color:#333;
+  margin-left:30rpx;
+}
+.box .bottom text{
+  font-size:26rpx;
+  color:#666;
+  display: inline-block;
+  float:right;
+  margin-right:30rpx;
+}

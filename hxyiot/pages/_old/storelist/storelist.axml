@@ -1,0 +1,22 @@
+<view>
+  <view class="section">
+    <view class="item" onTap="shoukuanTap">
+      <view>收款流水</view>
+      <image src="../../img/jiantou-icon.png"/>
+    </view>
+    <!-- <view class="item" onTap="flowerTap">
+      <view>花呗分期账单</view>
+      <image src="../../img/jiantou-icon.png"/>
+    </view> -->
+    <!-- <view class="item" onTap="jiudianTap">
+      <view>酒店预授权记录</view>
+      <image src="../../img/jiantou-icon.png"/>
+    </view> -->
+  </view>
+  <!-- <view class="section">
+    <view class="item" onTap="jianbaoTap">
+      <view>经营简报</view>
+      <image src="../../img/jiantou-icon.png"/>
+    </view>
+  </view> -->
+</view>

@@ -1,0 +1,63 @@
+<view>
+
+
+<view class='box'>
+  <view class='item'>
+
+    <label class="time">
+      <view class='choiceStore' onTap='totalStore'>{{totalStore}}<view class='down'><text></text></view></view>
+      <view class='search' onTap='search'>自定义查询<image src='../../img/rili.png'></image></view>
+    </label>
+    <view class='item_box'> 
+      <view class='item_list' a:for='{{collectmoney}}'  onTap='detail' data-outtradeno='{{item.out_trade_no}}'> 
+        <view class='border_width'>
+          <image src='{{item.payIconSrc}}'></image>
+          <view class='detail'>
+            <view>{{item.ways_source_desc}}<text class='right'>￥{{item.total_amount}}</text></view>
+            <view>{{item.store_name}}</view>
+            <view>{{item.created_at}}<text>|</text>{{item.pay_status_desc}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>  
+</view>
+
+
+<view class='noorder' style='display:{{noOrder == 1?"block":"none"}}'>
+  暂无记录
+</view>
+
+
+<view class='mask' style='display:{{mask == 1? "none":"block"}}'>  
+  <view class='removeBox' style='display:{{show == 1? "none":"block"}}'>
+    <view class='mask_title'>
+      <text class='left' style="padding-left:30rpx;" onTap='choiceCancel'>取消</text>
+      <text>指定门店/店员</text>
+      <text class='right mask_color' onTap='btnSure'>确定</text>
+    </view>
+    <view class='mask_con'>
+      <view class='mask_box'>
+        <view class='mask_list'>
+          <image src='{{firstImg}}'></image>
+          <view onTap='storeItem' data-index='10000' data-storeid=''>全部门店</view>
+        </view>
+
+        <view class='mask_list' a:for='{{storeArry}}'>
+          <image src='{{item.imgUrl}}'></image>
+          <view onTap='storeItem' data-index='{{index}}' data-storeid='{{item.store_id}}' data-pid='{{item.pid}}' data-storename='{{item.store_name}}'>{{item.store_name}}</view>
+          <view class='set' onTap='merchantTab' data-index='{{index}}' hidden='{{!item.show1}}'>指定员工</view>
+
+          <view class='user_list' hidden='{{!item.show}}' style="text-align:left;">
+            <view a:for='{{merchantArry}}' onTap='merchantItem' data-index='{{index}}' data-merchantid='{{item.merchant_id}}' class='{{item.show2 ? "cur":""}}' data-name='{{item.name}}'>{{item.name}}</view>
+          </view> 
+          <view class='user_cur' hidden='{{!item.show3}}'>已选定'<text>{{choicename}}</text>'<text class='changeName'>更改</text></view>
+        </view>
+        
+      </view>
+    </view>
+  </view>
+</view>
+
+  
+</view>

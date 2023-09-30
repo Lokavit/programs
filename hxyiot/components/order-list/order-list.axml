@@ -1,0 +1,9 @@
+<view class="order_list_item" a:for="{{orderList}}" data-outtradeno="{{item.out_trade_no}}" onTap="onDetail">
+  <image src="{{`../../assets/${item.ways_source}.png`}}"/>
+  <view class="order_list_item_info">
+    <label>{{item.ways_type_desc}}</label>
+    <text>{{item.store_name}}</text>
+    <text>{{item.created_at}} ｜ {{item.pay_status_desc}}</text>
+  </view>
+  <label>{{item.total_amount}}</label>
+</view>

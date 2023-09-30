@@ -1,0 +1,13 @@
+/* 引入 element-ui 样式文件 */
+@import "element-variables";
+/* dialog 样式 */
+@import './dialog.scss';
+/* 引入 choose 样式文件 */
+@import './choose.scss';
+/* 引入 KftTransfer 样式文件 */
+@import './transfer.scss';
+/* 引入 el-table 覆写 样式文件 */
+@import './table.scss';
+/* 引入 右键菜单 样式文件 */
+@import './rightmenu.scss';
+@import './edit-table.scss';

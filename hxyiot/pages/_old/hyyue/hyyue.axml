@@ -1,0 +1,22 @@
+<view>
+    <view class="section">
+        <view>{{mb_phone}}</view>
+        <view>付款金额</view>
+        <view>￥{{paymoney}}</view>
+        <view class="item">
+            <view>会员余额</view>
+            <view class="{{font}}">{{text}}</view>
+        </view>
+        <view class="item">
+            <view>会员名称</view>
+            <view>{{mb_name}}</view>
+        </view>
+        <view class="item">
+            <view>会员账号</view>
+            <view>{{mb_phone}}</view>
+        </view>
+        <view class='btn ' hover-class="blue" onTap='recharge'>{{payaction}}</view>
+        <view class='btn bgwhite' a:if="{{faceshow}}" onTap='facepay'>刷脸支付</view>
+        <image a:if="{{show}}" class='wait' src="/img/jiazaI.svg"/>
+    </view>
+</view>

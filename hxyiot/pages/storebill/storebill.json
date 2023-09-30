@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "门店流水",
+  "pullRefresh": true,
+  "usingComponents": {
+    "picker-item": "/components/picker-item/picker-item",
+    "order-list": "/components/order-list/order-list"
+  }
+}

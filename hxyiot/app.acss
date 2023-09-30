@@ -1,0 +1,463 @@
+/* 所有页面的样式 */
+page {
+  background-color: #FFF;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+}
+
+/*  ===============================================
+    一些可通用的css (非封装组件) start
+    ===============================================
+*/
+
+/* 时间选择器独有样式 */
+
+.row_time {
+  padding: 0 0.3rem;
+  margin: 0.1rem 0.3rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.row_time label {
+  display: inline-block;
+  color: #888;
+}
+
+.row_time text {
+  font-size: 32rpx;
+  color: #000;
+  display: inline-block;
+  margin-left: 0.1rem;
+}
+
+/*  ===============================================
+    一些可通用的css (非封装组件) end
+    ===============================================
+*/
+
+/*  ===============================================
+   页面的css (非封装组件) start
+   在无法尽量通用css情况下，为某些页面中某些元素设置样式。
+    ===============================================
+*/
+
+/* 多种支付方式选择 容器 */
+
+.pay_method_wrapper {
+  position: absolute;
+  bottom: 3vh;
+}
+
+.pay_method_wrapper view {
+  width: 5rem;
+  height: 0.8rem;
+  background-color: #006ef7;
+  font-size: 0.4rem;
+  color: #fff;
+  text-align: center;
+  line-height: 0.9rem;
+  margin: 0 1.3rem 0.3rem 1.3rem;
+  border-radius: 1rem;
+  box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1), 0 0 0 2px rgb(255, 255, 255), 0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+}
+
+/* index 唤起收银台 */
+
+.wake_cashier {
+  display: block;
+  position: absolute;
+  bottom: 8vh;
+  width: 5rem;
+  height: 1rem;
+  background-color: #006ef7;
+  font-size: 0.45rem;
+  color: #fff;
+  text-align: center;
+  line-height: 1rem;
+  margin: 0 1.5rem;
+  border-radius: 1rem;
+  box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1), 0 0 0 2px rgb(255, 255, 255), 0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+}
+
+/* 广告容器 */
+
+.ad_wrapper {
+  width: 100vw;
+  height: 100vh;
+}
+
+.swiper-item {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+
+.swiper-item image {
+  width: 100vw;
+}
+
+/* 收银模式选项 */
+
+.cashier_mode_item {
+  width: 100vw;
+  height: 1rem;
+  padding: 0.3rem;
+  border-bottom: 0.01rem solid #ccc;
+  background-color: #FFF;
+}
+
+.cashier_mode_item_name, .cashier_mode_item_desc {
+  display: block;
+  margin-left: 0.5rem;
+}
+
+.cashier_mode_item_name {
+  font-size: 0.4rem;
+  margin-bottom: 0.2rem;
+}
+
+.cashier_mode_item_desc {
+  font-size: 0.3rem;
+  color: #7d7d7d;
+}
+
+/* 输入框盒子 (图标 输入框 查看密码) */
+
+.signin_form_item {
+  margin: 1rem 0.5rem 0 0.5rem;
+  border-bottom: 1px solid #ccc;
+}
+
+.signin_form_item image {
+  width: 0.4rem;
+  height: 0.4rem;
+  margin-right: 0.3rem;
+}
+
+/* 登入按钮 */
+
+.btn_signin {
+  width: 5.2rem;
+  margin: 1rem 0 0 1rem;
+  box-shadow: 1px 1px 12px #888888;
+}
+
+/* 登出页面 明文 */
+
+.signout_wrapper label {
+  display: block;
+  font-size: 0.4rem;
+  color: #7d7d7d;
+  padding: 0.5rem 0 0.5rem 0;
+}
+
+/* 登出页面 值 */
+
+.signout_wrapper text {
+  display: block;
+  font-size: 0.5rem;
+  padding: 0 0 0 0.5rem;
+}
+
+.signout_wrapper button {
+  width: 5.2rem;
+  margin: 1rem 0 0 1rem;
+  box-shadow: 1px 1px 12px #888888;
+}
+
+/* 门店流水页面 */
+
+/* 查询按钮组容器 */
+
+.btn_search_wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  /* padding-right: 0.5rem; */
+}
+
+/* 2021.03.02 程序设置 */
+
+.items_wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  padding: 0.8rem 0.3rem;
+}
+
+.section {
+  margin: 0.8rem 0.25rem;
+  text-align: center;
+}
+
+.set_item {
+  background: #fff;
+  border-radius: 50%;
+  width: 1.2rem;
+  height: 1.2rem;
+  box-shadow: 1px 1px 12px #888888;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.set_item image {
+  width: 0.8rem;
+  height: 0.8rem;
+}
+
+.section text {
+  display: block;
+  margin-top: 0.3rem;
+  color: #FFF;
+}
+
+.store_report_wrapper {
+  width: 100vw;
+  /* height: 100vh; */
+  background-color: #FFF;
+}
+
+/* 查询结果展示 每笔交易概览 */
+
+.pay_list {
+  background-color: #FFF;
+}
+
+.pay_list_title {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  background-color: #ececec;
+}
+
+.pay_list_title label {
+  display: block;
+  font-size: 0.3rem;
+  line-height: 0.7rem;
+}
+
+.pay_list_title text {
+  display: block;
+  font-size: 0.23rem;
+  line-height: 0.7rem;
+  color: #828282;
+}
+
+.pay_list_item {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  padding: 0.3rem;
+  border-bottom: 1px solid #ccc;
+}
+
+.pay_list_item image {
+  width: 1rem;
+  height: 1rem;
+  margin: 0.1rem 0;
+}
+
+.pay_list_item_info {
+  flex: 1;
+  padding: 0 0.2rem;
+}
+
+.pay_list_item_info_item {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.pay_list_item_info_item label {
+  display: block;
+  font-size: 0.25rem;
+  color: #828282;
+}
+
+.pay_list_item_info_item text {
+  display: block;
+}
+
+/* 
+.pay_detail {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+} */
+
+/* 账单明细 */
+
+.order_info {
+  background-color: #FFF;
+  padding: 0.3rem;
+}
+
+.order_info view {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  border-bottom: 1px solid #ccc;
+  padding: 0.3rem 0;
+}
+
+.order_info view:last-child {
+  border-bottom: 0;
+}
+
+.order_info view label {
+  display: block;
+  line-height: 0.5rem;
+  color: #828282;
+}
+
+.order_info view text {
+  display: block;
+  line-height: 0.5rem;
+  font-size: 0.33rem;
+}
+
+.mask {
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.keybords {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  background-color: #FFF;
+  padding: 1rem 0;
+}
+
+.keybords image {
+  width: 2.3rem;
+  height: 0.8rem;
+  margin: 0.1rem;
+}
+
+.keybords text {
+  display: block;
+  width: 2.2rem;
+  height: 0.8rem;
+  margin: 0.1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.1rem;
+  text-align: center;
+  line-height: 0.8rem;
+  font-size: 0.5rem;
+}
+
+.pwd_wrapper {
+  background-color: #FFF;
+  width: 100vw;
+  height: 3rem;
+  text-align: center;
+  border-radius: 0.3rem;
+  margin: 1rem 0;
+}
+
+.pwd_wrapper label {
+  display: block;
+}
+
+.pwd_wrapper label:last-child {
+  font-size: 0.25rem;
+  color: #828282;
+}
+
+.pwd_wrapper_btn_close {
+  display: inline-block;
+  position: absolute;
+  top: 0.7rem;
+  right: 0;
+  color: #828282;
+  padding: 0.5rem;
+}
+
+.pwd {
+  border: 1px solid #ccc;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0.3rem;
+  justify-content: space-between;
+}
+
+.pwd text {
+  display: inline-block;
+  border-right: 1px solid #ccc;
+  text-align: center;
+  width: 1rem;
+  height: 0.8rem;
+  line-height: 0.8rem;
+  font-size: 0.5rem;
+}
+
+.pwd text:last-child {
+  border-right: 0;
+}
+
+/* 按钮组 */
+
+.btn_search_wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  margin-top: 0.5rem;
+}
+
+/* 开关 打印功能 */
+
+.switch_print {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  padding: 0.1rem 0.3rem;
+  background-color: #FFF;
+  margin: 0.3rem 0;
+}
+
+.switch_print text {
+  display: block;
+  line-height: 1rem;
+  font-size: 0.35rem;
+}
+
+.switch_print switch {
+  display: block;
+  line-height: 1rem;
+}
+
+.switch_print label {
+  display: block;
+  line-height: 1rem;
+  font-size: 0.23rem;
+  color: #929292;
+}
+
+/* 支付成功 页面广告 */
+
+.pay_success_ad {
+  width: 600rpx !important;
+  height: 400rpx !important;
+  margin-top: auto;
+}

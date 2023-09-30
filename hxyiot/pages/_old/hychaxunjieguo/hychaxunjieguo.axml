@@ -1,0 +1,4 @@
+<view class="page">
+  <cover-image style="" src="../../img/chaxunjieguo.png" />
+  <cover-image style="" src="../../img/loading.gif" /> 
+</view>

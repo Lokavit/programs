@@ -1,0 +1,319 @@
+@import "../../css/units.css";
+@import "../../css/colors.css";
+@import "../../css/z-index.css";
+
+/* .page-wrapper { */
+  /* height: 100%; */
+  /* height: calc(100vh - 3rem); */
+  /* height: 100vh; */
+/* } */
+
+.stage-and-target-wrapper {
+  /*
+        Makes rows for children:
+          1) stage menu
+          2) stage
+          3) sprite/stage selectors
+        Only reason we need this, is so .targetWrapper, which holds the selectors,
+        goes to full vertical height of the window
+    */
+  display: flex;
+  flex-direction: column;
+  /* pad entire wrapper to the left and right; allow children to fill width */
+  /* padding-left: $space; */
+  /* padding-right: $space; */
+}
+
+.stage-and-target-wrapper.large {
+  /* Fix the max width to max large stage size (defined in layout_constants.js) + gutter size */
+  max-width: calc(640px + calc($space * 2));
+}
+
+.stage-and-target-wrapper.large-constrained {
+  /* Fix the max width to max largeConstrained stage size (defined in layout_constants.js) + gutter size */
+  max-width: calc(408px + calc($space * 2));
+}
+
+.stage-and-target-wrapper.small {
+  /* Fix the max width to max small stage size (defined in layout_constants.js) + gutter size */
+  max-width: calc(240px + calc($space * 2));
+}
+
+.target-wrapper {
+  display: flex;
+  flex-grow: 1;
+  flex-basis: 0;
+
+  padding-top: $space;
+  min-height: 0; /* this makes it work in Firefox */
+
+  /*
+        For making the sprite-selector a scrollable pane
+        @todo: Not working in Safari
+    */
+  /* TODO this also breaks the thermometer menu */
+  /* overflow: hidden; */
+}
+
+/* Sprite Selection Watermark */
+.watermark {
+  position: absolute;
+  top: 1.25rem;
+  pointer-events: none;
+}
+
+[dir="ltr"] .watermark {
+  right: 1.25rem;
+  width: 5%;
+}
+
+/* [dir="rtl"] .watermark {
+  left: 1.25rem;
+  width: 5%;
+} */
+
+/* Menu */
+
+/* .menu-bar-position {
+  position: relative;
+  z-index: $z-index-menu-bar;
+} */
+/* Alerts */
+
+.alerts-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  z-index: $z-index-alerts;
+  position: absolute;
+  margin-top: 53px;
+}
+
+/*
+    Make the (background) page not scrollable when modals are open
+    This CSS class is automatically added to the body when react-modal is open
+*/
+:global(.ReactModal__Body--open) {
+  overflow: hidden;
+}
+
+.sprite-wrapper {
+  box-sizing: border-box;
+  max-width: 6rem;
+  min-height: 6rem;
+  margin: calc(0.5rem / 2);
+  background-color: #7fff1e;
+}
+
+.sprite {
+  height: 100%;
+}
+
+.scroll-wrapper {
+  /*
+       Sets the sprite-selector items as a scrollable pane
+
+        @todo: Safari: pane doesn't stretch to fill height;
+        @todo: Adding `position: relative` still doesn't fix Safari scrolling pane, and
+              also introduces a new bug in Chrome when vertically resizing window down,
+              then back up, introduces white space in the outside the page container.
+    */
+  height: calc(100% - 6rem);
+  overflow-y: auto;
+}
+
+.scroll-wrapper-dragging {
+  background-color: hsla(215, 100%, 77%);
+}
+
+.items-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+
+  padding-top: calc(0.5rem / 2);
+  padding-left: calc(0.5rem / 2);
+  padding-right: calc(0.5rem / 2);
+  padding-bottom: 0.5rem;
+
+  overflow-y: hidden;
+}
+
+.raised {
+  background-color: hsla(215, 100%, 77%);
+  transition: all 0.25s ease;
+}
+
+.raised:hover {
+  background-color: hsla(215, 100%, 77%);
+  transform: scale(1.05);
+}
+
+.raised:hover {
+  animation-name: wiggle;
+  animation-duration: 500ms;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+  background-color: hsla(215, 100%, 77%);
+}
+
+@keyframes wiggle {
+  0% {
+    transform: rotate(3deg) scale(1.05);
+  }
+  25% {
+    transform: rotate(-3deg) scale(1.05);
+  }
+  50% {
+    transform: rotate(5deg) scale(1.05);
+  }
+  75% {
+    transform: rotate(-2deg) scale(1.05);
+  }
+  100% {
+    transform: rotate(0deg) scale(1.05);
+  }
+}
+
+.receivedBlocks {
+  animation: glowing 250ms;
+}
+
+@keyframes glowing {
+  10% {
+    box-shadow: 0 0 10px #7fff1e;
+  }
+  90% {
+    box-shadow: 0 0 10px #7fff1e;
+  }
+  100% {
+    box-shadow: none;
+  }
+}
+
+.placeholder > .sprite {
+  background: black;
+  filter: opacity(15%) brightness(0%);
+}
+
+.menu-bar-item.active,
+.menu-bar-item.hoverable:hover {
+    background-color: hsla(0, 0%, 0%, 0.15);
+}
+
+.menu-bar-item.growable {
+    max-width: $menu-bar-item-max-width;
+    flex: 1;
+}
+
+.title-field-growable {
+    flex-grow: 1;
+    width: 2rem;
+}
+
+.feedback-link {
+    color: $motion-primary;
+    text-decoration: none;
+}
+
+.feedback-button {
+    background-color: $ui-white;
+    height: 34px;
+}
+
+.divider {
+    margin: 0 .5rem;
+    height: 34px;
+}
+
+.author-info {
+    margin-left: .25rem;
+    margin-right: .6875rem;
+}
+
+.menu-bar-button {
+    height: $menu-bar-button-size;
+}
+
+/* .remix-button {
+    background-color: $pen-primary
+}
+
+.remix-button-icon {
+    height: 1.25rem;
+} */
+
+.account-info-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.account-info-group .menu-bar-item {
+    padding: 0 0.75rem;
+}
+
+.mystuff-icon {
+    margin: 0 .25rem;
+    height: 1rem;
+}
+
+.help-icon {
+    margin-right: 0.35rem;
+}
+
+.account-nav-menu, .mystuff-button {
+    padding: 0 .25rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.profile-icon {
+    margin: 0 .25rem;
+    width: $menu-bar-button-size;
+    border-radius: $form-radius;
+}
+
+.user-info {
+    display: inline-flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    /* padding: 0 0.95rem; */
+    max-width: 260px;
+    height: $menu-bar-height;
+    overflow: hidden;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: $ui-white;
+    font-size: .75rem;
+    font-weight: normal;
+}
+
+[dir="ltr"] .user-info .avatar {
+    margin-right: calc($space * .8125);
+}
+
+.user-info .avatar {
+    width: 2rem;
+    height: 2rem;
+}
+
+[dir="ltr"] .user-info .dropdown-caret-position {
+  margin-left: calc($space * .8125);
+}
+
+.user-info .dropdown-caret-position {
+    display: inline-block;
+    padding-bottom: .0625rem;
+    vertical-align: middle;
+  }
+  
+  .user-info .profile-name {
+      font-size: .75rem;
+      line-height: .9375rem;
+      font-weight: bold;
+  }

@@ -1,0 +1,137 @@
+page {
+  background-color: #FFF;
+  /* overflow: hidden; */
+  width: 100vw;
+  height: 100vh;
+}
+
+/* 广告容器 */
+
+.ad_wrapper {
+  width: 100vw;
+  height: 100vh;
+}
+
+.swiper-item{
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+
+.swiper-item image {
+  width: 100vw;
+}
+
+/* .margin-t {
+  margin-top: 24px;
+} */
+
+/* .box{
+  position: relative;
+}
+image.gg {
+  position: absolute;  
+  height: 1200.64rpx;
+  width: 750.4rpx;
+  z-index: 0;
+}
+image.music{
+  position: absolute;
+  height: 500rpx;
+  width: 640rpx;  
+  top:62rpx;
+  left:1000rpx;
+  z-index: 99
+}
+.paytype{
+  position: fixed;
+  width:498rpx;
+  left:65px;
+  bottom: 100rpx;
+  font-weight: 800;
+  z-index: 9999;
+  text-align: center;
+}
+.paytype image{
+  width:498rpx;
+  height:100rpx;
+
+}
+.saoma{
+  position: fixed;
+  width:100%;
+  left:0;
+  top: 0;
+  z-index: 9999;
+  text-align: center;
+}
+.saoma image{
+  width:406rpx;
+  height:68rpx;
+}
+
+
+.paytype{
+  color:#000;
+}
+.paytype view:nth-child(1){
+  font-size:48rpx;
+  color:#108EE9;
+  text-align:center;
+  height:66rpx;
+  margin-top:9%;
+}
+.paytype view:nth-child(2){
+  font-size:36rpx;
+  color:#666666;
+  text-align:center;
+  height:50rpx;
+} */
+
+/* 客显 */
+
+/* .pos{
+  border: 1px solid white;
+  box-shadow: 1px 1px 5px #888888;
+  border-radius: 0 0 50% 50%/0 0 100% 100% ;
+  border-top: none;
+  position: fixed;
+  width:100%;
+  left:0;
+  top: 0;
+  z-index: 9999;
+  text-align: center;
+  background-color: #fff;
+  height:245.625rpx;
+}
+view.pos view:nth-child(1){
+  margin:72rpx 0 30rpx 0;
+  font-size:25rpx;
+  color:#B2B2B2;
+  text-align: center;
+}
+view.pos view:nth-child(2) image{
+  width:24rpx;
+  height:34rpx;
+  margin-bottom:3rpx;
+  
+}
+.pos .posjine{  
+  font-weight:500;
+  font-size:85rpx;
+  color: #108EE9;
+  margin-left:25rpx;
+  display: inline-block;
+}
+.yuan{
+  margin-left: 10rpx;
+}
+
+.swiperbox{
+  width:400px;
+  height:640px !important;
+}
+
+.margin-t {
+  margin-top: 24px;
+} */

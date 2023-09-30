@@ -1,0 +1,124 @@
+<view>
+  <view class='section shoukuan'>
+    <view>商家实收</view>
+    <view>￥<text>{{totalAmount}}</text></view>
+    <view>{{pay_status_desc}}</view>
+  </view>
+  <view class='section'>
+    <view onTap='openA' class='title'>账单明细
+      <view class='{{showAccount == 0?"up":"down"}}'><text></text></view>
+    </view>
+    <view class="con" style='display:{{show1 == 0 ? "none":"block"}}'>
+      <view>付款方式<text class='right'>{{item1}}</text></view>
+      <view>押金金额<text class='right'>{{item2}}元</text></view>
+      <view>支付金额<text class='right'>{{item3}}元</text></view>
+      <view>退还金额<text class='right'>{{item4}}元</text></view>
+    </view> 
+  </view>
+  <view class='section'>
+    <view onTap='openD' class='title'>其他信息
+      <view class='{{showOther == 1?"up":"down"}}'><text></text></view>
+    </view>
+    <view class="con" style='display:{{show2 == 1 ? "none":"block"}}'>
+      <view>收款门店<text class='right'>{{item5}}</text></view>
+      <view>收款员工<text class='right'>{{item6}}</text></view>
+      <view>冻结时间<text class='right'>{{item7}}</text></view>
+      <view style='display:{{timedescshow==0?"none":"blcok"}}'>{{timedesc}}<text class='right'>{{item11}}</text></view>
+      <view>订单号<text class='right'>{{item8}}</text></view> 
+      <view>订单状态<text class='right'>{{item9}}</text></view> 
+      <view>订单备注<text class='right'>{{item10}}</text></view> 
+    </view> 
+  </view>
+
+  <view class="bottom">   
+    <view onTap='dayin' style='display:{{dayinshow==0?"none":"block"}}'>打印</view>
+    <view onTap='chexiaoTap' class='{{chehui==0?"":"yajinbtn"}}' style='display:{{yushow==0?"none":"block"}}'>{{quxiaoyushouquan}}</view>
+    <view onTap='refundTap' class='{{yajin==0?"":"yajinbtn"}}' style='display:{{tuishow==0?"none":"block"}}'>退款</view>
+    <view onTap='shouquanTap' class='{{showquan==0?"":"yajinbtn"}}' style='display:{{successshow==0?"none":"block"}}'>预授权完成
+    </view>
+  </view>
+
+
+  <!-- 退款 -->
+  <view class='tongdaoBlock' style='display:{{shoukuanma == 1? "none":"block"}}'>
+
+    <view class='saomatishiBox'>
+      <view class='tishiBox'>
+        <text>退款金额</text>
+      </view>
+      <view class='tishiBox'>
+        <input type='number' placeholder='请输入退款金额' onInput='refundmoney' value='{{refundvalue}}'></input>
+      </view>
+      
+
+      <view class='saomatishiIcon'>
+        <view class='quxiao' data-tipsbtn="cancel" onTap='shoukuanTips'>取消</view>
+        <view class='quxiao queren' data-tipsbtn="comfirm" onTap='shoukuanTips'>确认</view>
+      </view>
+    </view>
+
+  </view>
+  <!-- 预授权 -->
+  <view class='shouquanBlock' style='display:{{yushou == 1? "none":"block"}}'>
+
+    <view class='yushouquanBox'>
+      <view class='showquanBox'>
+        <text>提示</text>
+        <image class='shouquandel' onTap='shouquandel' src='../../img/guanbi.png'></image>
+      </view>
+      <view class='showquanBox'>
+        当前预授权中的金额为：{{totalAmount}}元
+      </view>
+      <view class='showquanBox'>
+        请输入消费金额：
+      </view>
+      <view class='showquanBox'>
+        <input type='number' placeholder='' onInput='yushouquanTap' value='{{xiaofeijine}}'></input>
+      </view>
+      <view class='showquanBox tip' style='color:#FA5151;display:{{chaojine==0?"none":"inline-blcok"}}'>
+        提示：你输入的金额大于预授权金额
+      </view>
+      <view class='showquanBox tip' style='display:{{chaojinetip==0?"none":"inline-blcok"}}'>
+        提示：如果消费金额大于当前预授权金额，请撤销订单，重新预授权
+      </view>
+      
+
+      <view class='showquanIcon'>
+        <view class='querens bgcolor' data-tipsbtn="comfirm" onTap='shouquanTips'>确认</view>
+      </view>
+    </view>
+
+  </view>
+
+
+  <view class='mask' style='display:{{mask == 0? "none":"block"}}'>
+    <view class='passward'>
+      <view class='title'>请输入支付密码<image onTap='del' src='../../img/guanbi.png'></image></view>
+      <view>{{mimatip}}</view>
+      <view>￥{{cashMoney}}</view>
+      <view class='p_flex'>
+        <view class='p_item'>{{codeList1}}</view>
+        <view class='p_item'>{{codeList2}}</view>
+        <view class='p_item'>{{codeList3}}</view>
+        <view class='p_item'>{{codeList4}}</view>
+        <view class='p_item'>{{codeList5}}</view>
+        <view class='p_item'>{{codeList6}}</view>
+      </view>
+      <view><text>忘记支付密码，前往App进行更改</text></view>
+    </view>
+
+    <view class='keyboard'>
+      <view class='keyboard_tip'>安全输入键盘</view>
+      <view class='jianBox' a:for='{{jianpan}}' data-one='{{item.one}}' data-index ='{{index}}' onTap="thouch" bindtouchstart='bgOn' bindtouchend='bgOff'  style='background:{{item.ibg}}'>
+        <image class='jian {{item.wAndh}}'  src='{{item.src}}'></image>
+      </view>    
+    </view>
+  </view>
+</view>
+
+
+
+
+
+
+

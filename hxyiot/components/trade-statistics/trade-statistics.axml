@@ -1,0 +1,18 @@
+<view class="trade_statistics_title">
+  <label>{{tradeStatisticsInfo.title}}</label>
+  <text>{{tradeStatisticsInfo.desc}}</text>
+</view>
+<view class="trade_statistics_info">
+  <view class="trade_statistics_info_item">
+    <label>{{tradeStatisticsInfo.merchantLabel}}</label>
+    <text>{{tradeStatisticsInfo.merchantAmount}}</text>
+  </view>
+  <view class="trade_statistics_info_item">
+    <label>{{tradeStatisticsInfo.tradeLabel}}</label>
+    <text>{{`${tradeStatisticsInfo.tradeAmount}/${tradeStatisticsInfo.tradeCount}`}}</text>
+  </view>
+  <view class="trade_statistics_info_item">
+    <label>{{tradeStatisticsInfo.refundLabel}}</label>
+    <text>{{`${tradeStatisticsInfo.refundAmount}/${tradeStatisticsInfo.refundCount}`}}</text>
+  </view>
+</view>

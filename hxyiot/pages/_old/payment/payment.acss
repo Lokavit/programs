@@ -1,0 +1,74 @@
+page{
+  background-color: #fff;
+}
+.paymoney{
+  width:750rpx;
+  margin-top:100rpx;
+  text-align: center;
+}
+.paymoney view:nth-child(1){
+  font-size:34rpx;
+  color:#B2B2B2;
+}
+.paymoney view:nth-child(2){
+  font-size:40rpx;
+  margin-top:36rpx;
+  font-weight:500;
+}
+.paymoney view:nth-child(2) text{
+  font-size:60rpx;
+  color:#333333;
+}
+
+
+.payWay{
+  margin-top:100rpx;
+  position:relative;
+  overflow: hidden;
+}
+.payWay view{
+  width:356.25rpx;
+  height:412.5rpx;
+  float:left;
+  margin-left:18.75rpx;
+}
+.payWay view:nth-child(2){
+  margin-left:0;
+}
+.payWay view image{
+  width:356.25rpx;
+  height:412.5rpx;
+}
+
+.lb{
+  width:675rpx;
+  margin:0 auto; 
+  position: fixed;
+  bottom:40rpx;
+  left:37.5rpx;
+}
+.bannergg{
+  width:675rpx;
+  height:150rpx
+}
+
+.small{
+    transform: scale(0.8);
+    /* transition:0.5s */
+}
+.small>image{
+    position:relative;
+    z-index: 1
+}
+.wait{
+  position:absolute;
+  top:316.9rpx;
+  left:170rpx;
+  z-index: 999
+}
+.waitb{
+  position:absolute;
+  top:316.9rpx;
+  right:175rpx;
+  z-index: 999
+}

@@ -1,0 +1,1361 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="utf-8" />
+  <title>KID-BLOCKS</title>
+  <!-- 明文 -->
+  <script src="./cn.js"></script>
+  <!-- 常量 -->
+  <script src="./src/constants.js"></script>
+  <!-- 注册注销 -->
+  <script src="./src/registry.js"></script>
+  <!-- 坐标转换 -->
+  <script src="./src/utils/coordinate.js"></script>
+  <!-- 矩形 -->
+  <script src="./src/utils/rect.js"></script>
+  <!-- 颜色 -->
+  <script src="./src/utils/colour.js"></script>
+  <!-- 字符串 -->
+  <script src="./src/utils/string.js"></script>
+  <!-- size -->
+  <script src="./src/utils/size.js"></script>
+  <!-- 元素 样式 -->
+  <script src="./src/utils/style.js"></script>
+  <!-- 用户代理 -->
+  <script src="./src/utils/useragent.js"></script>
+  <!-- 其他工具函数 -->
+  <script src="./src/utils.js"></script>
+  <!-- Workspace -->
+  <!-- <script src="./src/workspace.js"></script> -->
+  <!-- 事件 -->
+  <!-- <script src="./src/events.js"></script> -->
+
+  <!-- 完整库 -->
+  <script src="./kid-blocks.js"></script>
+
+  <!-- <script src="../dist/blockly_compressed.js"></script>
+    <script src="../dist/blocks_compressed.js"></script> -->
+  <!-- <script src="../blockly_uncompressed.js"></script> -->
+  <!--以下文件实际上是由以上文件解析的结果  -->
+  <script src="./blockly/closure/goog/base.js"></script>
+  <script src="./blockly/core/utils/global.js"></script>
+
+  <script src="./blockly/core/events.js"></script>
+  <script src="./blockly/core/events_abstract.js"></script>
+  <script src="./blockly/core/utils/object.js"></script>
+  <script src="./blockly/core/ui_events.js"></script>
+  <script src="./blockly/core/blocks.js"></script>
+  <script src="./blockly/core/utils/xml.js"></script>
+  <script src="./blockly/core/block_events.js"></script>
+  <script src="./blockly/core/keyboard_nav/ast_node.js"></script>
+  <script src="./blockly/core/utils/svg.js"></script>
+  <script src="./blockly/core/utils/dom.js"></script>
+  <script src="./blockly/core/block_animations.js"></script>
+  <script src="./blockly/core/insertion_marker_manager.js"></script>
+  <script src="./blockly/core/block_dragger.js"></script>
+  <script src="./blockly/core/touch.js"></script>
+  <script src="./blockly/core/utils/metrics.js"></script>
+  <script src="./blockly/core/scrollbar.js"></script>
+  <script src="./blockly/core/connection_checker.js"></script>
+  <script src="./blockly/core/theme.js"></script>
+  <script src="./blockly/core/theme/classic.js"></script>
+  <script src="./blockly/core/workspace_events.js"></script>
+  <script src="./blockly/core/variable_events.js"></script>
+  <script src="./blockly/core/xml.js"></script>
+  <script src="./blockly/core/utils/keycodes.js"></script>
+  <script src="./blockly/core/keyboard_nav/key_map.js"></script>
+  <script src="./blockly/core/utils/idgenerator.js"></script>
+  <script src="./blockly/core/utils/toolbox.js"></script>
+  <script src="./blockly/core/options.js"></script>
+  <script src="./blockly/core/variable_map.js"></script>
+  <script src="./blockly/core/utils/math.js"></script>
+  <script src="./blockly/core/workspace.js"></script>
+  <script src="./blockly/core/bubble.js"></script>
+  <script src="./blockly/core/ws_comment_events.js"></script>
+  <script src="./blockly/core/bubble_dragger.js"></script>
+  <script src="./blockly/core/workspace_dragger.js"></script>
+  <script src="./blockly/core/flyout_dragger.js"></script>
+  <script src="./blockly/core/tooltip.js"></script>
+  <script src="./blockly/core/keyboard_nav/action.js"></script>
+  <script src="./blockly/core/keyboard_nav/navigation.js"></script>
+  <script src="./blockly/core/gesture.js"></script>
+  <script src="./blockly/core/field.js"></script>
+  <script src="./blockly/core/names.js"></script>
+  <script src="./blockly/core/procedures.js"></script>
+  <script src="./blockly/core/variable_model.js"></script>
+  <script src="./blockly/core/variables.js"></script>
+  <script src="./blockly/core/widgetdiv.js"></script>
+  <script src="./blockly/core/connection.js"></script>
+  <script src="./blockly/core/extensions.js"></script>
+  <script src="./blockly/core/field_registry.js"></script>
+  <script src="./blockly/core/field_label.js"></script>
+  <script src="./blockly/core/input.js"></script>
+  <script src="./blockly/core/block.js"></script>
+  <script src="./blockly/core/utils/aria.js"></script>
+  <script src="./blockly/core/menu.js"></script>
+  <script src="./blockly/core/menuitem.js"></script>
+  <script src="./blockly/core/contextmenu.js"></script>
+  <script src="./blockly/core/contextmenu_items.js"></script>
+  <script src="./blockly/core/contextmenu_registry.js"></script>
+  <script src="./blockly/core/rendered_connection.js"></script>
+  <script src="./blockly/core/keyboard_nav/marker.js"></script>
+  <script src="./blockly/core/keyboard_nav/cursor.js"></script>
+  <script src="./blockly/core/keyboard_nav/basic_cursor.js"></script>
+  <script src="./blockly/core/keyboard_nav/tab_navigate_cursor.js"></script>
+  <script src="./blockly/core/renderers/common/i_path_object.js"></script>
+  <script src="./blockly/core/block_svg.js"></script>
+  <script src="./blockly/core/connection_db.js"></script>
+  <script src="./blockly/core/grid.js"></script>
+  <script src="./blockly/core/marker_manager.js"></script>
+  <script src="./blockly/core/theme_manager.js"></script>
+  <script src="./blockly/core/touch_gesture.js"></script>
+  <script src="./blockly/core/workspace_audio.js"></script>
+  <script src="./blockly/core/workspace_drag_surface_svg.js"></script>
+  <script src="./blockly/core/renderers/common/block_rendering.js"></script>
+  <script src="./blockly/core/workspace_svg.js"></script>
+  <script src="./blockly/core/block_drag_surface.js"></script>
+  <script src="./blockly/core/components/component.js"></script>
+  <script src="./blockly/core/css.js"></script>
+  <script src="./blockly/core/dropdowndiv.js"></script>
+  <script src="./blockly/core/inject.js"></script>
+  <script src="./blockly/core/blockly.js"></script>
+  <script src="./blockly/core/icon.js"></script>
+  <script src="./blockly/core/warning.js"></script>
+  <script src="./blockly/core/comment.js"></script>
+  <script src="./blockly/core/field_textinput.js"></script>
+  <script src="./blockly/core/field_angle.js"></script>
+  <script src="./blockly/core/field_checkbox.js"></script>
+  <script src="./blockly/core/field_colour.js"></script>
+  <script src="./blockly/core/field_dropdown.js"></script>
+  <script src="./blockly/core/field_image.js"></script>
+  <script src="./blockly/core/field_label_serializable.js"></script>
+  <script src="./blockly/core/field_multilineinput.js"></script>
+  <script src="./blockly/core/field_number.js"></script>
+  <script src="./blockly/core/field_variable.js"></script>
+  <script src="./blockly/core/flyout_button.js"></script>
+  <script src="./blockly/core/generator.js"></script>
+  <script src="./blockly/core/keyboard_nav/flyout_cursor.js"></script>
+  <script src="./blockly/core/flyout_base.js"></script>
+  <script src="./blockly/core/flyout_horizontal.js"></script>
+  <script src="./blockly/core/mutator.js"></script>
+  <script src="./blockly/core/theme/dark.js"></script>
+  <script src="./blockly/core/theme/deuteranopia.js"></script>
+  <script src="./blockly/core/theme/highcontrast.js"></script>
+  <script src="./blockly/core/theme/tritanopia.js"></script>
+  <script src="./blockly/core/toolbox/toolbox_item.js"></script>
+  <script src="./blockly/core/toolbox/category.js"></script>
+  <script src="./blockly/core/toolbox/separator.js"></script>
+  <script src="./blockly/core/toolbox/collapsible_category.js"></script>
+  <script src="./blockly/core/toolbox/toolbox.js"></script>
+  <script src="./blockly/core/trashcan.js"></script>
+  <script src="./blockly/core/variables_dynamic.js"></script>
+  <script src="./blockly/core/flyout_vertical.js"></script>
+  <script src="./blockly/core/zoom_controls.js"></script>
+  <script src="./blockly/core/utils/svg_paths.js"></script>
+  <script src="./blockly/core/renderers/common/constants.js"></script>
+  <script src="./blockly/core/renderers/measurables/types.js"></script>
+  <script src="./blockly/core/renderers/measurables/base.js"></script>
+  <script src="./blockly/core/renderers/measurables/row_elements.js"></script>
+  <script src="./blockly/core/renderers/measurables/connections.js"></script>
+  <script src="./blockly/core/renderers/measurables/inputs.js"></script>
+  <script src="./blockly/core/renderers/measurables/rows.js"></script>
+  <script src="./blockly/core/renderers/common/info.js"></script>
+  <script src="./blockly/core/renderers/common/drawer.js"></script>
+  <script src="./blockly/core/renderers/common/marker_svg.js"></script>
+  <script src="./blockly/core/renderers/common/path_object.js"></script>
+  <script src="./blockly/core/renderers/common/renderer.js"></script>
+  <script src="./blockly/core/renderers/geras/constants.js"></script>
+  <script src="./blockly/core/renderers/geras/highlighter.js"></script>
+  <script src="./blockly/core/renderers/geras/measurables/inputs.js"></script>
+  <script src="./blockly/core/renderers/geras/info.js"></script>
+  <script src="./blockly/core/renderers/geras/drawer.js"></script>
+  <script src="./blockly/core/renderers/geras/highlight_constants.js"></script>
+  <script src="./blockly/core/renderers/geras/path_object.js"></script>
+  <script src="./blockly/core/renderers/geras/renderer.js"></script>
+  <script src="./blockly/core/renderers/thrasos/info.js"></script>
+  <script src="./blockly/core/renderers/thrasos/renderer.js"></script>
+  <script src="./blockly/core/renderers/zelos/constants.js"></script>
+  <script src="./blockly/core/renderers/zelos/measurables/rows.js"></script>
+  <script src="./blockly/core/renderers/zelos/measurables/row_elements.js"></script>
+  <script src="./blockly/core/renderers/zelos/measurables/inputs.js"></script>
+  <script src="./blockly/core/renderers/zelos/info.js"></script>
+  <script src="./blockly/core/renderers/zelos/drawer.js"></script>
+  <script src="./blockly/core/renderers/zelos/marker_svg.js"></script>
+  <script src="./blockly/core/renderers/zelos/path_object.js"></script>
+  <script src="./blockly/core/renderers/zelos/renderer.js"></script>
+  <script src="./blockly/core/requires.js"></script>
+
+
+
+  <!-- 定义积木的基础配置 -->
+  <script>
+    /** 七牛云资源地址 会根据不同协议返回不同域名 */
+    Blockly.HOST_ASSET =
+      window.location.protocol.indexOf("https") != -1
+        ? `https://kid.leadersir.net/`
+        : `http://kid.leadersir.net/`;
+
+    /** 积木块所需的src前路径配置 */
+    Blockly.MEDIA_PATH = `${Blockly.HOST_ASSET}kid/media-pro/`;
+  </script>
+
+  <!-- base 基础功能 -->
+  <script src="./blocks/variables.js"></script>
+  <script src="./blocks/variables_dynamic.js"></script>
+  <script src="./blocks/colour.js"></script>
+  <script src="./blocks/logic.js"></script>
+  <script src="./blocks/loops.js"></script>
+  <script src="./blocks/math.js"></script>
+  <script src="./blocks/text.js"></script>
+  <script src="./blocks/lists.js"></script>
+
+  <!-- 少儿编程 -->
+  <script src="./blocks/pro_motion.js"></script>
+  <script src="./blocks/pro_looks.js"></script>
+  <script src="./blocks/pro_sound.js"></script>
+  <script src="./blocks/pro_event.js"></script>
+  <script src="./blocks/pro_control.js"></script>
+  <script src="./blocks/pro_sensing.js"></script>
+  <script src="./blocks/pro_operator.js"></script>
+
+  <!-- 幼儿编程 -->
+
+  <style>
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      background-color: #fff;
+      font-family: sans-serif;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-weight: normal;
+      font-size: 140%;
+    }
+
+    #blocklyDiv {
+      height: 95%;
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="blocklyDiv"></div>
+
+  <!-- 工具箱类别具有类别菜单和自动关闭弹出按钮。 变量类别使用类型变量块. -->
+  <xml id="toolbox-categories" style="display: none">
+    <!-- <block type="demo_1"></block> -->
+    <!-- <sep></sep> -->
+    <!-- Variables -->
+    <category name="变数" categorystyle="variable_category" custom="VARIABLE_DYNAMIC"></category>
+    <!-- Functions -->
+    <category name="流程" categorystyle="procedure_category" custom="PROCEDURE"></category>
+    <sep></sep>
+    <!-- jr-blocks -->
+    <!-- <label text="幼儿编程"></label> -->
+    <category name="幼儿编程" categorystyle="logic_category">
+      <!-- 运动分类 -->
+      <category name="运动" categorystyle="procedure_category"> </category>
+    </category>
+    <sep></sep>
+    <!-- pro-blocks -->
+    <category name="少儿编程" categorystyle="logic_category">
+      <!-- 运动 -->
+      <category name="运动" categorystyle="procedure_category">
+        <!-- 移动指定步 -->
+        <block type="pro_motion_movesteps">
+          <value name="STEPS">
+            <shadow type="math_number">
+              <field name="NUM">10</field>
+            </shadow>
+          </value>
+        </block>
+        <!-- 右转指定角度 -->
+        <block type="pro_motion_turnright">
+          <value name="DEGREES">
+            <shadow type="math_number">
+              <field name="NUM">15</field>
+            </shadow>
+          </value>
+        </block>
+        <!-- 左转指定角度 -->
+        <block type="pro_motion_turnleft">
+          <value name="DEGREES">
+            <shadow type="math_number">
+              <field name="NUM">15</field>
+            </shadow>
+          </value>
+        </block>
+        <!-- 面向指定方向 -->
+        <block type="pro_motion_pointindirection">
+          <value name="DIRECTION">
+            <shadow type="math_angle">
+              <field name="NUM">90</field>
+            </shadow>
+          </value>
+        </block>
+        <!-- 面向指定[鼠标指针|随机位置] -->
+        <block type="pro_motion_pointtowards">
+          <value name="TOWARDS">
+            <shadow type="pro_motion_pointtowards_menu"> </shadow>
+          </value>
+        </block>
+        <!-- 移到指定位置[鼠标指针|随机位置] -->
+        <block type="pro_motion_goto">
+          <value name="TO">
+            <shadow type="pro_motion_goto_menu"></shadow>
+          </value>
+        </block>
+        <!-- 移到指定位置 XY -->
+        <block type="pro_motion_gotoxy">
+          <value name="X">
+            <shadow id="movex" type="math_number">
+              <field name="NUM">0</field>
+            </shadow>
+          </value>
+          <value name="Y">
+            <shadow id="movey" type="math_number">
+              <field name="NUM">0</field>
+            </shadow>
+          </value>
+        </block>
+        <!-- 在指定时间内 滑行到指定 XY -->
+        <block type="pro_motion_glidesecstoxy">
+          <value name="SECS">
+            <shadow type="math_number">
+              <field name="NUM">1</field>
+            </shadow>
+          </value>
+          <value name="X">
+            <shadow id="glidex" type="math_number">
+              <field name="NUM">0</field>
+            </shadow>
+          </value>
+          <value name="Y">
+            <shadow id="glidey" type="math_number">
+              <field name="NUM">0</field>
+            </shadow>
+          </value>
+        </block>
+        <!-- 在指定秒内，滑行到指定项[鼠标指针|随机位置] -->
+        <block type="pro_motion_glideto">
+          <value name="SECS">
+            <shadow type="math_number">
+              <field name="NUM">1</field>
+            </shadow>
+          </value>
+          <value name="TO">
+            <shadow type="pro_motion_glideto_menu"> </shadow>
+          </value>
+        </block>
+        <!-- 运动 将X坐标增加指定数值 -->
+        <block type="pro_motion_changexby">
+          <value name="DX">
+            <shadow type="math_number">
+              <field name="NUM">10</field>
+            </shadow>
+          </value>
+        </block>
+        <!-- 运动 将X轴设置为指定数值 -->
+        <block type="pro_motion_setx">
+          <value name="X">
+            <shadow id="setx" type="math_number">
+              <field name="NUM">0</field>
+            </shadow>
+          </value>
+        </block>
+        <!-- 运动 将Y坐标增加指定数值 -->
+        <block type="pro_motion_changeyby">
+          <value name="DY">
+            <shadow type="math_number">
+              <field name="NUM">10</field>
+            </shadow>
+          </value>
+        </block>
+        <!-- 运动 将Y轴设置为指定数值 -->
+        <block type="pro_motion_sety">
+          <value name="Y">
+            <shadow id="sety" type="math_number">
+              <field name="NUM">0</field>
+            </shadow>
+          </value>
+        </block>
+        <!-- 运动 碰到边界就反弹 -->
+        <block type="pro_motion_ifonedgebounce"></block>
+        <!-- 运动 将旋转方式设为[左右翻转|不可旋转|任意旋转] -->
+        <block type="pro_motion_setrotationstyle"></block>
+        <block type="pro_motion_xposition" id="pro_motion_xposition"></block>
+        <block type="pro_motion_yposition" id="pro_motion_yposition"></block>
+        <block type="pro_motion_direction" id="pro_motion_direction"></block>
+      </category>
+      <!-- 外观 -->
+      <category name="外观" categorystyle="procedure_category">
+        <!-- 显示造型 -->
+        <block type="pro_looks_show"></block>
+        <!-- 隐藏造型 -->
+        <block type="pro_looks_hide"></block>
+        <!-- 说话 带时间 -->
+        <block type="pro_looks_sayforsecs">
+          <value name="MESSAGE">
+            <shadow type="text">
+              <field name="TEXT"></field>
+            </shadow>
+          </value>
+          <value name="SECS">
+            <shadow type="math_number">
+              <field name="NUM">2</field>
+            </shadow>
+          </value>
+        </block>
+        <!-- 说话 -->
+        <block type="pro_looks_say">
+          <value name="MESSAGE">
+            <shadow type="text">
+              <field name="TEXT"></field>
+            </shadow>
+          </value>
+        </block>
+        <!-- 想 带时间 -->
+        <block type="pro_looks_thinkforsecs">
+          <value name="MESSAGE">
+            <shadow type="text">
+              <field name="TEXT"> </field>
+            </shadow>
+          </value>
+          <value name="SECS">
+            <shadow type="math_number">
+              <field name="NUM">2</field>
+            </shadow>
+          </value>
+        </block>
+        <!-- 想 -->
+        <block type="pro_looks_think">
+          <value name="MESSAGE">
+            <shadow type="text">
+              <field name="TEXT"> </field>
+            </shadow>
+          </value>
+        </block>
+        <!-- 换造型 [下拉选择] -->
+        <block type="pro_looks_switchcostumeto">
+          <value name="COSTUME">
+            <shadow type="pro_looks_costume">
+              <field name="COSTUME"> </field>
+            </shadow>
+          </value>
+        </block>
+        <!-- 下一个造型 -->
+        <block type="pro_looks_nextcostume"></block>
+        <!-- 换背景 [下拉选择] -->
+        <block type="pro_looks_switchbackdropto">
+          <value name="BACKDROP">
+            <shadow type="pro_looks_backdrops">
+              <field name="BACKDROP">背景1</field>
+            </shadow>
+          </value>
+        </block>
+        <!-- 专属 舞台背景的替换背景 start -->
+        <block type="pro_looks_switchbackdroptoandwait">
+          <value name="BACKDROP">
+            <shadow type="pro_looks_backdrops">
+              <field name="BACKDROP">背景1</field>
+            </shadow>
+          </value>
+        </block>
+        <!-- 专属 舞台背景的替换背景 end -->
+        <!-- 下一个背景 -->
+        <block type="pro_looks_nextbackdrop"></block>
+        <!-- 将大小增加 -->
+        <block type="pro_looks_changesizeby">
+          <value name="CHANGE">
+            <shadow type="math_number">
+              <field name="NUM">10</field>
+            </shadow>
+          </value>
+        </block>
+        <!-- 将大小设置 -->
+        <block type="pro_looks_setsizeto">
+          <value name="SIZE">
+            <shadow type="math_number">
+              <field name="NUM">100</field>
+            </shadow>
+          </value>
+        </block>
+        <!-- 移到最  -->
+        <block type="pro_looks_gotofrontback"></block>
+        <!-- 以指定方式移到指定层 -->
+        <block type="pro_looks_goforwardbackwardlayers">
+          <value name="NUM">
+            <shadow type="math_integer">
+              <field name="NUM">1</field>
+            </shadow>
+          </value>
+        </block>
+        <!--  更改图像效果 将[]特效增加指定值 -->
+        <block type="pro_looks_changeeffectby">
+          <value name="CHANGE">
+            <shadow type="math_number">
+              <field name="NUM">25</field>
+            </shadow>
+          </value>
+        </block>
+        <!-- 更改图像效果 将[]特效设定为指定值 -->
+        <block type="pro_looks_seteffectto">
+          <value name="VALUE">
+            <shadow type="math_number">
+              <field name="NUM">0</field>
+            </shadow>
+          </value>
+        </block>
+        <!-- 清除图像效果 -->
+        <block type="pro_looks_cleargraphiceffects"></block>
+        <!--  -->
+        <block type="pro_looks_size" id="pro_looks_size"></block>
+        <block type="pro_looks_costumenumbername" id="pro_looks_costumenumbername"></block>
+        <block type="pro_looks_backdropnumbername" id="pro_looks_backdropnumbername"></block>
+      </category>
+      <!-- 声音 -->
+      <category name="声音" categorystyle="procedure_category">
+        <!-- 播放声音 -->
+        <block type="pro_sound_play">
+          <value name="SOUND_MENU">
+            <shadow type="pro_sound_sounds_menu">
+              <field name="SOUND_MENU"> </field>
+            </shadow>
+          </value>
+        </block>
+        <!-- 播放声音直到完成 -->
+        <block type="pro_sound_playuntildone">
+          <value name="SOUND_MENU">
+            <shadow type="pro_sound_sounds_menu">
+              <field name="SOUND_MENU"> </field>
+            </shadow>
+          </value>
+        </block>
+        <!-- 停止所有声音 -->
+        <block type="pro_sound_stopallsounds"></block>
+        <!-- 将[]音效增加 指定值 -->
+        <block type="pro_sound_changeeffectby">
+          <value name="VALUE">
+            <shadow type="math_number">
+              <field name="NUM">10</field>
+            </shadow>
+          </value>
+        </block>
+        <!-- 将[]音效设为 指定值 -->
+        <block type="pro_sound_seteffectto">
+          <value name="VALUE">
+            <shadow type="math_number">
+              <field name="NUM">100</field>
+            </shadow>
+          </value>
+        </block>
+        <!-- 清除音效 -->
+        <block type="pro_sound_cleareffects"></block>
+        <!-- 将精灵的音量更改为某个值 -->
+        <block type="pro_sound_changevolumeby">
+          <value name="VOLUME">
+            <shadow type="math_number">
+              <field name="NUM">-10</field>
+            </shadow>
+          </value>
+        </block>
+        <!-- 以将精灵的音量设置为一定百分比 -->
+        <block type="pro_sound_setvolumeto">
+          <value name="VOLUME">
+            <shadow type="math_number">
+              <field name="NUM">100</field>
+            </shadow>
+          </value>
+        </block>
+        <!-- 音量 -->
+        <block type="pro_sound_volume" id="pro_sound_volume"></block>
+      </category>
+      <!-- 事件 -->
+      <category name="事件" categorystyle="procedure_category">
+        <!-- 绿旗 -->
+        <block type="pro_event_whenflagclicked"></block>
+        <!-- 单击此精灵时 -->
+        <block type="pro_event_whenthisspriteclicked"></block>
+        <!-- 点击舞台时 -->
+        <block type="pro_event_whenstageclicked"></block>
+        <!-- 当按下[key] -->
+        <block type="pro_event_whenkeypressed"></block>
+        <!-- 当前背景切换到所选背景 -->
+        <block type="pro_event_whenbackdropswitchesto"></block>
+        <!-- 当响度/定时器/视频运动大于该值时 -->
+        <block type="pro_event_whengreaterthan">
+          <value name="VALUE">
+            <shadow type="math_number">
+              <field name="NUM">10</field>
+            </shadow>
+          </value>
+        </block>
+        <!-- 接收广播时 -->
+        <block type="pro_event_whenbroadcastreceived"></block>
+        <!-- 发送广播 -->
+        <block type="pro_event_broadcast">
+          <value name="BROADCAST_INPUT">
+            <shadow type="pro_event_broadcast_menu"></shadow>
+          </value>
+        </block>
+        <!-- 发送广播 并等待 -->
+        <block type="pro_event_broadcastandwait">
+          <value name="BROADCAST_INPUT">
+            <shadow type="pro_event_broadcast_menu"></shadow>
+          </value>
+        </block>
+      </category>
+      <!-- 控制 -->
+      <category name="控制" categorystyle="procedure_category">
+        <!-- 等待条件变为真  -->
+        <block type="pro_control_wait_until"></block>
+        <!-- 等待（暂停）堆栈 -->
+        <block type="pro_control_wait">
+          <value name="DURATION">
+            <shadow type="math_positive_number">
+              <field name="NUM">1</field>
+            </shadow>
+          </value>
+        </block>
+        <!-- 重复执行 -->
+        <block type="pro_control_forever"></block>
+        <!-- 重复n次 -->
+        <block type="pro_control_repeat">
+          <value name="TIMES">
+            <shadow type="math_whole_number">
+              <field name="NUM">10</field>
+            </shadow>
+          </value>
+        </block>
+        <!-- 重复执行 直到 -->
+        <block type="pro_control_repeat_until"></block>
+        <!-- 如果[]那么 -->
+        <block type="pro_control_if"></block>
+        <!-- 如果[]那么 否则 -->
+        <block type="pro_control_if_else"></block>
+        <!-- 当作为克隆体时 -->
+        <block type="pro_control_start_as_clone"></block>
+        <!-- 克隆[] -->
+        <block type="pro_control_create_clone_of">
+          <value name="CLONE_OPTION">
+            <shadow type="pro_control_create_clone_of_menu" />
+          </value>
+        </block>
+        <!-- 删除克隆体 -->
+        <block type="pro_control_delete_this_clone"></block>
+      </category>
+      <!-- 侦测 -->
+      <category name="侦测" categorystyle="procedure_category">
+        <!-- 按下鼠标？ -->
+        <block type="pro_sensing_mousedown"></block>
+        <!-- 按下 某个 键？ -->
+        <block type="pro_sensing_keypressed">
+          <value name="KEY_OPTION">
+            <shadow type="pro_sensing_keyoptions"></shadow>
+          </value>
+        </block>
+        <!-- 报告是否触摸到对象 -->
+        <block type="pro_sensing_touchingobject">
+          <value name="TOUCHINGOBJECTMENU">
+            <shadow type="pro_sensing_touchingobjectmenu"></shadow>
+          </value>
+        </block>
+        <!-- 碰到颜色 -->
+        <block type="pro_sensing_touchingcolor">
+          <value name="COLOR">
+            <shadow type="colour_picker"></shadow>
+          </value>
+        </block>
+        <!-- 报告颜色是否触摸某种颜色 -->
+        <block type="pro_sensing_coloristouchingcolor">
+          <value name="COLOR">
+            <shadow type="colour_picker"></shadow>
+          </value>
+          <value name="COLOR2">
+            <shadow type="colour_picker"></shadow>
+          </value>
+        </block>
+        <!-- 询问 %1 并等待 -->
+        <block type="pro_sensing_askandwait">
+          <value name="QUESTION">
+            <shadow type="text">
+              <field name="TEXT">你叫什么名字？</field>
+            </shadow>
+          </value>
+        </block>
+        <!-- 将拖动模式设为 %1 -->
+        <block type="pro_sensing_setdragmode"></block>
+        <!-- 计时器归零 -->
+        <block type="pro_sensing_resettimer"></block>
+        <!-- 到 %1 的距离 -->
+        <block type="pro_sensing_distanceto">
+          <value name="DISTANCETOMENU">
+            <shadow type="pro_sensing_distancetomenu" />
+          </value>
+        </block>
+        <!-- 鼠标的x坐标 -->
+        <block type="pro_sensing_mousex"></block>
+        <!-- 鼠标的y坐标 -->
+        <block type="pro_sensing_mousey"></block>
+        <!-- [下拉菜单]的[下拉菜单] -->
+        <block type="pro_sensing_of">
+          <value name="OBJECT">
+            <shadow type="pro_sensing_of_object_menu"></shadow>
+          </value>
+        </block>
+        <!-- 2000年至今的天数 -->
+        <block type="pro_sensing_dayssince2000"></block>
+        <!--  -->
+        <block type="pro_sensing_answer" id="pro_sensing_answer"></block>
+        <block type="pro_sensing_loudness" id="pro_sensing_loudness"></block>
+        <block type="pro_sensing_timer" id="pro_sensing_timer"></block>
+        <!-- <block type="pro_sensing_current" id="pro_sensing_current">
+          <value name="CURRENTMENU">
+            <shadow type="pro_sensing_keyoptions"></shadow>
+          </value>
+        </block> -->
+        <block type="pro_sensing_username" id="pro_sensing_username"></block>
+      </category>
+      <!-- 运算 -->
+      <category name="运算" categorystyle="procedure_category">
+        <!-- 大于 -->
+        <block type="pro_operator_gt">
+          <value name="OPERAND1">
+            <shadow type="text">
+              <field name="TEXT" />
+            </shadow>
+          </value>
+          <value name="OPERAND2">
+            <shadow type="text">
+              <field name="TEXT">50</field>
+            </shadow>
+          </value>
+        </block>
+        <!-- 小于 -->
+        <block type="pro_operator_lt">
+          <value name="OPERAND1">
+            <shadow type="text">
+              <field name="TEXT" />
+            </shadow>
+          </value>
+          <value name="OPERAND2">
+            <shadow type="text">
+              <field name="TEXT">50</field>
+            </shadow>
+          </value>
+        </block>
+        <!-- 等于 -->
+        <block type="pro_operator_equals">
+          <value name="OPERAND1">
+            <shadow type="text">
+              <field name="TEXT" />
+            </shadow>
+          </value>
+          <value name="OPERAND2">
+            <shadow type="text">
+              <field name="TEXT">50</field>
+            </shadow>
+          </value>
+        </block>
+        <!-- 与 -->
+        <block type="pro_operator_and"></block>
+        <!-- 或 -->
+        <block type="pro_operator_or"></block>
+        <!-- 不成立 -->
+        <block type="pro_operator_not"></block>
+        <!-- xx包含yy -->
+        <block type="pro_operator_contains">
+          <value name="STRING1">
+            <shadow type="text">
+              <field name="TEXT">apple</field>
+            </shadow>
+          </value>
+          <value name="STRING2">
+            <shadow type="text">
+              <field name="TEXT">letter</field>
+            </shadow>
+          </value>
+        </block>
+        <!-- 加法 -->
+        <block type="pro_operator_add">
+          <value name="NUM1">
+            <shadow type="math_number">
+              <field name="NUM" />
+            </shadow>
+          </value>
+          <value name="NUM2">
+            <shadow type="math_number">
+              <field name="NUM" />
+            </shadow>
+          </value>
+        </block>
+        <!-- 减法 -->
+        <block type="pro_operator_subtract">
+          <value name="NUM1">
+            <shadow type="math_number">
+              <field name="NUM" />
+            </shadow>
+          </value>
+          <value name="NUM2">
+            <shadow type="math_number">
+              <field name="NUM" />
+            </shadow>
+          </value>
+        </block>
+        <!-- 乘法 -->
+        <block type="pro_operator_multiply">
+          <value name="NUM1">
+            <shadow type="math_number">
+              <field name="NUM" />
+            </shadow>
+          </value>
+          <value name="NUM2">
+            <shadow type="math_number">
+              <field name="NUM" />
+            </shadow>
+          </value>
+        </block>
+        <!-- 除法 -->
+        <block type="pro_operator_divide">
+          <value name="NUM1">
+            <shadow type="math_number">
+              <field name="NUM" />
+            </shadow>
+          </value>
+          <value name="NUM2">
+            <shadow type="math_number">
+              <field name="NUM" />
+            </shadow>
+          </value>
+        </block>
+        <!-- 四舍五入 -->
+        <block type="pro_operator_round">
+          <value name="NUM">
+            <shadow type="math_number">
+              <field name="NUM" />
+            </shadow>
+          </value>
+        </block>
+        <!-- 数字进行“高级”数学运算 -->
+        <block type="pro_operator_mathop">
+          <value name="NUM">
+            <shadow type="math_number">
+              <field name="NUM" />
+            </shadow>
+          </value>
+        </block>
+        <!-- xx除以yy的余数 -->
+        <block type="pro_operator_mod">
+          <value name="NUM1">
+            <shadow type="math_number">
+              <field name="NUM" />
+            </shadow>
+          </value>
+          <value name="NUM2">
+            <shadow type="math_number">
+              <field name="NUM" />
+            </shadow>
+          </value>
+        </block>
+        <!-- xx的字符数 -->
+        <block type="pro_operator_length">
+          <value name="STRING">
+            <shadow type="text">
+              <field name="TEXT">apple</field>
+            </shadow>
+          </value>
+        </block>
+        <!-- xx的第yy个字符 -->
+        <block type="pro_operator_letter_of">
+          <value name="LETTER">
+            <shadow type="math_whole_number">
+              <field name="NUM">1</field>
+            </shadow>
+          </value>
+          <value name="STRING">
+            <shadow type="text">
+              <field name="TEXT">world</field>
+            </shadow>
+          </value>
+        </block>
+        <!-- 连接xx和yy -->
+        <block type="pro_operator_join">
+          <value name="STRING1">
+            <shadow type="text">
+              <field name="TEXT">apple </field>
+            </shadow>
+          </value>
+          <value name="STRING2">
+            <shadow type="text">
+              <field name="TEXT">banana</field>
+            </shadow>
+          </value>
+        </block>
+        <!-- 范围内随机整数 -->
+        <block type="pro_operator_random">
+          <value name="FROM">
+            <shadow type="math_number">
+              <field name="NUM">1</field>
+            </shadow>
+          </value>
+          <value name="TO">
+            <shadow type="math_number">
+              <field name="NUM">10</field>
+            </shadow>
+          </value>
+        </block>
+      </category>
+    </category>
+    <sep></sep>
+    <!-- base-blocks -->
+    <category name="基础功能" categorystyle="loop_category">
+      <category name="颜色" categorystyle="colour_category">
+        <block type="colour_picker"></block>
+        <block type="colour_random"></block>
+        <block type="colour_rgb">
+          <value name="RED">
+            <shadow type="math_number">
+              <field name="NUM">100</field>
+            </shadow>
+          </value>
+          <value name="GREEN">
+            <shadow type="math_number">
+              <field name="NUM">50</field>
+            </shadow>
+          </value>
+          <value name="BLUE">
+            <shadow type="math_number">
+              <field name="NUM">0</field>
+            </shadow>
+          </value>
+        </block>
+        <block type="colour_blend">
+          <value name="COLOUR1">
+            <shadow type="colour_picker">
+              <field name="COLOUR">#ff0000</field>
+            </shadow>
+          </value>
+          <value name="COLOUR2">
+            <shadow type="colour_picker">
+              <field name="COLOUR">#3333ff</field>
+            </shadow>
+          </value>
+          <value name="RATIO">
+            <shadow type="math_number">
+              <field name="NUM">0.5</field>
+            </shadow>
+          </value>
+        </block>
+      </category>
+      <category name="逻辑" categorystyle="logic_category">
+        <block type="controls_if"></block>
+        <block type="logic_compare"></block>
+        <block type="logic_operation"></block>
+        <block type="logic_negate"></block>
+        <block type="logic_boolean"></block>
+        <block type="logic_null" disabled="true"></block>
+        <block type="logic_ternary"></block>
+      </category>
+      <category name="循环" categorystyle="loop_category">
+        <block type="controls_repeat_ext">
+          <value name="TIMES">
+            <shadow type="math_number">
+              <field name="NUM">10</field>
+            </shadow>
+          </value>
+        </block>
+        <block type="controls_repeat" disabled="true"></block>
+        <block type="controls_whileUntil"></block>
+        <block type="controls_for">
+          <value name="FROM">
+            <shadow type="math_number">
+              <field name="NUM">1</field>
+            </shadow>
+          </value>
+          <value name="TO">
+            <shadow type="math_number">
+              <field name="NUM">10</field>
+            </shadow>
+          </value>
+          <value name="BY">
+            <shadow type="math_number">
+              <field name="NUM">1</field>
+            </shadow>
+          </value>
+        </block>
+        <block type="controls_forEach"></block>
+        <block type="controls_flow_statements"></block>
+      </category>
+      <category name="数学" categorystyle="math_category">
+        <block type="math_number" gap="32">
+          <field name="NUM">123</field>
+        </block>
+        <block type="math_arithmetic">
+          <value name="A">
+            <shadow type="math_number">
+              <field name="NUM">1</field>
+            </shadow>
+          </value>
+          <value name="B">
+            <shadow type="math_number">
+              <field name="NUM">1</field>
+            </shadow>
+          </value>
+        </block>
+        <block type="math_single">
+          <value name="NUM">
+            <shadow type="math_number">
+              <field name="NUM">9</field>
+            </shadow>
+          </value>
+        </block>
+        <block type="math_trig">
+          <value name="NUM">
+            <shadow type="math_number">
+              <field name="NUM">45</field>
+            </shadow>
+          </value>
+        </block>
+        <block type="math_constant"></block>
+        <block type="math_number_property">
+          <value name="NUMBER_TO_CHECK">
+            <shadow type="math_number">
+              <field name="NUM">0</field>
+            </shadow>
+          </value>
+        </block>
+        <block type="math_round">
+          <value name="NUM">
+            <shadow type="math_number">
+              <field name="NUM">3.1</field>
+            </shadow>
+          </value>
+        </block>
+        <block type="math_on_list"></block>
+        <block type="math_modulo">
+          <value name="DIVIDEND">
+            <shadow type="math_number">
+              <field name="NUM">64</field>
+            </shadow>
+          </value>
+          <value name="DIVISOR">
+            <shadow type="math_number">
+              <field name="NUM">10</field>
+            </shadow>
+          </value>
+        </block>
+        <block type="math_constrain">
+          <value name="VALUE">
+            <shadow type="math_number">
+              <field name="NUM">50</field>
+            </shadow>
+          </value>
+          <value name="LOW">
+            <shadow type="math_number">
+              <field name="NUM">1</field>
+            </shadow>
+          </value>
+          <value name="HIGH">
+            <shadow type="math_number">
+              <field name="NUM">100</field>
+            </shadow>
+          </value>
+        </block>
+        <block type="math_random_int">
+          <value name="FROM">
+            <shadow type="math_number">
+              <field name="NUM">1</field>
+            </shadow>
+          </value>
+          <value name="TO">
+            <shadow type="math_number">
+              <field name="NUM">100</field>
+            </shadow>
+          </value>
+        </block>
+        <block type="math_random_float"></block>
+        <block type="math_atan2">
+          <value name="X">
+            <shadow type="math_number">
+              <field name="NUM">1</field>
+            </shadow>
+          </value>
+          <value name="Y">
+            <shadow type="math_number">
+              <field name="NUM">1</field>
+            </shadow>
+          </value>
+        </block>
+      </category>
+      <category name="文本" categorystyle="text_category">
+        <block type="text"></block>
+        <block type="text_multiline"></block>
+        <block type="text_join"></block>
+        <block type="text_append">
+          <value name="TEXT">
+            <shadow type="text"></shadow>
+          </value>
+        </block>
+        <block type="text_length">
+          <value name="VALUE">
+            <shadow type="text">
+              <field name="TEXT">abc</field>
+            </shadow>
+          </value>
+        </block>
+        <block type="text_isEmpty">
+          <value name="VALUE">
+            <shadow type="text">
+              <field name="TEXT"></field>
+            </shadow>
+          </value>
+        </block>
+        <block type="text_indexOf">
+          <value name="VALUE">
+            <block type="variables_get">
+              <field name="VAR">text</field>
+            </block>
+          </value>
+          <value name="FIND">
+            <shadow type="text">
+              <field name="TEXT">abc</field>
+            </shadow>
+          </value>
+        </block>
+        <block type="text_charAt">
+          <value name="VALUE">
+            <block type="variables_get">
+              <field name="VAR">text</field>
+            </block>
+          </value>
+        </block>
+        <block type="text_getSubstring">
+          <value name="STRING">
+            <block type="variables_get">
+              <field name="VAR">text</field>
+            </block>
+          </value>
+        </block>
+        <block type="text_changeCase">
+          <value name="TEXT">
+            <shadow type="text">
+              <field name="TEXT">abc</field>
+            </shadow>
+          </value>
+        </block>
+        <block type="text_trim">
+          <value name="TEXT">
+            <shadow type="text">
+              <field name="TEXT">abc</field>
+            </shadow>
+          </value>
+        </block>
+        <block type="text_count">
+          <value name="SUB">
+            <shadow type="text"></shadow>
+          </value>
+          <value name="TEXT">
+            <shadow type="text"></shadow>
+          </value>
+        </block>
+        <block type="text_replace">
+          <value name="FROM">
+            <shadow type="text"></shadow>
+          </value>
+          <value name="TO">
+            <shadow type="text"></shadow>
+          </value>
+          <value name="TEXT">
+            <shadow type="text"></shadow>
+          </value>
+        </block>
+        <block type="text_reverse">
+          <value name="TEXT">
+            <shadow type="text"></shadow>
+          </value>
+        </block>
+        <label text="Input/Output:" web-class="ioLabel"></label>
+        <block type="text_print">
+          <value name="TEXT">
+            <shadow type="text">
+              <field name="TEXT">abc</field>
+            </shadow>
+          </value>
+        </block>
+        <block type="text_prompt_ext">
+          <value name="TEXT">
+            <shadow type="text">
+              <field name="TEXT">abc</field>
+            </shadow>
+          </value>
+        </block>
+      </category>
+      <category name="列表" categorystyle="list_category">
+        <block type="lists_create_with">
+          <mutation items="0"></mutation>
+        </block>
+        <block type="lists_create_with"></block>
+        <block type="lists_repeat">
+          <value name="NUM">
+            <shadow type="math_number">
+              <field name="NUM">5</field>
+            </shadow>
+          </value>
+        </block>
+        <block type="lists_length"></block>
+        <block type="lists_isEmpty"></block>
+        <block type="lists_indexOf">
+          <value name="VALUE">
+            <block type="variables_get">
+              <field name="VAR">list</field>
+            </block>
+          </value>
+        </block>
+        <block type="lists_getIndex">
+          <value name="VALUE">
+            <block type="variables_get">
+              <field name="VAR">list</field>
+            </block>
+          </value>
+        </block>
+        <block type="lists_setIndex">
+          <value name="LIST">
+            <block type="variables_get">
+              <field name="VAR">list</field>
+            </block>
+          </value>
+        </block>
+        <block type="lists_getSublist">
+          <value name="LIST">
+            <block type="variables_get">
+              <field name="VAR">list</field>
+            </block>
+          </value>
+        </block>
+        <block type="lists_split">
+          <value name="DELIM">
+            <shadow type="text">
+              <field name="TEXT">,</field>
+            </shadow>
+          </value>
+        </block>
+        <block type="lists_sort"></block>
+        <block type="lists_reverse"></block>
+      </category>
+    </category>
+    <sep></sep>
+    <!-- 进阶功能 -->
+    <category name="进阶功能" categorystyle="logic_category"> </category>
+  </xml>
+
+  <script>
+    //   /** 原版pro-blocks中绿旗积木块，用于启动 */
+    //   {
+    //     type: "event_whenflagclicked",
+    //     message0: "FLAG",
+    //     colour: Blockly.Msg["COLOUR_HUE"],
+    //     nextStatement: null,
+    //   },
+    // ]);
+
+    // /** 另一种创建积木的方式 */
+    // Blockly.Blocks["demo_1"] = {
+    //   init: function () {
+    //     console.log("this:", this);
+    //     this.setStyle("colour_blocks");
+    //     this.setTooltip(Blockly.Msg["LISTS_CREATE_WITH_TOOLTIP"]);
+    //   },
+    // };
+
+    var workspace = null;
+    // Create main workspace.
+    workspace = Blockly.inject("blocklyDiv", {
+      comments: true,
+      collapse: true,
+      disable: true,
+      grid: {
+        spacing: 25,
+        length: 3,
+        colour: "#ccc",
+        snap: true,
+      },
+      horizontalLayout: false,
+      maxBlocks: Infinity,
+      maxInstances: { test_basic_limit_instances: 3 },
+      maxTrashcanContents: 256,
+      media: "./blockly/media/",
+      oneBasedIndex: true,
+      readOnly: false,
+      //   rtl: rtl,
+      move: {
+        scrollbars: true,
+        drag: true,
+        wheel: false,
+      },
+      /* "toolbox-categories", "toolbox-categories-typed-variables", "toolbox-simple" */
+      toolbox: document.getElementById("toolbox-categories"),
+      toolboxPosition: "start",
+      renderer: "zelos",
+      zoom: {
+        controls: true,
+        wheel: true,
+        startScale: 1.0,
+        maxScale: 4,
+        minScale: 0.25,
+        scaleSpeed: 1.1,
+      },
+    });
+  </script>
+
+  <script>
+    console.log("Blockly:", Blockly);
+    // console.log("msg:", Blockly.Msg);
+
+    console.log("Blockly.utils.svgPath:", Blockly.utils.svgPaths.point(3, 5));
+
+    // renderers\common\constants.js 文件内中的常量、变量，__proto__中为函数部分
+    console.log("Blockly:", new Blockly.blockRendering.ConstantProvider());
+    // 实例化 块渲染基类
+    const blockrendering_constant = new Blockly.blockRendering.ConstantProvider();
+    console.log("blockrendering_constant:", blockrendering_constant.init()); // undefined
+    // {height: 15, width: 100, path: " c 30,-15  70,-15  100,0 "}
+    console.log(
+      "blockrendering_constant:",
+      blockrendering_constant.makeStartHat()
+    );
+      // 实例化 块渲染 在渲染过程中占用空间的块的一部分的基类(传入实例化的块渲染基类)
+      //   console.log(
+      //     new Blockly.blockRendering.Measurable(blockrendering_constant)
+      //   );
+
+      //   console.log(
+      //     new Blockly.blockRendering.Connection(blockrendering_constant, {
+      //       type: 1,
+      //     })
+      //   );
+      //   console.log(
+      //     new Blockly.blockRendering.OutputConnection(blockrendering_constant, {
+      //       type: 2,
+      //     })
+      //   );
+      //   console.log(
+      //     new Blockly.blockRendering.NextConnection(blockrendering_constant, {
+      //       type: 3,
+      //     })
+      //   );
+      //   console.log(
+      //     new Blockly.blockRendering.PreviousConnection(blockrendering_constant, {
+      //       type: 4,
+      //     })
+      //   );
+  </script>
+</body>
+
+</html>

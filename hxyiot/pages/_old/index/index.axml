@@ -1,0 +1,26 @@
+<view>
+  <!-- 默认扫码支付  -->
+  <!--<view style='display:{{cashshow==0?"none":"block"}}'> -->
+  <view style='display:none'>
+    <image src="../../img/sm.gif" />
+  </view>
+  <!-- 轮播图 -->
+  <view class="ad_wrapper">
+    <!-- 视频 -->
+    <!--<view a:if="{{videoList.length > 0}}" style="width:400px;height:640px"><video style="width:400px;height:640px" src="{{videoList[0].ad_file}}" loop="{{loop}}" controls="controls" autoplay="autoplay"></video></view> -->
+    <!-- 图像 -->
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" vertical="{{vertical}}" interval="{{interval}}" circular="{{circular}}">
+      <block a:for="{{adDataList}}">
+        <swiper-item >
+          <view class="swiper-item">
+            <image mode="widthFix" src="{{item.ad_file}}" />
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+</view>
+<!-- 唤起收银台 -->
+<!--<view class="paytype" onTap="faceTap" style='display:{{cashshow==0?"none":"block"}}'><image src="../../img/pay.png" /></view> -->
+<!-- 客显 -->
+<!--<view class="pos" style='display:{{poshshow==0?"none":"block"}}'><view>付款金额</view><view ><text class="posjine">{{posmoney}}</text><text class="yuan">元</text></view></view><view class="paytype" onTap="kxfaceTap" style='display:{{poshshow==0?"none":"block"}}'><image src="../../img/pay.png" /></view> -->

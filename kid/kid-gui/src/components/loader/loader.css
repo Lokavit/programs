@@ -1,0 +1,52 @@
+/* @import "../../css/colors.css";
+@import "../../css/z-index.css";
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: $z-index-loader;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-align: center;
+    color: white;
+    animation: changebg 5s infinite;
+    animation-direction:alternate;
+}
+@keyframes changebg
+{
+  from {background-color: #FF8800;}
+  to {background: rgb(253, 174, 26);}
+}
+
+.fullscreen {
+    /* Break out of the layout using position: fixed to cover the whole screen */
+    position: fixed;
+    /* Use the fullscreen stage z-index to allow covering full-screen mode */
+    z-index: $z-index-stage-wrapper-overlay;
+}
+
+.block-animation {
+    width: 500px;
+    height: 120px;
+    margin: 90px auto 0px;
+}
+
+.block-animation img {
+    display: block;
+    position: relative;
+    /* 小羊溜达动画在页面上的位置 */
+    margin-top: -180px;
+    animation: logomove 5s ;
+    animation-fill-mode: forwards;
+}
+
+@keyframes logomove
+{
+  from {transform: translateX(0)}
+  to {transform: translateX(500px);}
+} */

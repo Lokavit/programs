@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "经营简报",
+  "usingComponents": {
+    "picker-item": "/components/picker-item/picker-item",
+    "trade-statistics": "/components/trade-statistics/trade-statistics"
+  },
+  "titleBarColor": "#108EE9"
+}

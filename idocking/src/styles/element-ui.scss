@@ -1,0 +1,296 @@
+@import './variables.scss';
+
+
+// 重置form-item的label对齐方式(必须设置，否则在组件内我们自定义的对齐方式无效，优先级问题)
+// 见FormInput组件
+.el-form--label-left .el-form-item__label {
+  /* text-align: left;  default */
+  text-align: unset
+}
+
+// 默认label的样式
+.el-form-item__label{
+  font-size: 12px;
+  font-weight: bold;
+  color: #7D7D7D;
+  text-align: left;
+}
+
+.el-breadcrumb__inner,
+.el-breadcrumb__inner a {
+  font-weight: 400 !important;
+}
+
+.el-upload {
+  input[type="file"] {
+    display: none !important;
+  }
+}
+
+.el-upload__input {
+  display: none;
+}
+
+.el-dialog {
+  transform: none;
+  left: 0;
+  position: relative;
+  margin: 0 auto;
+}
+
+// refine element ui upload
+.upload-container {
+  .el-upload {
+    width: 100%;
+
+    .el-upload-dragger {
+      width: 100%;
+      height: 200px;
+    }
+  }
+}
+
+// dropdown
+.el-dropdown-menu {
+  a {
+    display: block
+  }
+}
+
+
+// 自定义样式
+// navhead里的el全局样式
+.el-dropdown{
+  width: 100% !important;
+  height: 100% !important;
+}
+
+// 基本信息页面的全局el样式
+.el-date-editor.el-input.el-input--mini.el-input--prefix.el-input--suffix.el-date-editor--date{
+  width: 100%;
+}
+.el-select.el-select--mini{
+  width: 100%;
+}
+
+// 调整el-tree组件样式
+.el-tree-node__content .el-tree-node__expand-icon{
+  margin-left: 20px ;
+  color:rgb(116, 135, 160);
+}
+
+.el-tree-node__expand-icon.el-icon-caret-right{
+  padding:2px;
+  margin-right:3px;
+}
+
+// 隐藏element时间选择器里面多余的控件
+.el-date-picker__time-header{  
+  display:none !important;
+}
+
+// 更改表格折叠图标
+.el-table__expand-icon .el-icon-arrow-right{
+  &::before{
+    content: "\e791";
+  }
+}
+
+// 更改表格折叠图标大小
+[class*=" el-icon-"], [class^=el-icon-]{
+  font-size:14px;
+}
+
+.el-progress.el-progress--line{
+  min-width:120px;
+  max-width:167px;
+}
+
+// 模态框的样式
+.el-message-box.customClass{
+  width:78%;
+  min-height: 600px;
+  margin-top:50px;
+}
+
+// 模态框title的样式
+.modal-title{
+  color: rgb(174,92,48);
+  font-weight: 800;
+  font-size: 16px;
+}
+
+.el-message-box__wrapper{
+  overflow-y:scroll; 
+}
+
+// 富文本图片从上传的item样式
+.el-upload-list.el-upload-list--picture{
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 100px;
+}
+.el-upload-list__item.is-success{
+  flex:1 1 20%;
+  min-width: 180px;
+  max-width: 220px;
+  margin-right: 10px;
+  .el-upload-list__item-name{
+      padding-right: 10px;
+      margin: 0;
+  }
+  img{
+      width: 70px !important;
+      height: 70px !important;
+  }
+}
+
+// 规格书包含项目的select选择框样式
+// .messageBox{
+//     .el-select-dropdown.el-popper.is-multiple{
+//             position: relative !important; 
+//             top: 0 !important; 
+//             left: 0 !important; 
+//     }
+//    /deep/ .el-select-dropdown__wrap.el-scrollbar__wrap{
+//         max-height: 1000px !important;
+//     }
+// }
+// 项目添加模态框样式
+.addProjectModalClass{
+  width:55%;
+  min-width: 700px;
+}
+// 全局的loading动画样式
+.el-loading-spinner {
+  margin-top: -7px;
+}
+
+// 所有输入框的样式
+.el-textarea__inner{
+  background-color: $input_bg!important;
+}
+.el-input__inner{
+  background-color: $input_bg!important;
+}
+.el-input__inner:focus{
+  border-color: $main-bg!important;
+}
+.el-select .el-input.is-focus .el-input__inner{
+  border-color: $main-bg!important;
+}
+.el-select .el-input__inner:focus{
+  border-color: $main-bg!important;
+}
+// 所有按钮的样式
+.el-button--primary{
+  background-color:$main-bg!important;
+  border-color: $main-border!important;
+}
+.el-button--primary.is-plain{
+  // background-color: #DAE0EC;
+  // border-color: $main-border;
+  // color: $main-border;
+}
+.el-button--primary.is-plain:active {
+  background: $main-bg!important;
+  border-color:  $main-border!important;
+  color: #FFF;
+  outline: 0;
+}
+.el-button--primary.is-plain:focus, .el-button--primary.is-plain:hover {
+  background: $main-bg!important;
+  border-color: $main-border!important;
+  color: #FFF!important;
+}
+.el-button--primary:focus{
+  background: $main-bg!important;
+  border-color: $main-border!important;
+}
+.el-button--primary:hover{
+  background: #66b1ff;
+  border-color:#66b1ff;
+}
+// .el-button--primary.is-active, .el-button--primary:active {
+//   background: $main-bg!important;
+//   border-color: $main-border!important;
+//   color: #FFF;
+// }
+// 添加按钮的样式
+.el-button--warning{
+  background-color:rgb(248,131,94);
+  border:1px solid rgb(174,92,48);
+  .add{
+    font-size: 14px;
+    font-weight: 700;
+  }
+}
+// 分页器的样式
+.el-button--warning:focus, .el-button--warning:hover{
+  background-color:rgb(255,145,94);
+}
+.el-pagination.is-background .el-pager li:not(.disabled).active{
+  background-color: $main-bg!important;
+}
+.el-pagination.is-background .el-pager li:not(.disabled).active:hover{
+  color: #FFF;
+}
+.el-pagination.is-background .el-pager li:not(.disabled):hover{
+  background-color: $bg-color!important;
+  color:#FFF;
+}
+.el-pagination button:hover {
+  color: $main-bg !important;
+}
+.el-pagination button:disabled {
+  color: #C0C4CC !important;
+  background-color: #FFF !important;
+}
+
+// 时间选择的样式
+.el-date-table td.current:not(.disabled) span{
+  background-color:$main-bg!important;
+}
+.el-date-table td.today span{
+  color:$main-bg!important;
+}
+.el-date-table td.available:hover{
+  color:$main-bg!important;
+}
+// 所有表格的字体大小
+.el-table {
+  font-size: 12px!important;
+}
+//  成功按钮的色号
+.el-button--success{
+  background-color: #539F5C;
+  border-color: #539F5C;
+}
+
+// 所有表格的hover样式
+.el-table__row:hover{
+  background-color: #F3F4F6;
+}
+
+// 重置按钮margin
+.el-button+.el-button{
+  margin-left:12px;
+}
+.el-message-box__content{
+  font-size: 12px;
+}
+
+//通知提示的颜色
+.el-badge__content{
+  background-color: #417ABB!important;
+  font-size: 8px;
+}
+.el-badge__content.el-badge__content--undefined.is-fixed{
+  min-width: 12px !important;
+  // height: 12px;
+  // width: 20px;
+  line-height: 12px;
+  top: 16px;
+  right: 7px;
+  padding: 2px;
+}

@@ -1,0 +1,7 @@
+<view class="page">
+  <view class="box">
+    <image  src="../../img/qian.png"/>
+    <input placeholder="请输入固定收款金额" value="{{jine}}" onInput="jineTap" type="number">
+  </view>
+  <view class="btn" style='opacity:{{opacity==0?"0.5":"1"}}' onTap="shoukuan">确定</view>
+</view>

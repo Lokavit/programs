@@ -1,0 +1,104 @@
+page{
+    background-color: #fff;
+    font-family:SourceHanSansCN-Regular,SourceHanSansCN;
+    font-weight:400; 
+    
+}
+.top{
+    width:750rpx;
+    margin: 0 auto;
+    text-align: center;
+    
+}
+.top>image{
+    width:108rpx;height:108rpx; 
+}
+.top>image+view{
+    font-size:30rpx;
+    color:rgba(178,178,178,1);
+    line-height:46rpx;
+    padding: 32rpx 0 30rpx 0;
+}
+.top>view~view{
+    font-size:60rpx;
+    font-family:WeChat-Sans-SS-Medium,WeChat-Sans-SS;
+    font-weight:500;
+    color:rgba(51,51,51,1);
+    line-height:66rpx;
+}
+.smallfont{
+    font-size:30rpx;
+    color:rgba(178,178,178,1);
+    padding:100rpx 0 40rpx 60rpx;
+} 
+.bigfont{
+    font-size:44rpx;
+    font-family:PingFangSC-Medium,PingFang SC;
+    font-weight:500;
+    color:rgba(51,51,51,1);
+    line-height:60rpx;
+    padding:50rpx 220rpx 100rpx 220rpx;
+}
+.bottom{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap ;
+    justify-content:flex-start;
+    width:750rpx;
+    padding:0 60rpx 0 60rpx; 
+    box-sizing: border-box;  
+}
+.bottom>view{
+    width:187.5rpx;height:103.125rpx;
+    background:rgba(245,245,245,1);
+    border-radius:6rpx;
+    font-size:30rpx;
+    font-weight:500;
+    color:rgba(102,102,102,1);
+    letter-spacing:1rpx;
+    margin-bottom:40rpx;
+    text-align: center; 
+}
+ .bottom>view>view{
+    margin-top:20rpx;
+    line-height: 24rpx;
+}
+.bottom>view:nth-child(2),.bottom>view:nth-child(5),.bottom>view:nth-child(8){
+  margin: 0 20rpx 0 20rpx;
+}
+.smalltext{
+    font-size:24rpx; 
+} 
+.btn{
+    position: fixed;
+    bottom:122rpx;left:155rpx;
+    z-index:1;
+    width:468rpx;
+    height:106rpx;
+    background:#ddd;
+    border-radius:100rpx;
+    font-size:45rpx;
+    font-family:PingFangSC-Regular,PingFang SC;
+    color:#fff;
+    line-height:115rpx;
+    letter-spacing:1rpx;
+    margin:0 auto;
+    text-align: center
+}
+.blue{
+    background:rgba(16,142,233,1);
+}
+.waitblue{
+    background-color: rgba(6,121,204,1); 
+}
+
+.selectcolor{
+    color:rgba(16,142,233,1) !important; 
+    background:rgba(255,255,255,1) !important;
+    border:2px solid rgba(16,142,233,1)!important;
+}
+.blackborder{
+  color:#666666 !important; 
+  background:rgba(245,245,245,1) !important;
+  border:2px solid #fff !important;
+}

@@ -1,0 +1,704 @@
+<!DOCTYPE>
+<html lang="zh-cn">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>拖拽排序</title>
+  <style>
+    /* .felx_layout {
+        display: flex;
+        flex-direction: column;
+        background-color: #ffffff;
+        padding: 10px;
+      }
+
+      .felx_layout > section {
+        flex: 1 1 100%;
+        background-color: aqua;
+        border: 0.5rem solid blue;
+        margin: 1.5rem;
+        cursor: pointer;
+        padding-top: 0.8rem;
+        padding-left: 0.8rem;
+        position: relative;
+      } */
+  </style>
+  <!-- Entire bundle -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/@shopify/draggable@1.0.0-beta.8/lib/draggable.bundle.js"></script> -->
+  <!-- legacy bundle for older browsers (IE11) -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/@shopify/draggable@1.0.0-beta.8/lib/draggable.bundle.legacy.js"></script> -->
+  <!-- Draggable only -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/@shopify/draggable@1.0.0-beta.8/lib/draggable.js"></script> -->
+  <!-- Sortable only -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/@shopify/draggable@1.0.0-beta.8/lib/sortable.js"></script> -->
+  <!-- Droppable only -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/@shopify/draggable@1.0.0-beta.8/lib/droppable.js"></script> -->
+  <!-- Swappable only -->
+  <script src="https://cdn.jsdelivr.net/npm/@shopify/draggable@1.0.0-beta.8/lib/swappable.js"></script>
+
+  <!-- Plugins only -->
+  <script src="https://cdn.jsdelivr.net/npm/@shopify/draggable@1.0.0-beta.8/lib/plugins.js"></script>
+
+  <!-- <script src="https://cdn.jsdelivr.net/npm/@shopify/draggable@1.0.0-beta.2/lib/draggable.min.js"></script> -->
+
+  <!-- css 主文件 -->
+  <link rel="stylesheet" href="static/main.css" />
+
+  <!-- 尝试在这里加 shader标签 顶点着色器 -->
+  <script id="vertexShader" type="x-shader/x-vertex">
+      precision mediump float;
+
+      #ifdef DRAW_MODE_line
+      uniform vec2 u_stageSize;
+      uniform float u_lineThickness;
+      uniform float u_lineLength;
+      uniform vec4 u_penPoints;
+
+      // Add this to divisors to prevent division by 0, which results in NaNs propagating through calculations.
+      // Smaller values can cause problems on some mobile devices.
+      const float epsilon = 1e-3;
+      #endif
+
+      #ifndef DRAW_MODE_line
+      uniform mat4 u_projectionMatrix;
+      uniform mat4 u_modelMatrix;
+      attribute vec2 a_texCoord;
+      #endif
+
+      attribute vec2 a_position;
+
+      varying vec2 v_texCoord;
+
+      void main() {
+        #ifdef DRAW_MODE_line
+        // Calculate a rotated ("tight") bounding box around the two pen points.
+        // Yes, we're doing this 6 times (once per vertex), but on actual GPU hardware,
+        // it's still faster than doing it in JS combined with the cost of uniformMatrix4fv.
+
+        // Expand line bounds by sqrt(2) / 2 each side-- this ensures that all antialiased pixels
+        // fall within the quad, even at a 45-degree diagonal
+        vec2 position = a_position;
+        float expandedRadius = (u_lineThickness * 0.5) + 1.4142135623730951;
+
+        // The X coordinate increases along the length of the line. It's 0 at the center of the origin point
+        // and is in pixel-space (so at n pixels along the line, its value is n).
+        v_texCoord.x = mix(0.0, u_lineLength + (expandedRadius * 2.0), a_position.x) - expandedRadius;
+        // The Y coordinate is perpendicular to the line. It's also in pixel-space.
+        v_texCoord.y = ((a_position.y - 0.5) * expandedRadius) + 0.5;
+
+        position.x *= u_lineLength + (2.0 * expandedRadius);
+        position.y *= 2.0 * expandedRadius;
+
+        // Center around first pen point
+        position -= expandedRadius;
+
+        // Rotate quad to line angle
+        vec2 pointDiff = u_penPoints.zw - u_penPoints.xy;
+        // Ensure line has a nonzero length so it's rendered properly
+        // As long as either component is nonzero, the line length will be nonzero
+        // If the line is zero-length, give it a bit of horizontal length
+        pointDiff.x = (abs(pointDiff.x) < epsilon && abs(pointDiff.y) < epsilon) ? epsilon : pointDiff.x;
+        // The `normalized` vector holds rotational values equivalent to sine/cosine
+        // We're applying the standard rotation matrix formula to the position to rotate the quad to the line angle
+        vec2 normalized = pointDiff / max(u_lineLength, epsilon);
+        position = mat2(normalized.x, normalized.y, -normalized.y, normalized.x) * position;
+        // Translate quad
+        position += u_penPoints.xy;
+
+        // Apply view transform
+        position *= 2.0 / u_stageSize;
+        gl_Position = vec4(position, 0, 1);
+        #else
+        gl_Position = u_projectionMatrix * u_modelMatrix * vec4(a_position, 0, 1);
+        v_texCoord = a_texCoord;
+        #endif
+      }
+    </script>
+  <!-- 尝试在这里加 shader标签 片元着色器 -->
+  <script id="fragmentShader" type="x-shader/x-fragment">
+      precision mediump float;
+
+      #ifdef DRAW_MODE_silhouette
+      uniform vec4 u_silhouetteColor;
+      #else // DRAW_MODE_silhouette
+      # ifdef ENABLE_color
+      uniform float u_color;
+      # endif // ENABLE_color
+      # ifdef ENABLE_brightness
+      uniform float u_brightness;
+      # endif // ENABLE_brightness
+      #endif // DRAW_MODE_silhouette
+
+      #ifdef DRAW_MODE_colorMask
+      uniform vec3 u_colorMask;
+      uniform float u_colorMaskTolerance;
+      #endif // DRAW_MODE_colorMask
+
+      #ifdef ENABLE_fisheye
+      uniform float u_fisheye;
+      #endif // ENABLE_fisheye
+      #ifdef ENABLE_whirl
+      uniform float u_whirl;
+      #endif // ENABLE_whirl
+      #ifdef ENABLE_pixelate
+      uniform float u_pixelate;
+      uniform vec2 u_skinSize;
+      #endif // ENABLE_pixelate
+      #ifdef ENABLE_mosaic
+      uniform float u_mosaic;
+      #endif // ENABLE_mosaic
+      #ifdef ENABLE_ghost
+      uniform float u_ghost;
+      #endif // ENABLE_ghost
+
+      #ifdef DRAW_MODE_line
+      uniform vec4 u_lineColor;
+      uniform float u_lineThickness;
+      uniform float u_lineLength;
+      uniform vec4 u_penPoints;
+      #endif // DRAW_MODE_line
+
+      uniform sampler2D u_skin;
+
+      varying vec2 v_texCoord;
+
+      // Add this to divisors to prevent division by 0, which results in NaNs propagating through calculations.
+      // Smaller values can cause problems on some mobile devices.
+      const float epsilon = 1e-3;
+
+      #if !defined(DRAW_MODE_silhouette) && (defined(ENABLE_color))
+      // Branchless color conversions based on code from:
+      // http://www.chilliant.com/rgb2hsv.html by Ian Taylor
+      // Based in part on work by Sam Hocevar and Emil Persson
+      // See also: https://en.wikipedia.org/wiki/HSL_and_HSV#Formal_derivation
+
+
+      // Convert an RGB color to Hue, Saturation, and Value.
+      // All components of input and output are expected to be in the [0,1] range.
+      vec3 convertRGB2HSV(vec3 rgb)
+      {
+        // Hue calculation has 3 cases, depending on which RGB component is largest, and one of those cases involves a "mod"
+        // operation. In order to avoid that "mod" we split the M==R case in two: one for G<B and one for B>G. The B>G case
+        // will be calculated in the negative and fed through abs() in the hue calculation at the end.
+        // See also: https://en.wikipedia.org/wiki/HSL_and_HSV#Hue_and_chroma
+        const vec4 hueOffsets = vec4(0.0, -1.0 / 3.0, 2.0 / 3.0, -1.0);
+
+        // temp1.xy = sort B & G (largest first)
+        // temp1.z = the hue offset we'll use if it turns out that R is the largest component (M==R)
+        // temp1.w = the hue offset we'll use if it turns out that R is not the largest component (M==G or M==B)
+        vec4 temp1 = rgb.b > rgb.g ? vec4(rgb.bg, hueOffsets.wz) : vec4(rgb.gb, hueOffsets.xy);
+
+        // temp2.x = the largest component of RGB ("M" / "Max")
+        // temp2.yw = the smaller components of RGB, ordered for the hue calculation (not necessarily sorted by magnitude!)
+        // temp2.z = the hue offset we'll use in the hue calculation
+        vec4 temp2 = rgb.r > temp1.x ? vec4(rgb.r, temp1.yzx) : vec4(temp1.xyw, rgb.r);
+
+        // m = the smallest component of RGB ("min")
+        float m = min(temp2.y, temp2.w);
+
+        // Chroma = M - m
+        float C = temp2.x - m;
+
+        // Value = M
+        float V = temp2.x;
+
+        return vec3(
+          abs(temp2.z + (temp2.w - temp2.y) / (6.0 * C + epsilon)), // Hue
+          C / (temp2.x + epsilon), // Saturation
+          V); // Value
+      }
+
+      vec3 convertHue2RGB(float hue)
+      {
+        float r = abs(hue * 6.0 - 3.0) - 1.0;
+        float g = 2.0 - abs(hue * 6.0 - 2.0);
+        float b = 2.0 - abs(hue * 6.0 - 4.0);
+        return clamp(vec3(r, g, b), 0.0, 1.0);
+      }
+
+      vec3 convertHSV2RGB(vec3 hsv)
+      {
+        vec3 rgb = convertHue2RGB(hsv.x);
+        float c = hsv.z * hsv.y;
+        return rgb * c + hsv.z - c;
+      }
+      #endif // !defined(DRAW_MODE_silhouette) && (defined(ENABLE_color))
+
+      const vec2 kCenter = vec2(0.5, 0.5);
+
+      void main()
+      {
+        #ifndef DRAW_MODE_line
+        vec2 texcoord0 = v_texCoord;
+
+        #ifdef ENABLE_mosaic
+        texcoord0 = fract(u_mosaic * texcoord0);
+        #endif // ENABLE_mosaic
+
+        #ifdef ENABLE_pixelate
+        {
+          // TODO: clean up "pixel" edges
+          vec2 pixelTexelSize = u_skinSize / u_pixelate;
+          texcoord0 = (floor(texcoord0 * pixelTexelSize) + kCenter) / pixelTexelSize;
+        }
+        #endif // ENABLE_pixelate
+
+        #ifdef ENABLE_whirl
+        {
+          const float kRadius = 0.5;
+          vec2 offset = texcoord0 - kCenter;
+          float offsetMagnitude = length(offset);
+          float whirlFactor = max(1.0 - (offsetMagnitude / kRadius), 0.0);
+          float whirlActual = u_whirl * whirlFactor * whirlFactor;
+          float sinWhirl = sin(whirlActual);
+          float cosWhirl = cos(whirlActual);
+          mat2 rotationMatrix = mat2(
+            cosWhirl, -sinWhirl,
+            sinWhirl, cosWhirl
+          );
+
+          texcoord0 = rotationMatrix * offset + kCenter;
+        }
+        #endif // ENABLE_whirl
+
+        #ifdef ENABLE_fisheye
+        {
+          vec2 vec = (texcoord0 - kCenter) / kCenter;
+          float vecLength = length(vec);
+          float r = pow(min(vecLength, 1.0), u_fisheye) * max(1.0, vecLength);
+          vec2 unit = vec / vecLength;
+
+          texcoord0 = kCenter + r * unit * kCenter;
+        }
+        #endif // ENABLE_fisheye
+
+        gl_FragColor = texture2D(u_skin, texcoord0);
+
+        #if defined(ENABLE_color) || defined(ENABLE_brightness)
+        // Divide premultiplied alpha values for proper color processing
+        // Add epsilon to avoid dividing by 0 for fully transparent pixels
+        gl_FragColor.rgb = clamp(gl_FragColor.rgb / (gl_FragColor.a + epsilon), 0.0, 1.0);
+
+        #ifdef ENABLE_color
+        {
+          vec3 hsv = convertRGB2HSV(gl_FragColor.xyz);
+
+          // this code forces grayscale values to be slightly saturated
+          // so that some slight change of hue will be visible
+          const float minLightness = 0.11 / 2.0;
+          const float minSaturation = 0.09;
+          if (hsv.z < minLightness) hsv = vec3(0.0, 1.0, minLightness);
+          else if (hsv.y < minSaturation) hsv = vec3(0.0, minSaturation, hsv.z);
+
+          hsv.x = mod(hsv.x + u_color, 1.0);
+          if (hsv.x < 0.0) hsv.x += 1.0;
+
+          gl_FragColor.rgb = convertHSV2RGB(hsv);
+        }
+        #endif // ENABLE_color
+
+        #ifdef ENABLE_brightness
+        gl_FragColor.rgb = clamp(gl_FragColor.rgb + vec3(u_brightness), vec3(0), vec3(1));
+        #endif // ENABLE_brightness
+
+        // Re-multiply color values
+        gl_FragColor.rgb *= gl_FragColor.a + epsilon;
+
+        #endif // defined(ENABLE_color) || defined(ENABLE_brightness)
+
+        #ifdef ENABLE_ghost
+        gl_FragColor *= u_ghost;
+        #endif // ENABLE_ghost
+
+        #ifdef DRAW_MODE_silhouette
+        // Discard fully transparent pixels for stencil test
+        if (gl_FragColor.a == 0.0) {
+          discard;
+        }
+        // switch to u_silhouetteColor only AFTER the alpha test
+        gl_FragColor = u_silhouetteColor;
+        #else // DRAW_MODE_silhouette
+
+        #ifdef DRAW_MODE_colorMask
+        vec3 maskDistance = abs(gl_FragColor.rgb - u_colorMask);
+        vec3 colorMaskTolerance = vec3(u_colorMaskTolerance, u_colorMaskTolerance, u_colorMaskTolerance);
+        if (any(greaterThan(maskDistance, colorMaskTolerance)))
+        {
+          discard;
+        }
+        #endif // DRAW_MODE_colorMask
+        #endif // DRAW_MODE_silhouette
+
+        #ifdef DRAW_MODE_straightAlpha
+        // Un-premultiply alpha.
+        gl_FragColor.rgb /= gl_FragColor.a + epsilon;
+        #endif
+
+        #else // DRAW_MODE_line
+        // Maaaaagic antialiased-line-with-round-caps shader.
+
+        // "along-the-lineness". This increases parallel to the line.
+        // It goes from negative before the start point, to 0.5 through the start to the end, then ramps up again
+        // past the end point.
+        float d = ((v_texCoord.x - clamp(v_texCoord.x, 0.0, u_lineLength)) * 0.5) + 0.5;
+
+        // Distance from (0.5, 0.5) to (d, the perpendicular coordinate). When we're in the middle of the line,
+        // d will be 0.5, so the distance will be 0 at points close to the line and will grow at points further from it.
+        // For the "caps", d will ramp down/up, giving us rounding.
+        // See https://www.youtube.com/watch?v=PMltMdi1Wzg for a rough outline of the technique used to round the lines.
+        float line = distance(vec2(0.5), vec2(d, v_texCoord.y)) * 2.0;
+        // Expand out the line by its thickness.
+        line -= ((u_lineThickness - 1.0) * 0.5);
+        // Because "distance to the center of the line" decreases the closer we get to the line, but we want more opacity
+        // the closer we are to the line, invert it.
+        gl_FragColor = u_lineColor * clamp(1.0 - line, 0.0, 1.0);
+        #endif // DRAW_MODE_line
+      }
+    </script>
+
+  <!-- dd_utility -->
+  <script src="static/utility.js"></script>
+
+  <!-- 以下 js文件，只在本地运行时使用 -->
+  <script src="static/config_url.js"></script>
+
+  <script src="static/en.js"></script>
+  <script src="static/zh-cn.js"></script>
+  <script src="static/zh-tw.js"></script>
+
+  <!--  kid-pro版本
+        pro-blocks 该库的web版本
+        pro-blocks的一些扩展，对应的xml文档 工具箱
+    -->
+  <script src="static/vertical_pro.js"></script>
+  <script src="static/blocks_pro.js"></script>
+  <!-- <script src="static/kid_blocks.js"></script> -->
+
+  <!--  kid-jr版本 
+        jr-blocks 该库的web版本
+        jr-blocks的一些扩展，对应的xml文档 工具箱
+    -->
+  <!-- <script src="static/vertical_jr.js"></script>
+    <script src="static/blocks_jr.js"></script> -->
+
+  <script src="static/lib/md5.min.js"></script>
+  <script src="static/kid-storage.js"></script>
+
+  <!-- kid-svg-renderer -->
+  <script src="static/transformation-matrix.min.js"></script>
+  <script src="static/util.js"></script>
+  <script src="static/kid-svg-renderer.js"></script>
+
+  <!-- kid-render相关依赖 -->
+  <script src="./static/lib/events.js"></script>
+  <script src="./static/lib/hull.js"></script>
+  <script src="./static/lib/twgl-full.js"></script>
+  <!-- kid-render -->
+  <script src="static/kid-render.js"></script>
+
+  <!-- 音频处理引擎 -->
+  <script src="static/kid-audio.js"></script>
+  <!-- kid-vm -->
+  <script src="static/kid-vm.js"></script>
+
+  <!-- Swappable only -->
+  <script src="static/swappable.js"></script>
+
+  <!-- Plugins only -->
+  <script src="static/plugins.js"></script>
+
+  <!-- createElement 创建无状态的html结构 -->
+  <script src="static/create-element.js"></script>
+  <!-- 自定义组件 创建有状态html结构 -->
+  <script src="static/web-components.js"></script>
+</head>
+
+<body>
+  <!-- 启动器 -->
+  <script src="static/launcher.js"></script>
+  <div class="felx_layout">
+    <!-- 不可拖拽 -->
+    <section>
+      <h3>1</h3>
+    </section>
+    <!-- 可拖拽 -->
+    <section class="is_draggable" tabindex="0" title="Click to drag">
+      <h3>2</h3>
+      <div></div>
+      <div></div>
+    </section>
+    <section class="is_draggable" tabindex="0" title="Click to drag">
+      <h3>3</h3>
+      <div></div>
+      <div></div>
+    </section>
+    <section class="is_draggable" tabindex="0" title="Click to drag">
+      <h3>4</h3>
+      <div></div>
+      <div></div>
+    </section>
+    <section class="is_draggable" tabindex="0" title="Click to drag">
+      <h3>5</h3>
+      <div></div>
+      <div></div>
+    </section>
+    <section class="is_draggable" tabindex="0" title="Click to drag">
+      <h3>6</h3>
+      <div></div>
+      <div></div>
+    </section>
+    <section class="is_draggable" tabindex="0" title="Click to drag">
+      <h3>7</h3>
+      <div></div>
+      <div></div>
+    </section>
+  </div>
+
+  <!-- Proxy测试 -->
+  <button type="button" onclick="addData()">Add Data</button>
+  <button type="button" onclick="removeData()">Remove Data</button>
+  <script>
+      // // proxy
+      // // 要使用 Proxy 包装的目标对象（可以是任何类型的对象，包括原生数组，函数，甚至另一个代理）。
+      // const test_data = ["Apple", "Orange", "Banana", "Melon"];
+      // // 一个通常以函数作为属性的对象，各属性中的函数分别定义了在执行各种操作时代理 p 的行为.包含捕捉器（trap）的占位符对象，可译为处理器对象.
+      // const handle = {
+      //   // 用于拦截对对象属性的 get 操作
+      //   get: function (target, key) {
+      //     // console.log("获取属性:", target, key);
+      //     return key in target ? target[key] : "No prop!";
+      //   },
+      //   // 用于拦截对对象属性的 set 操作
+      //   set(target, key, value) {
+      //     // console.log("设置属性:", target, key, value);
+      //     // console.log("set:", key);
+      //     target[key] = value;
+      //     return true;
+      //   },
+      //   // 用于拦截对对象属性的 delete 操作
+      //   deleteProperty(target, key) {
+      //     // console.log("移除属性:", target, key, target[key]);
+      //     if (key in target) {
+      //       // console.log(`property removed: ${key}`);
+      //       target = target.splice(key, 1);
+      //       return true;
+      //     }
+      //   },
+      // };
+      // // 实例化一个代理(要拦截的对象，拦截函数对象)
+      // const proxy = new Proxy(test_data, handle);
+      // proxy.push(1); // 向代理中添加数据
+      // proxy.push(2);
+      // // console.log(test_data);
+
+      // // 页面上 添加数据按钮事件
+      // function addData() {
+      //   // console.log("触发添加数据事件");
+      //   proxy.push(Math.random()); // 随便添加点儿内容
+      //   // console.log("添加数据完成:", test_data);
+      //   // 添加的同时，将代理输出的新结果，赋值给自定义元素的属性值；
+      //   document.querySelector("material-list").materils = test_data;
+      // }
+      // // 页面上 移除数据按钮事件
+
+      // function removeData() {
+      //   // console.log("触发移除数据事件");
+      //   delete proxy[2];
+      //   // console.log("移除数据完成:", test_data);
+      //   // 移除的同时，将代理输出的新结果，赋值给自定义元素的属性值；
+      //   document.querySelector("material-list").materils = test_data;
+      // }
+
+      // // 自定义组件，动态改变组件内容
+      // class HTMLMATERIALLIST extends HTMLElement {
+      //   // 指定需观察的属性
+      //   static get observedAttributes() {
+      //     return ["materils"];
+      //   }
+
+      //   constructor() {
+      //     super();
+      //     this._materils = [];
+      //     this._fragment = document.createDocumentFragment();
+      //     // console.log("this:", this);
+
+      //     var shadow = this.attachShadow({
+      //       // open外部可访问（通过element.shadowRoot），closed则不能
+      //       mode: "open",
+      //     });
+      //     shadow.appendChild(this._fragment);
+      //   }
+
+      //   // 下面4个方法为常用生命周期
+      //   connectedCallback() {
+      //     // console.log("自定义元素加入页面");
+      //     // 执行渲染更新
+      //     this._updateRendering();
+      //   }
+      //   disconnectedCallback() {
+      //     // 本例子该生命周期未使用，占位示意
+      //     // console.log("自定义元素从页面移除");
+      //   }
+      //   adoptedCallback() {
+      //     // 本例子该生命周期未使用，占位示意
+      //     // console.log("自定义元素转移到新页面");
+      //   }
+      //   attributeChangedCallback(name, oldValue, newValue) {
+      //     // console.log("自定义元素属性发生变化", name, oldValue, newValue);
+      //     this._materils = newValue.split(",");
+      //     // console.log("转为数组后:", this._materils);
+      //     // 执行渲染更新
+      //     this._updateRendering();
+      //   }
+      //   // 设置直接get/set materils属性的方法
+      //   get materils() {
+      //     // 转为数组形式
+      //     return this._materils;
+      //   }
+      //   set materils(value) {
+      //     this.setAttribute("materils", value);
+      //   }
+
+      //   _updateRendering() {
+      //     // console.log("数据发生变化，重新渲染", this._materils);
+      //     // 根据变化的属性，改变组件的UI
+
+      //     // 每次数据变更，都在渲染前，将shadowRoot中的内容清空，然后渲染加入新内容；
+      //     this.shadowRoot.innerHTML = "";
+      //     // console.log("shadowRoot:", this.shadowRoot);
+      //     // console.log("shadowRoot.childNodes:", this.shadowRoot.childNodes);
+      //     // 遍历最新的数组数据，将其逐一创建，添加到文档，最终一次性添加到shadowRoot下
+      //     this._materils.forEach((item) => {
+      //       const div = document.createElement("div");
+      //       div.innerHTML = item;
+      //       this._fragment.appendChild(div);
+      //     });
+      //     this.shadowRoot.appendChild(this._fragment);
+      //   }
+      // }
+
+      // customElements.define("material-list", HTMLMATERIALLIST);
+
+      // // 使用js动态创建html,并为其赋值
+      // let html = `<material-list ></material-list>`;
+      // // 将自定义组件，插入到指定位置.
+      // document.body.insertAdjacentHTML("beforeend", html);
+      // // 为自定义组件中的属性赋值
+      // document.querySelector("material-list").materils = test_data;
+
+      // // const containers = document.querySelectorAll('.block')
+
+      // // const droppable = new Draggable.Droppable(containers, {
+      // //     draggable: '.draggable',
+      // //     droppable: '.droppable'
+      // // });
+
+      // // droppable.on('drag:start', () => console.log('drag:start'));
+      // // droppable.on('droppable:over', () => console.log('droppable:over'));
+      // // droppable.on('droppable:out', () => console.log('droppable:out'));
+
+      // Flexbox();
+
+      // function Flexbox() {
+      //   const containers = document.querySelectorAll(".felx_layout");
+      //   if (containers.length === 0) return false;
+      //   const swappable = new Swappable.default(containers, {
+      //     draggable: ".is_draggable",
+      //     mirror: {
+      //       constrainDimensions: true,
+      //     },
+      //     plugins: [Plugins.ResizeMirror],
+      //   });
+
+      //   return swappable;
+      // }
+
+      // // 测试直接域名拉取信息
+      // function getSprite() {
+      //   fetch(
+      //     `https://steam.leadersir.com/material/listUserResources?form%5Bfrom%5D=1&form%5Btype%5D=1&form%5BbagId%5D=0&form%5BcategoryId%5D=0&form%5Bkeywords%5D=&form%5Bpage%5D=1`
+      //   ).then((res) =>
+      //     res.json().then((result) => {
+      //       console.log("result:", result);
+      //     })
+      //   );
+      // }
+      // // getSprite();
+
+      // // 项目加载时，元素结构，以洋洋为例
+      // let data = {
+      //   blocks: {},
+      //   comments: {},
+      //   costume: {
+      //     asset: {
+      //       assetId: "af4ff4232a743af3198b34d5e5d4e237",
+      //       assetType: {
+      //         contentType: "image/svg+xml",
+      //         immutable: true,
+      //         name: "ImageVector",
+      //         runtimeFormat: "svg",
+      //       },
+      //       //   data:Unit8Array(38645),
+      //       dataFormat: "svg",
+      //     },
+      //     assetId: "af4ff4232a743af3198b34d5e5d4e237",
+      //     bitmapResolution: 1,
+      //     dataFormat: "svg",
+      //     md5: "af4ff4232a743af3198b34d5e5d4e237",
+      //     name: "造型1",
+      //     rotationCenterX: -54,
+      //     rotationCenterY: 71,
+      //     size: [150.07000732421875, 173.0800018310547],
+      //     skinId: 1,
+      //   },
+      //   costumeCount: 3,
+      //   costumes: [
+      //     // 每个造型数据对象结构同上costume数据结构
+      //     // 0: {asset: e, assetId: "af4ff4232a743af3198b34d5e5d4e237", skinId: 1, name: "造型1", bitmapResolution: 1, …}
+      //     // 1: {asset: e, assetId: "8601bd32ca5689ee893223a7bb087abd", skinId: 2, name: "造型2", bitmapResolution: 1, …}
+      //     // 2: {asset: e, assetId: "1160fd4cef57911426fb1dea2698976b", skinId: 3, name: "造型3", bitmapResolution: 1, …}
+      //   ],
+      //   currentCostume: 0,
+      //   direction: 90,
+      //   draggable: false,
+      //   id: "Ikg_C3asZlg{yQhN6!9]",
+      //   isStage: false,
+      //   name: "洋洋",
+      //   order: 1,
+      //   rotationStyle: "all around",
+      //   size: 100,
+      //   //   sounds: [0:{
+      //   //     asset:{
+      //   //       assetId: "6fcd64d6357e4ea03704e5f96bfd35ba",
+      //   //       assetType: {
+      //   //         contentType: "audio/x-wav"
+      //   //         immutable: true
+      //   //         name: "Sound"
+      //   //         runtimeFormat: "wav"},
+      //   //       data: Uint8Array(3644),
+      //   //       dataFormat: "wav",
+      //   //       clean: true,
+      //   //       dependencies: []}
+      //   //     assetId: "6fcd64d6357e4ea03704e5f96bfd35ba"
+      //   //     data: null
+      //   //     dataFormat: "wav"
+      //   //     format: ""
+      //   //     md5: "6fcd64d6357e4ea03704e5f96bfd35ba.wav"
+      //   //     name: "Meow"
+      //   //     rate: 22050
+      //   //     sampleCount: 7113
+      //   //     soundId: ":`gkqR1Qdam?7v%H3/6@"}]
+      //   tempo: 60,
+      //   textToSpeechLanguage: null,
+      //   variables: {},
+      //   videoState: "on",
+      //   videoTransparency: 50,
+      //   visible: true,
+      //   volume: 100,
+      //   x: 0,
+      //   y: 0,
+      // };
+  </script>
+</body>
+
+</html>

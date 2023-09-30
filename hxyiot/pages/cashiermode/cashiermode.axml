@@ -1,0 +1,8 @@
+<view style="margin-top:0.3rem;">
+  <!-- 遍历支持的收银模式选项 -->
+  <view class="cashier_mode_item" a:for="{{cashierList}}" data-code="{{item.code}}" onTap="onSelectedMode" style="color:{{item.code == currentMode?' #29A1F7':'#000'}};background-color:{{item.disabled?'#bdbdbd':'#FFF'}}" disabled="{{item.disabled}}">
+    <text class="cashier_mode_item_name">{{item.name}}</text>
+    <text class="cashier_mode_item_desc">{{item.desc}}</text>
+  </view>
+  <!-- 客显模式下，可以选择收银机品牌 -->
+</view>

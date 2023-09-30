@@ -1,0 +1,636 @@
+/*
+ * @Author: Satya 
+ * @Date: 2020-12-26 11:22:48 
+ * @Last Modified by: Satya
+ * @Last Modified time: 2021-01-07 15:10:31
+ * doc:样式文件
+ */
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 12px;
+}
+body {
+  font-size: 1.6rem;
+  font-family: "Times New Roman", Times, serif, arial, "Hiragino Sans GB",
+    "宋体", sans-serif;
+  width: 100vw;
+  height: 100vh;
+  background-color: #f5f5f5;
+  background-image: url(./img/bg.png);
+  background-position: center 5rem;
+  background-repeat: no-repeat;
+  background-size: contain;
+  overflow-x: hidden;
+}
+ul,
+ol,
+dl {
+  list-style: none;
+}
+i,
+s {
+  font-style: normal;
+  text-decoration: none;
+}
+fieldset,
+input,
+img,
+input,
+button,
+textarea {
+  border: none;
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+a {
+  color: "";
+  text-decoration: none;
+}
+a:hover {
+  color: "";
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+  font-size: 100%;
+}
+/* 滚动条 */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  background-color: #f5f5f5;
+  background-color: rgba(0, 0, 0, 0);
+}
+/*定义滑块 内阴影+圆角*/
+::-webkit-scrollbar-thumb {
+  border-radius: 0;
+  background-color: rgba(0, 0, 0, 0);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+/* 绘制一个边框的特效 */
+.draw_border {
+  border: 0;
+  background: none;
+  text-transform: uppercase;
+  position: relative;
+  outline: none;
+  padding: 0.5rem 1.5rem;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+.draw_border::before,
+.draw_border::after {
+  box-sizing: inherit;
+  position: absolute;
+  content: "";
+  border: 0.2rem solid transparent;
+  width: 0;
+  height: 0;
+}
+.draw_border::after {
+  bottom: 0;
+  right: 0;
+}
+.draw_border::before {
+  top: 0;
+  left: 0;
+}
+.draw_border:hover::before,
+.draw_border:hover::after {
+  width: 100%;
+  height: 100%;
+}
+.draw_border:hover::before {
+  border-top-color: #ff7e00;
+  border-right-color: #ff7e00;
+  transition: width 0.3s ease-out, height 0.3s ease-out 0.3s;
+}
+.draw_border:hover::after {
+  border-bottom-color: #ff7e00;
+  border-left-color: #ff7e00;
+  transition: border-color 0s ease-out 0.6s, width 0.3s ease-out 0.6s,
+    height 0.3s ease-out 1s;
+}
+
+/* mask 遮罩，可以给多个浮层使用 */
+.common_mask {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  color: #4c4c4c;
+  background: #212326cc;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  z-index: 1;
+}
+
+/* 通用详情文字，含超长打点 */
+.common_desc {
+  font-size: small;
+  color: #4c4c4c;
+  padding-top: 1rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  text-align: left;
+}
+
+/* 页首 容器 */
+.header_wrap {
+  background-color: #ffd205;
+  height: 5rem;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #fff;
+  padding: 0.5rem;
+  position: relative;
+}
+.header_wrap > section {
+  position: absolute;
+  right: 1rem;
+  top: 0;
+  height: 5rem;
+  line-height: 5rem;
+}
+.header_wrap > section > button {
+  font-size: large;
+  font-weight: 700;
+}
+
+/* 用户中心 */
+.account_wrap {
+  display: flex;
+  justify-content: flex-start;
+  padding: 0 0.5rem;
+  /* font-size: large; */
+  line-height: 3;
+  /* cursor: pointer; */
+}
+.account_wrap > img {
+  margin: 0 0.3rem;
+  width: 4rem;
+  height: 4rem;
+}
+.account_wrap > ul {
+  position: absolute;
+  border: 1px solid hsla(0, 0%, 0%, 0.15);
+  border-radius: 0 0 0.6rem 0.6rem;
+  background-color: #ffd205;
+  overflow: visible;
+  box-shadow: 0 8px 8px 0 hsla(0, 0%, 0%, 0.15);
+  z-index: 99;
+  top: 4.9rem;
+  right: 1rem;
+}
+.account_wrap > ul:hover {
+  cursor: pointer;
+}
+.account_wrap > ul > li {
+  background-color: #ffd205;
+  list-style: none;
+  font-size: 0.6rem;
+  line-height: 3;
+  width: 9rem;
+  text-align: center;
+  color: #4c4c4c;
+}
+.account_wrap > ul > li:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.24);
+}
+.account_wrap > ul > li:last-child {
+  border-radius: 0 0 0.6rem 0.6rem;
+}
+.account_wrap > ul > li > a {
+  color: #4c4c4c;
+}
+
+/* 登入窗体浮层容器 */
+.sign_wrap {
+  /* background-color: aqua; */
+  background-image: url(./img/signbg.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 40rem;
+  height: 40rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 11rem;
+  text-align: center;
+  border-radius: 1rem;
+}
+.sign_wrap > header {
+  font-size: larger;
+  font-weight: 900;
+  padding: 1rem 3rem;
+}
+.sign_wrap > header > span {
+  font-size: larger;
+  font-weight: 900;
+  display: inline-block;
+  margin: 0 3rem;
+}
+.sign_wrap > main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3rem;
+}
+.sign_wrap > main > div {
+  margin: 1rem;
+}
+.sign_wrap > footer {
+  text-align: center;
+  margin-top: 3rem;
+}
+.sign_wrap > footer > button:hover {
+  color: #ff7600;
+}
+
+/* 输入框 */
+.input_wrap {
+  max-width: 60rem;
+  height: auto;
+}
+.input_wrap > input {
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 1rem;
+  padding: 1rem;
+  box-sizing: border-box;
+  font-size: 1.2rem;
+}
+
+/* tabs相关 */
+.tabs-nav {
+  /* background-color: #ffd205; */
+  height: 3rem;
+  line-height: 3rem;
+  display: flex;
+  justify-content: space-around;
+  margin: 0.5rem 3rem;
+}
+.tabs-nav > div {
+  padding: 0 15px;
+  font-size: x-large;
+  font-weight: 900;
+}
+.tabs-nav > div:hover {
+  color: #ff7600;
+}
+.tabs-nav .active {
+  color: #ff7e00;
+}
+.tab-pane {
+  /* 内容最大1280px,两边留白 */
+  max-width: 1280px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.tab-pane .active {
+  display: block;
+}
+
+/* 登入/注册开关 */
+.toggle input {
+  display: none;
+}
+.toggle {
+  position: relative;
+  display: inline-block;
+  width: 35rem;
+  height: 5rem;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #bcb112;
+  border: 1px solid #aaa;
+  border-radius: 30px;
+  transition: all 0.4s;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  width: 24px;
+  height: 24px;
+  left: 2px;
+  top: 2px;
+  /* background-color: #eee; */
+  border-radius: 24px;
+  transition: 0.4s;
+}
+input:checked + .slider {
+  background-color: #8cbc13;
+}
+input:checked + .slider:before {
+  transform: translateX(37px);
+}
+.slider:after {
+  position: absolute;
+  content: "新用户";
+  top: 6px;
+  /* right: 9rem; */
+  color: #fff;
+  font-size: 1.7em;
+}
+input:checked + .slider:after {
+  content: "已有帐号";
+  left: 4rem;
+}
+
+/* 首页banner */
+.banner {
+  text-align: center;
+}
+.banner > img {
+  border-radius: 2rem;
+}
+
+/* 三种介绍的容器 */
+.home_desc_wrap {
+  position: relative;
+}
+/* 课程介绍在登入状态下才会显示 */
+.home_desc_wrap > p {
+  text-align: center;
+  color: #ff7e00;
+}
+/* 有的介绍或许含有[MORE]指向对应板块 */
+.home_desc_wrap > div:first-child {
+  position: absolute;
+  right: 1rem;
+  top: -2.5rem;
+}
+.home_desc_wrap > div:first-child > button {
+  font-size: large;
+  font-weight: 700;
+}
+/* 介绍的内容区域 */
+.desc_content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  text-align: center;
+}
+.desc_content > section {
+  margin: 1rem;
+  max-width: 25rem;
+}
+.desc_content > section > div > img {
+  max-width: 15rem;
+}
+.desc_content > section > div > p {
+  max-width: 18rem;
+}
+
+/* 用于展示项的每个item */
+.box_border {
+  position: relative;
+  margin: 2em 0;
+  padding: 1em;
+  border: solid 3px #ffd205;
+  border-radius: 8px;
+}
+.box_border .box_title {
+  position: absolute;
+  display: inline-block;
+  top: -10px;
+  left: 10px;
+  padding: 0 9px;
+  line-height: 1;
+  font-size: 19px;
+  background: #ffd205;
+  color: #ff7600;
+  font-weight: bold;
+}
+
+/* 作品展示 */
+.project_list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.project_list > section {
+  margin: 1rem;
+  max-width: 19rem;
+  color: #4c4c4c;
+}
+.project_list > section:hover {
+  transform: scale(1.05);
+}
+.project_list > section > img {
+  width: 15rem;
+  height: 15rem;
+  cursor: pointer;
+  transform: translate(1, 1);
+}
+.project_list > section > h1 {
+  font-size: x-large;
+}
+.project_list > section > h1:hover,
+.project_list > section > h3:hover {
+  color: #ff7600;
+  cursor: pointer;
+}
+.project_list > section > h3 {
+  height: 2.5rem;
+  line-height: 2.5rem;
+  display: flex;
+  justify-content: flex-start;
+}
+.project_list > section > h3 > img {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+.project_list > section > h3 > span {
+  display: inline-block;
+  font-size: large;
+  padding-left: 0.5rem;
+}
+
+.project_list > section > h5 {
+  padding: 0.5rem 0;
+  font-size: 0.8rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.project_list > section > h5 > span {
+  display: inline-block;
+}
+
+/* 首页的作品展示 title和更多的button效果 */
+.gallery_wrap {
+  margin: 0.5rem 3rem;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 3rem;
+  line-height: 3rem;
+}
+.gallery_title {
+  font-size: x-large;
+  font-weight: 900;
+}
+
+/* 创作工具 */
+.creation_tool_wrap {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.creation_tool_wrap > section {
+  cursor: pointer;
+  min-width: 39rem;
+  text-align: center;
+}
+.creation_tool_wrap > section > h1 {
+  font-size: xx-large;
+  font-weight: 900;
+}
+.creation_tool_wrap > section:hover {
+  transform: scale(1.05);
+}
+
+/* 考题相关 */
+.exam {
+  margin-top: 1.5rem;
+  /* background-color: rgba(255, 255, 255, 0.5); */
+}
+.exam > header {
+  font-size: xx-large;
+  font-weight: 900;
+  text-align: center;
+  padding: 1rem;
+}
+.exam > header > section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-top: 1rem;
+}
+.exam > main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 1rem;
+}
+.exam > main > aside {
+  /* background-color: aqua; */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  width: 23vw;
+  max-height: 0;
+}
+.exam > main > aside > div:first-child {
+  max-width: 30rem;
+  max-height: 30rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.exam > main > aside > div > div {
+  margin: 1rem;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.3rem;
+  border: 1px solid #f2f2f2;
+  text-align: center;
+  font-size: xx-large;
+  background-color: #ff7e00;
+}
+.exam > main > aside > div > div:hover {
+  cursor: pointer;
+}
+.exam > main > aside > div:last-child > button {
+  margin: 0 3rem;
+  cursor: pointer;
+  background-color: #ffd205;
+}
+
+.exam > main > section {
+  background-color: rgba(255, 255, 255, 0.7);
+  width: 60vw;
+  padding: 1rem;
+}
+.exam > main > section > h1 {
+  font-size: xx-large;
+  font-weight: 700;
+  padding: 1rem;
+}
+/* 题目的图像，最大宽度 */
+.exam_quest_img {
+  max-width: 60rem;
+}
+.exam > main > section > label {
+  display: block;
+  /* background-color: aqua; */
+  min-height: 3rem;
+  margin: 0.5rem 3rem;
+  text-align: center;
+  position: relative;
+  padding: 0.5rem;
+  /* border-bottom: 0.1rem solid #ff7e00; */
+}
+.exam > main > section > label > input {
+  position: absolute;
+  top: 30%;
+  bottom: 30%;
+  left: 20%;
+}
+.exam > main > section > label > span {
+  /* line-height: 3rem; */
+  display: block;
+}
+.exam > main > section > label > img {
+  width: 15rem;
+  margin: 1rem 3rem;
+}
+
+.online_course > main {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  background-color: #f2f2f29a;
+}
+.online_course > main > section {
+  margin: 1rem;
+  width: 24rem;
+  text-align: center;
+}
+.online_course > main > section > div > p {
+  max-width: 24rem;
+}

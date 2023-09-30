@@ -1,0 +1,13 @@
+<view style="background-image: linear-gradient(#108ee9, #F0F8FF);height:100vh;">
+  <!-- 主内容区域 -->
+  <view class="items_wrapper">
+    <view class="section" a:for="{{setItems}}" data-code="{{item.code}}" onTap="onSelected">
+      <view class="set_item">
+        <image src="{{`../../assets/${item.name}.png`}}"/>
+      </view>
+      <text>{{item.desc}}</text>
+    </view>
+  </view>
+  <!-- 底部系统信息 -->
+  <system-info show="true" banner="{{isvBanner}}" phone="{{isvPhone}}"></system-info>
+</view>

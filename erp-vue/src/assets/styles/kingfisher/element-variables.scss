@@ -1,0 +1,26 @@
+/* 改变主题色变量 */
+$--color-primary: #093284;
+
+/* 改变 icon 字体路径变量，必需 */
+$--font-path: '~element-ui/lib/theme-chalk/fonts';
+
+@import '../../../../node_modules/element-ui/packages/theme-chalk/src/index.scss';
+
+$--menu-item-hover-fill: $--color-primary !default;
+
+// /* 表单中每项的验证提示文本 */
+// .el-form-item__error {
+//     color: #F56C6C;
+//     font-size: 12px;
+//     line-height: 1;
+//     padding-top: 2px;
+//     position: absolute;
+//     padding-left: 33%;
+//     top: 100%;
+//     left: 0;
+// }
+
+// /* 表单中每项 外边距 距离底部的值 */
+// .el-form-item--mini.el-form-item {
+//     margin-bottom: 14px;
+// }

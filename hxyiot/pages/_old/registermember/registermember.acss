@@ -1,0 +1,111 @@
+page{
+  background-color: #fff;
+}
+.register_tip{
+  width:750rpx;
+  text-align: center;
+  margin-top:40rpx;
+}
+.register_tip image{
+  width:474.4rpx;
+  height:155.6rpx;
+
+  
+}
+
+.member_info{
+  width:750rpx;
+  margin-top:100rpx;
+}
+
+.info_section{
+  width:600rpx;
+  height:93.75rpx;
+  line-height: 93.75rpx;
+  margin:0 auto;
+  border-bottom:0.5rpx solid #dddddd;  
+}
+.member_info .info_section image{
+  width:37.5rpx;
+  height:37.5rpx;
+  margin-right:62rpx;
+  margin-top:30rpx
+}
+.member_info .info_section .img{
+     margin-right:72rpx;
+}
+.member_info .info_section input{
+  text-align: left;
+  height:34rpx;
+  line-height: 34rpx;
+  margin-top:30rpx; 
+  padding-left:10rpm
+}
+.member_info .info_section view{
+  display: inline-block;
+  color:#ccc;
+  font-size:30rpx;
+}
+@-webkit-keyframes shine{
+  from{
+  opacity:0
+  }to{
+  opacity:1
+  }}
+  @keyframes shine{
+  from{
+  opacity:0
+  }to{
+  opacity:1
+  }}
+
+.member_info .info_section text{
+    width: 3rpx;
+    height: 35rpx;
+    background: #0c97ea;
+    display: inline-block;
+    -webkit-animation:shine 1.5s infinite ease;
+    animation:shine 1.5s infinite ease;
+}
+
+
+
+.gb_w{
+  position: relative;
+  top:-10rpx;
+}
+/* ========== */
+.gb{
+  position: absolute;
+  left:1800rpx;
+  /* display: inline-block; */
+}
+.gbcss{
+  position: none;
+  /* left:200rpx; */
+  /* display: inline-block; */
+}
+
+
+.jianpan{
+  width:600rpx;
+  margin-left:73.125rpx;
+  margin-top:58rpx;  
+}
+.jianpan image{
+  width:172.5rpx;
+  height:88.125rpx;
+  margin-right:41.25rpx;
+  margin-bottom:33.75rpx;
+}
+
+.jianpan image:nth-child(3n){
+  margin-right:0;
+}
+.jianpan image:nth-child(10),.jianpan image:nth-child(11),.jianpan image:nth-child(12){
+  margin-bottom:0;
+}
+view.phoneColor{
+  color: #000 !important;
+}
+

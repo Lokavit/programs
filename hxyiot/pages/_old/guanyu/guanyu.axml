@@ -1,0 +1,17 @@
+<view class="box">
+  <view class="top">
+    <image src="{{logo}}"/>
+    <view>?版本:{{Version}}</view>
+  </view>
+  
+  <view class="xia">
+    <view class="bottom">
+    <label>?联系电话</label>
+    <text>{{isv_phone}}</text>    
+  </view>
+  <view class="bottom">
+    <label>?技术支持</label>
+    <text>{{isv_name}}</text>    
+  </view>
+  </view>
+</view>

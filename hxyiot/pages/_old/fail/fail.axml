@@ -1,0 +1,9 @@
+<view class="page">
+  <image style="" src="../../img/shibai.png" />
+  <view class="fail">{{result_msg}}</view>
+
+  <view class="daojishi" onTap="daojishiTap">
+    <image style="" src="../../img/guanbi.png" />
+    <text>{{miao}}</text>s
+  </view>
+</view>

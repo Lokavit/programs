@@ -1,0 +1,27 @@
+<view class="page">
+  <image style="" src="{{logo}}" />
+  <view class="success">{{ways_source}}</view>
+  <view class="paymoney"><text>￥</text>{{paymoney}}</view>
+
+  <view class="daojishi" onTap="daojishiTap">
+    <image src="../../img/guanbi.png" />
+    <text>{{miao}}</text>s
+  </view>
+  <view class="box">
+   <!-- <view class="item">
+      <label>支付方式</label>
+      <text>{{ways_source}}</text>
+    </view> -->
+    <view class="item">
+      <label>订单号</label>
+      <text>{{out_trade_no}}</text>
+    </view>
+     <view class="item">
+      <label>订单时间</label>
+      <text>{{pay_time}}</text>
+    </view> 
+  </view>
+  <view class="guanggao">
+    <image class="ggt" mode="widthFix" src="{{imgs}}" />
+  </view>
+</view>

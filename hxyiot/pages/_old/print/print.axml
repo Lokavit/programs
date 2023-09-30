@@ -1,0 +1,41 @@
+<view>
+  <view class="first">
+    <view class="tip">打印功能是否开启</view>
+    <view class="whiteBj">
+      <text>打印功能</text>
+      <view class="switch-item">
+        <switch checked="{{checked}}" onChange="switch1Change" aria-label="{{switch1 ? 'switch opened' : 'switch closed'}}"/>
+      </view>
+    </view>    
+  </view>
+     
+  <view onTap="maiBearTapa" data-fear="1" style='display:{{show==0?"none":"block"}}'>
+    <view class="whiteBj">
+      <text>打印一联</text><image mode="scaleToFill" src="{{maia}}"/>
+    </view>
+    <view class="tip">只打印第一联：记帐联，不打印第二联： 抵扣联</view>
+  </view>
+  <view onTap="maiBearTapb" data-fear="2" style='display:{{show==0?"none":"block"}}'>
+    <view class="whiteBj">
+      <text>打印二联</text><image mode="scaleToFill" src="{{maib}}"/>
+    </view>
+    <view class="tip">记账联和抵扣联同时打印</view>
+  </view>
+
+  <view  style='display:{{show==0?"none":"block"}}'>
+    <view class="whiteBj">
+      <text>打印二维码</text>
+      <view class="switch-item">
+        <switch checked="{{checkeds}}" onChange="switch2Change" aria-label="{{switch2 ? 'switch opened' : 'switch closed'}}"/>
+      </view>
+      <view class="tips">是否开启打印二维码</view>
+    </view>
+    
+  </view>
+
+  <view onTap="printcs" data-fear="3" style='display:{{show==0?"none":"block"}}'>
+    <view class="prints">
+      <text>打印测试</text>
+    </view>
+  </view>
+</view>

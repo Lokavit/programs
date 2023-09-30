@@ -1,0 +1,23 @@
+<view>
+  <!-- 默认扫码支付  -->
+  <view style='display:none'>
+    <image src="../../img/sm.gif" />
+  </view>
+  <!-- 轮播图 -->
+  <view class="ad_wrapper">
+    <!-- 视频 -->
+    <!--<view a:if="{{videoList.length > 0}}" style="width:400px;height:640px"><video style="width:400px;height:640px" src="{{videoList[0].ad_file}}" loop="{{loop}}" controls="controls" autoplay="autoplay"></video></view> -->
+    <!-- 图像 -->
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" vertical="{{vertical}}" interval="{{interval}}" circular="{{circular}}">
+      <swiper-item a:for="{{adDataList}}">
+        <view class="swiper-item">
+          <image mode="widthFix" src="{{item.ad_file}}" />
+        </view>
+      </swiper-item>
+    </swiper>
+  </view>
+</view>
+<!-- 唤起收银台 -->
+<view onTap="wakeCashier" style="display:{{cashierMode.MODE_CODE==1?'block':'none'}}" class="wake_cashier">
+  唤起收银台
+</view>

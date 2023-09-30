@@ -1,0 +1,231 @@
+@font-face {
+  font-family: 'kfticon';
+  src: url('kfticon.eot');
+  src: url('kfticon.eot') format('embedded-opentype'),
+    url('kfticon.ttf') format('truetype'),
+    url('kfticon.woff') format('woff');
+    /* url('kfticon.svg') format('svg'); */
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="kft-icon-"],
+[class*=" kft-icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'kfticon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  position: relative;
+  top:1px;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.kft-icon-close:before {
+  content: "\e900";
+}
+
+.kft-icon-en:before {
+  content: "\e90b";
+}
+
+.kft-icon-enabled:before {
+  content: "\e90c";
+}
+
+.kft-icon-expiry-date:before {
+  content: "\e90d";
+}
+
+.kft-icon-height:before {
+  content: "\e90e";
+}
+
+.kft-icon-inventory-level:before {
+  content: "\e90f";
+}
+
+.kft-icon-length:before {
+  content: "\e910";
+}
+
+.kft-icon-logo:before {
+  content: "\e911";
+}
+
+.kft-icon-logout:before {
+  content: "\e912";
+}
+
+.kft-icon-max-level:before {
+  content: "\e913";
+}
+
+.kft-icon-message:before {
+  content: "\e914";
+}
+
+.kft-icon-min-level:before {
+  content: "\e915";
+}
+
+.kft-icon-remark:before {
+  content: "\e917";
+}
+
+.kft-icon-ship-left:before {
+  content: "\e918";
+}
+
+.kft-icon-ship-right:before {
+  content: "\e919";
+}
+
+.kft-icon-stock:before {
+  content: "\e91a";
+}
+
+.kft-icon-triangledown:before {
+  content: "\e91b";
+}
+
+.kft-icon-user:before {
+  content: "\e91c";
+}
+
+.kft-icon-validity-date:before {
+  content: "\e91d";
+}
+
+.kft-icon-vendor-code:before {
+  content: "\e91e";
+}
+
+.kft-icon-vendor-name:before {
+  content: "\e91f";
+}
+
+.kft-icon-volumn:before {
+  content: "\e920";
+}
+
+.kft-icon-weight:before {
+  content: "\e921";
+}
+
+.kft-icon-whs-code:before {
+  content: "\e922";
+}
+
+.kft-icon-width:before {
+  content: "\e923";
+}
+
+.kft-icon-zh:before {
+  content: "\e924";
+}
+
+.kft-icon-zoom-full:before {
+  content: "\e925";
+}
+
+.kft-icon-zoom-max:before {
+  content: "\e926";
+}
+
+.kft-icon-zoom-min:before {
+  content: "\e927";
+}
+
+.kft-icon-zoom-reset:before {
+  content: "\e928";
+}
+
+.kft-icon-actual:before {
+  content: "\e929";
+  color: #a6c8f0;
+}
+
+.kft-icon-begin:before {
+  content: "\e92a";
+  color: #f8835e;
+}
+
+.kft-icon-checket:before {
+  content: "\e92b";
+  color: #f8835e;
+}
+
+.kft-icon-docking-list:before {
+  content: "\e92c";
+  color: #417abb;
+}
+
+.kft-icon-edit:before {
+  content: "\e92d";
+}
+
+.kft-icon-end:before {
+  content: "\e92e";
+  color: #f8835e;
+}
+
+.kft-icon-items:before {
+  content: "\e92f";
+  color: #f8835e;
+}
+
+.kft-icon-massage:before {
+  content: "\e930";
+  color: #417abb;
+}
+
+.kft-icon-plan:before {
+  content: "\e931";
+  color: #a6c8f0;
+}
+
+.kft-icon-project:before {
+  content: "\e932";
+  color: #417abb;
+}
+
+.kft-icon-repair:before {
+  content: "\e933";
+  color: #a6c8f0;
+}
+
+.kft-icon-save:before {
+  content: "\e934";
+}
+
+.kft-icon-ship:before {
+  content: "\e935";
+  color: #a6c8f0;
+}
+
+.kft-icon-shortcuts:before {
+  content: "\e936";
+  color: #417abb;
+}
+
+.kft-icon-tasks:before {
+  content: "\e937";
+  color: #417abb;
+}
+
+.kft-icon-total-budget:before {
+  content: "\e938";
+  color: #a6c8f0;
+}
+
+.kft-icon-vessels:before {
+  content: "\e939";
+  color: #417abb;
+}

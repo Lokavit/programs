@@ -1,0 +1,18 @@
+<view>
+  <view>
+    <!-- 指定门店 -->
+    <picker-item label="指定门店：" onChangePicker="onChangeStore" vIndex="{{storeNameIndex}}" items="{{storeList}}" rkey="store_name" text="{{storeList?storeList[storeNameIndex].store_name:`全部门店`}}"></picker-item>
+    <!-- 指定店员 -->
+    <picker-item label="指定店员：" onChangePicker="onChangeEmployee" vIndex="{{storeEmployeeIndex}}" items="{{storeEmployeeList}}" rkey="name" text="{{storeEmployeeList?storeEmployeeList[storeEmployeeIndex].name:`全部店员`}}"></picker-item>
+  </view>
+  <!-- 查询按钮组 -->
+  <view class="btn_search_wrapper">
+    <button type="ghost" onTap='onSearchOrderNo' size="mini">订单号查询</button>
+    <!--<button type="ghost" onTap='onSearchQR' size="mini">二维码查询</button> -->
+    <button type="ghost" onTap='onSearchCustom' size="mini">自定义查询</button>
+  </view>
+  <!-- 查询结果展示区域 每笔交易概览 -->
+  <scroll-view scroll-y="{{true}}" style="display:{{orderList? 'block':'none'}};height:80vh;">
+    <order-list orderList="{{orderList}}"></order-list>
+  </scroll-view>
+</view>

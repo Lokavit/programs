@@ -1,0 +1,15 @@
+<view>
+    <view class="top">
+        <image  src="/img/zhanghuyue.png"/>  
+        <view>账户余额</view>
+        <view>￥{{balance}}</view>
+    </view>
+    <view class="smallfont">请选择充值金额</view>
+    <view class="bottom" >
+        <view class="{{cz==item.cz?'selectcolor':'blackborder'}}" a:for="{{cz_list}}" key="{{item}}" onTap="selemoney" data-cz="{{item.cz}}" data-cz_s="{{item.cz_s}}">
+        <view>{{item.cz}}元</view>
+        <view class="smalltext">赠送{{item.cz_s}}元</view>
+      </view>
+    </view>
+    <view class="btn  {{blue}}" hover-class="{{blue=='blue'?'waitblue':''}}" onTap="chongzhi">立即充值</view>
+</view>

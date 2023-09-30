@@ -1,0 +1,900 @@
+@font-face {
+  font-family: Satve;
+  src: url("../fonts/SATVE.OTF");
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-family: Satve, Microsoft Yahei, PingFang SC, Arial, Helvetica, sans-serif;
+  margin: 0;
+
+  ul {
+    list-style: none;
+  }
+
+  box-sizing: border-box;
+}
+
+/* 右三角 */
+.triangle {
+  width: 0;
+  height: 0;
+  border-top: 17px solid transparent;
+  border-bottom: 16px solid transparent;
+  border-left: 17px solid #747d9f;
+  /* 转为行内块元素 */
+  display: inline-block;
+  /* 绝对定位 */
+  position: absolute;
+  /* 距左为0 */
+  left: 0;
+  /* 调高层级，避免被二级菜单遮住 */
+  z-index: 1;
+}
+
+/* #app flex 上下结构 */
+#app {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  /* Header 含navMenu横导航 */
+  header {
+    flex: none;
+    /* 最大高度 [+横导航区域] */
+    max-height: 80px;
+    /* 暂时不需要 */
+    // z-index: 998;
+  }
+
+  /* Header之外的部分皆为 AppMain */
+  main {
+    flex: auto;
+    /* 移出一个左侧快捷方式宽度值 */
+    margin-left: 28px;
+  }
+}
+
+/* Header 内部样式 */
+/* header 页首容器 flex布局 */
+.header_container {
+  width: 100vw;
+
+  /* 页首 最顶端 Header */
+  .header {
+    height: 46px;
+    background-color: #404666;
+    display: flex;
+    /* 两端对齐，项目之间的间隔都相等 */
+    justify-content: space-between;
+
+    div {
+      flex: auto;
+      line-height: 46px;
+    }
+
+    /* 工作台(路由)超链接 独有样式 */
+    a {
+      position: fixed;
+      left: calc(100vw / 2 - 27px);
+      top: -3px;
+      text-decoration: none;
+      font-size: 18px;
+      color: #748cb5;
+      font-weight: 900;
+      line-height: 46px;
+    }
+
+    /* 工作台(路由)超链接 独有样式 鼠标滑入 */
+    a:hover {
+      cursor: pointer;
+      border-bottom: 3px solid #748cb5;
+    }
+
+    /* 工作台(路由)超链接 独有样式 激活状态 */
+    .is_active {
+      border-bottom: 3px solid #748cb5;
+    }
+
+    /* 页首 左区域 */
+    .header_left {
+      display: flex;
+      justify-content: flex-start;
+
+      /* 页首 左区域 LOGO */
+      img {
+        width: 45px;
+        padding: 5px 8px;
+      }
+
+      /* 页首 左区域 文字样式 */
+      span {
+        color: #282e4c;
+        font-size: 15px;
+        font-weight: bold;
+      }
+    }
+
+    /* 页首 右区域 */
+    .header_right {
+      display: flex;
+      justify-content: flex-end;
+
+      /* 页首 右区域 头像 */
+      img {
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        margin: 12px;
+      }
+
+      /* 页首 右区域 操作组图标 */
+      i {
+        display: inline-block;
+        padding: 0 12px;
+        line-height: 46px;
+        color: #282e4c;
+        font-size: 14px;
+      }
+
+      /* 页首 右区域 最后一个元素右内边距追加 */
+      &:last-child {
+        padding-right: 10px;
+      }
+
+      /* 页首 右区域 操作组图标滑入样式 */
+      i:hover {
+        color: #05286a;
+        cursor: pointer;
+      }
+    }
+  }
+
+  /* 横导航 (每个子系统下的主导航，及内子导航) */
+  .nav_container {
+    /* 移出一个左侧快捷方式宽度值 */
+    margin-left: 28px;
+    height: 32px;
+    background-color: #fff;
+    box-shadow: 0 0 3px rgba(92, 90, 134, 0.57);
+    border-bottom: 1px solid rgba(92, 90, 134, 0.57);
+
+    display: flex;
+    justify-content: flex-start;
+
+    a {
+      text-decoration: none;
+    }
+
+    h4 {
+      flex: none;
+      max-width: max-content;
+      margin: 0;
+      line-height: 32px;
+      padding: 0 20px;
+      background-color: #747d9f;
+      color: #fff;
+      font-size: 13px;
+      line-height: 34px;
+    }
+
+    ul {
+      flex: auto;
+    }
+
+    /* 水平导航 */
+    .el-menu--horizontal>.el-menu-item {
+      border-style: none;
+    }
+
+    /* 横导航 */
+    .el-menu {
+      border-style: none;
+      max-height: 32px;
+      line-height: 32px;
+
+      /* 横导航里的 el-menu-item 及 多级>的每个title */
+      .el-menu-item,
+      .el-submenu>.el-submenu__title {
+        max-height: 32px;
+        line-height: 32px;
+        border-style: none;
+        min-width: 150px;
+        /* 横导航每项的宽度 */
+        text-align: center;
+
+        span {
+          color: #707896;
+          font-size: 14px;
+        }
+      }
+
+      /* 横导航里的 el-menu-item 及 多级>的每个title 鼠标滑入及聚焦时的效果 */
+      .el-menu-item:hover,
+      .el-menu-item:focus,
+      .el-submenu>.el-submenu__title:hover,
+      .el-submenu>.el-submenu__title:focus {
+        outline: 0;
+        background-color: #707896;
+
+        span {
+          color: #fff;
+        }
+      }
+
+      // .el-submenu > .el-submenu__icon-arrow .el-icon-arrow-down {
+      //   color: #fff;
+      // }
+
+      // .el-submenu {
+      //   .popper_submenu {
+      //     // background-color: #093284;
+      //     max-width: 120px;
+      //     min-width: 20px;
+
+      //     .el-menu-item {
+      //       max-width: 120px;
+      //     }
+      //   }
+      // }
+    }
+
+    .el-menu-item .is-active {
+      background-color: #05286a;
+      color: #fff;
+    }
+
+    .el-menu-item .is-active {
+      color: #fff;
+    }
+  }
+}
+
+/* 个人中心 由于该弹出框挂载于body下，该样式亦单独设置 */
+.popper_me_space {
+  width: 10%;
+  margin: 0;
+  padding: 0;
+  border-style: none;
+
+  /* 弹出框 内容容器 */
+  section {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 10px 20px;
+    margin-bottom: 0;
+
+    div {
+      min-width: 100px;
+      height: 20px;
+      // padding-top: 20px;
+      line-height: 20px;
+      text-align: center;
+      margin-bottom: 6px;
+      border: 2px solid rgba(0, 0, 0, 0);
+
+      a {
+        text-decoration: none;
+      }
+
+      i {
+        margin-right: 8px;
+      }
+    }
+
+    div:hover {
+      border: 2px solid #5678f0;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+  }
+}
+
+/* 系统切换台 由于该弹出框挂载于body下，该样式亦单独设置 */
+.popper_system {
+  width: 50%;
+  margin: 0;
+  padding: 0;
+  border-style: none;
+
+  /* 弹出框 内容容器 */
+  section {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 20px;
+    margin-bottom: 0;
+
+    div {
+      min-width: 136px;
+      height: 76px;
+      padding-top: 20px;
+      line-height: 20px;
+      text-align: center;
+      margin-bottom: 20px;
+      border: 2px solid rgba(0, 0, 0, 0);
+    }
+
+    div:hover {
+      border: 2px solid #5678f0;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+  }
+}
+
+.popper_system:after {
+  content: "";
+  flex: auto;
+}
+
+/* 快捷导航 样式 */
+.quick_nav {
+  /* 脱离文档流，使之固定于页面指定位置，且层级仅次于 header */
+  position: fixed;
+  /* 脱离文档流后，此处需将距顶下移，即减去header的高度 */
+  top: 46px;
+  z-index: 998;
+  width: 28px;
+  /* 该高度只减去最顶端46px */
+  height: calc(100vh - 46px);
+  background-color: #f56c6c;
+}
+
+/* 主内容区域 */
+.main_container {
+  // border-bottom: 1px solid #B5B7CA;
+  background-color: #f9f9fb;
+
+  /* 路由匹配页面的容器 */
+  .router_view_container {
+    padding: 0 10px;
+
+    /* 主内容区域 列表及表单页 共有的 标题区域 */
+    .title_container {
+      display: flex; // 弹性布局
+      justify-content: space-between; // 两端对齐
+
+      div {
+        font-size: 16px;
+        line-height: 1.5;
+        padding: 6px 0;
+      }
+    }
+  }
+}
+
+/* 主内容区域 列表页面 */
+
+
+
+
+
+
+
+// /* flex row 水平布局 */
+// .layout-flex-row {
+//   display: flex;
+//   flex-flow: row;
+//   align-items: flex-start;
+// }
+
+// /* 自定义 el-popper 的样式 */
+// .popper_calss {
+//   min-width: 100px;
+//   // background-color: #05286A;
+//   top: -30px;
+// }
+
+/*  任务管理器容器 */
+.taskmanager_container {
+  left: 28px;
+  top: 80px;
+  padding: 2px 20px 0 20px;
+  border-bottom: 1px solid #b5b7ca;
+  display: flex;
+  max-width: calc(100% - 28px);
+  /* 两端对齐，中间自适应 */
+  justify-content: space-between;
+
+  /* 至左按钮 */
+  .left_button {
+    left: 48px;
+    padding-right: 10px;
+  }
+
+  /* 至右按钮 */
+  .right_button {
+    right: 20px;
+    padding-left: 10px;
+  }
+
+  .left_button,
+  .right_button {
+    width: 30px;
+    line-height: 29px;
+    cursor: pointer;
+    color: #b5b7ca;
+
+    i:hover {
+      color: #454545;
+    }
+  }
+
+  /* 中间任务栏 */
+  .center_taskbar {
+    left: 50px;
+    right: 50px;
+    width: 100%;
+    // background-color: aqua;
+    margin: 0px;
+    max-width: auto;
+    overflow-x: scroll;
+
+    /*  */
+
+    /*  内部采用横向flex布局 */
+    .taskbar_flex {
+      display: flex;
+      width: 100%;
+    }
+
+    /* 标注文本超长以...表示 */
+    .tasktitle_hidden {
+      -o-text-overflow: ellipsis;
+      -webkit-text-overflow: ellipsis;
+      -moz-text-overflow: ellipsis;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      word-break: keep-all;
+      max-width: 50px;
+    }
+
+    .task_item {
+      flex: none;
+      // box-shadow: 0 0 0 1px rgba(171, 173, 206, 0.53);
+      border-top-left-radius: 2px;
+      border-top-right-radius: 2px;
+      background-color: #f9f9fb;
+      cursor: pointer;
+      min-width: 100px;
+      max-width: 130px;
+      height: 26px;
+      line-height: 24px;
+      padding: 0 10px;
+      padding-right: 0;
+      margin-right: 1px;
+      // margin-bottom: 6px;
+      border: 1px solid rgba(171, 173, 206, 0.53);
+      border-bottom-width: 2px;
+
+      display: flex;
+      position: relative;
+
+      /* 任务项 标题 明文 文字溢出... */
+      .task_item_title {
+        -o-text-overflow: ellipsis;
+        -webkit-text-overflow: ellipsis;
+        -moz-text-overflow: ellipsis;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        word-break: keep-all;
+        max-width: 70px;
+      }
+
+      /* 任务项 标题 明文 */
+      span {
+        font-size: 12px;
+        color: #d5d5d5;
+      }
+
+
+      /* 任务项 标星状态 */
+      .task_item_status {
+        color: #d5d5d5;
+      }
+
+      /* 任务项 关闭按钮 */
+      .task_item_close {
+        cursor: pointer;
+        position: absolute;
+        right: 0;
+
+        i {
+          float: right;
+          margin: 6px;
+          font-size: 8px;
+          color: #d5d5d5;
+          /* 基于12px进行缩放 */
+          -webkit-transform: scale(0.8);
+        }
+      }
+
+
+      &:hover {
+        background-color: #b5b7ca;
+
+        span {
+          color: #454545;
+        }
+
+        i {
+          color: #454545;
+        }
+      }
+    }
+
+    /* 任务栏激活项的样式 */
+    .task_active {
+      background-color: #fff !important;
+      border: 1px solid #5678f0;
+      border-bottom-width: 2px;
+
+      span {
+        color: #343434;
+      }
+    }
+
+  }
+
+  /* 中间任务栏下的 横向滚动条 
+    定义滚动条高宽及背景
+   高宽分别对应横竖滚动条的尺寸 */
+  .center_taskbar::-webkit-scrollbar {
+    // width: 6px;
+    // height: 6px;
+    width: 0;
+    height: 0;
+    // background-color: #F5F5F5;
+  }
+
+  /* 中间任务栏下的 横向滚动条 
+    定义滑块 内阴影+圆角 */
+  .center_taskbar::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.12);
+    /* box-shadow: inset 0 0 6px rgba(0, 0, 0, .3); */
+  }
+
+}
+
+
+/* 扩展列 */
+.el-table__expand-column {
+
+  /* 扩展列的图标  覆盖原图标为 小眼睛 */
+  .el-table__expand-icon {
+    i::before {
+      content: "\e6ce"
+    }
+  }
+
+  /* 原为>图标，点击会转向，覆盖该样式，转向角度设置为0，视觉上保持不变 */
+  .el-table__expand-icon--expanded {
+    transform: rotate(0deg);
+  }
+}
+
+/* 列表页 列表区域 操作列 展开扩展 */
+// .el-table__expanded-cell {
+//   background-color: #05286a;
+//   margin: 0;
+// }
+.el-table__expanded-cell[class*=cell] {
+  padding: 10px 50px;
+}
+
+/** 列表页 列表区域 信息列 内嵌展开信息的样式 */
+.list_info_view {
+  // background-color: #748cb5;
+  display: flex;
+  justify-content: space-around;
+  font-size: 12px;
+
+  aside {
+    display: flex;
+    justify-content: flex-start;
+
+    label {
+      min-width: 80px;
+      font-weight: 900;
+    }
+  }
+}
+
+
+
+
+
+
+/* js前端操作文件导入导出 */
+.file {
+  position: relative;
+  display: inline-block;
+  border-radius: 4px;
+  padding: 4px 12px;
+  overflow: hidden;
+  text-decoration: none;
+  text-indent: 0;
+  line-height: 20px;
+}
+
+.file input {
+  position: absolute;
+  font-size: 20px;
+  right: 0;
+  top: 0;
+  opacity: 0;
+}
+
+.file:hover {
+  // background: #AADFFD;
+  // border-color: #78C3F3;
+  // color: #004974;
+  text-decoration: none;
+}
+
+/* 表单 头部 标题和按钮区域 容器 */
+.form_header_container {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  padding: 6px 0 0 0;
+}
+
+
+/* 按钮组样式 具体细节在结构里设置 */
+.btn_container {
+  // background-color: #5678f0;
+  // background-color:rgba(0,0,0,0);
+  height: 30px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+/*  */
+// .el-upload--picture-card {
+//   width: 60px;
+//   height: 60px;
+//   line-height: 60px;
+// }
+
+
+.dialog_body {
+  overflow: auto;
+  // max-height:500px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*定义滚动条高宽及背景
+   高宽分别对应横竖滚动条的尺寸*/
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  // background-color: #F5F5F5;
+}
+
+/*定义滑块 内阴影+圆角*/
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.12);
+  /* box-shadow: inset 0 0 6px rgba(0, 0, 0, .3); */
+}
+
+/* span 鼠标滑入变色及鼠标变手，表示该元素可操作 */
+.span-hover {
+  &:hover {
+    color: #05286a;
+    cursor: pointer;
+  }
+}
+
+/* 滾動條 */
+.scrollbar {
+  max-width: auto;
+  // overflow-y: scroll;
+  overflow-x: scroll;
+  // background-color: #F5F5F5;
+  //
+}
+
+/*定义滚动条高宽及背景
+   高宽分别对应横竖滚动条的尺寸*/
+.scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  // background-color: #F5F5F5;
+}
+
+/*定义滑块 内阴影+圆角*/
+.scrollbar::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.12);
+  /* box-shadow: inset 0 0 6px rgba(0, 0, 0, .3); */
+}
+
+// /* 表单页面的表单区域样式 */
+// .form_container {
+//     background-color: rgba(240, 240, 244, 1);
+//     // margin: 0 auto;
+//     display: flex;
+//     // padding-left: 20px;
+//     // padding-right: 20px;
+//     // padding-top: 18px;
+
+//     padding: 20px;
+
+//     justify-content: space-around;
+
+//     .flex_item {
+//         flex: auto;
+//     }
+// }
+
+
+/* 表单类型窗体 主表区域 包裹器 */
+.form_container {
+  /* 上右下左 14px为含校验提示的底边，即(14+6=20) */
+  padding: 20px 20px 14px 0;
+}
+
+/* 主表区域 容器 背景色 */
+.form_container_background {
+  background-color: #adadaf;
+  margin-top: 20px;
+}
+
+/* 表单类型窗体 主表区域 每行flex布局 */
+.form_row {
+  display: flex;
+  // // padding: 0 20px;
+  // padding-right: 0;
+  justify-content: space-between; // 两端对齐，项目之间的间隔都相等
+
+  // 因el-ui中的el-input包裹了div，此处改为使用 aside 标签来包裹label+el-input的方式
+  aside {
+    flex: auto; // 每一个label+el-input的包裹器大小自适应
+    width: 0; // 防止 均分时，各别项不等分
+    display: flex; // 每一项的内布局，即 label+el-input各占一部分
+    // margin: 0;
+    justify-content: space-between; // 两端对齐，项目之间的间隔都相等
+    margin-bottom: 0px;
+    // margin-right:20px;
+  }
+
+  /* 表单每项 label元素 最小宽度80px */
+  label {
+    line-height: 28px;
+    font-size: 12px;
+    text-align: left; // 文字label居右
+    min-width: 72px; // 最小宽度
+    /* 该外边距值，用于视觉上列分的间距，不破坏外部aside标签宽度值 */
+    margin-left: 20px;
+  }
+
+  /* 非标星label */
+  .label_no_star::before {
+    content: "*";
+    color: rgba(0, 0, 0, 0);
+    margin-right: 4px;
+  }
+
+  /* 标星label */
+  .label_star::before {
+    content: "*";
+    color: #f56c6c;
+    margin-right: 4px;
+  }
+
+  /* 表单每项 输入项 与label平级，通常为div包裹 */
+  label+div {
+    margin-left: 8px; // 输入项与label之间的间距
+    flex: auto;
+    width: 0;
+  }
+
+  /* 表单中每项的验证提示文本 */
+  .el-form-item__error {
+    color: #f56c6c;
+    font-size: 12px;
+    // transform: scale(0.9);
+    line-height: 1;
+    padding-top: 2px;
+    position: absolute;
+    padding-left: 10%;
+    top: 100%;
+    left: 0;
+  }
+
+  // .el-form-item.is-error .el-input__inner,
+  // .el-form-item.is-error .el-input__inner:focus,
+  // .el-form-item.is-error .el-textarea__inner,
+  // .el-form-item.is-error .el-textarea__inner:focus {
+  //   border-color: #DCDFE6;
+  // }
+
+  /* 表单中每项 外边距 距离底部的值 */
+  .el-form-item--mini.el-form-item {
+    margin-bottom: 14px;
+  }
+}
+
+/* 每行的第一列，左外边距置为0 */
+// &:first-child {
+//   margin-left: 0;
+// }
+
+/* 查询条 第四列从右起排列按钮组，此处使用 el-btn-info 的变更形式 */
+.el-button--info,
+.el-button--info:focus {
+  background-color: rgba(0, 0, 0, 0);
+  border-color: rgba(0, 0, 0, 0);
+  color: #093284;
+  border-radius: 20px;
+  padding: 0;
+  line-height: 28px;
+  width: 70px;
+  height: 26px;
+
+  // 图标
+  i {
+    font-weight: 900;
+    font-size: 11px;
+  }
+
+  // 文字
+  span {
+    font-size: 12px;
+    font-weight: 900;
+  }
+}
+
+/* 查询条 第四列从右起排列按钮组，鼠标滑入效果,按钮激活效果 */
+.el-button--info:hover,
+.el-button--info:active {
+  background-color: rgba(0, 0, 0, 0);
+  border-color: #05286a;
+  color: #093284;
+}
+
+/* 自定义搜索 */
+.search {
+  padding: 0 6px;
+  border: 1px solid #707489;
+  border-radius: 2px;
+  width: max-content;
+
+  input {
+    border: 0;
+    padding: 0;
+    outline: none;
+    background-color: rgba(0, 0, 0, 0);
+  }
+
+  i {
+    line-height: 17px;
+    color: #05286a;
+  }
+}
+
+.search:active,
+.search:focus {
+  border-color: #05286a;
+}

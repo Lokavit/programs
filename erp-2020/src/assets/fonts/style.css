@@ -1,0 +1,208 @@
+@font-face {
+  font-family: 'kfticon';
+  src: url('kfticon.eot');
+  src: url('kfticon.eot') format('embedded-opentype'),
+    url('kfticon.ttf') format('truetype'),
+    url('kfticon.woff') format('woff'),
+    url('kfticon.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="kft-icon-"],
+[class*=" kft-icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'kfticon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.kft-icon-base-info:before {
+  content: "\e900";
+}
+.kft-icon-boat:before {
+  content: "\e901";
+}
+.kft-icon-close:before {
+  content: "\e902";
+}
+.kft-icon-create:before {
+  content: "\e903";
+}
+.kft-icon-create2:before {
+  content: "\e904";
+}
+.kft-icon-delete:before {
+  content: "\e905";
+}
+.kft-icon-download:before {
+  content: "\e906";
+}
+.kft-icon-edit:before {
+  content: "\e907";
+}
+.kft-icon-enabled:before {
+  content: "\e908";
+}
+.kft-icon-expiry-date:before {
+  content: "\e909";
+}
+.kft-icon-height:before {
+  content: "\e90a";
+}
+.kft-icon-hover-hr .path1:before {
+  content: "\e90b";
+  color: rgb(255, 255, 255);
+}
+.kft-icon-hover-hr .path2:before {
+  content: "\e90c";
+  margin-left: -1.2138671875em;
+  color: rgb(121, 148, 255);
+}
+.kft-icon-hover-hr .path3:before {
+  content: "\e90d";
+  margin-left: -1.2138671875em;
+  color: rgb(121, 148, 255);
+}
+.kft-icon-hover-material .path1:before {
+  content: "\e90e";
+  color: rgb(121, 148, 255);
+}
+.kft-icon-hover-material .path2:before {
+  content: "\e90f";
+  margin-left: -1.033203125em;
+  color: rgb(121, 148, 255);
+}
+.kft-icon-hover-material .path3:before {
+  content: "\e910";
+  margin-left: -1.033203125em;
+  color: rgb(121, 148, 255);
+}
+.kft-icon-hover-material .path4:before {
+  content: "\e911";
+  margin-left: -1.033203125em;
+  color: rgb(255, 255, 255);
+}
+.kft-icon-hover-purchase .path1:before {
+  content: "\e912";
+  color: rgb(255, 255, 255);
+}
+.kft-icon-hover-purchase .path2:before {
+  content: "\e913";
+  margin-left: -1.0087890625em;
+  color: rgb(121, 148, 255);
+}
+.kft-icon-hover-purchase .path3:before {
+  content: "\e914";
+  margin-left: -1.0087890625em;
+  color: rgb(121, 148, 255);
+}
+.kft-icon-hover-purchase .path4:before {
+  content: "\e915";
+  margin-left: -1.0087890625em;
+  color: rgb(121, 148, 255);
+}
+.kft-icon-hr:before {
+  content: "\e916";
+}
+.kft-icon-inventory-level:before {
+  content: "\e917";
+}
+.kft-icon-length:before {
+  content: "\e918";
+}
+.kft-icon-logo:before {
+  content: "\e919";
+}
+.kft-icon-logout:before {
+  content: "\e91a";
+}
+.kft-icon-manufacture:before {
+  content: "\e91b";
+}
+.kft-icon-material:before {
+  content: "\e91c";
+}
+.kft-icon-max-level:before {
+  content: "\e91d";
+}
+.kft-icon-message:before {
+  content: "\e91e";
+}
+.kft-icon-min-level:before {
+  content: "\e91f";
+}
+.kft-icon-purchase:before {
+  content: "\e920";
+}
+.kft-icon-refresh:before {
+  content: "\e921";
+}
+.kft-icon-remark:before {
+  content: "\e922";
+}
+.kft-icon-save:before {
+  content: "\e923";
+}
+.kft-icon-search:before {
+  content: "\e924";
+}
+.kft-icon-ship-left:before {
+  content: "\e925";
+}
+.kft-icon-ship-right:before {
+  content: "\e926";
+}
+.kft-icon-stock:before {
+  content: "\e927";
+}
+.kft-icon-triangledown:before {
+  content: "\e928";
+}
+.kft-icon-upload:before {
+  content: "\e929";
+}
+.kft-icon-user:before {
+  content: "\e92a";
+}
+.kft-icon-validity-date:before {
+  content: "\e92b";
+}
+.kft-icon-vendor-code:before {
+  content: "\e92c";
+}
+.kft-icon-vendor-name:before {
+  content: "\e92d";
+}
+.kft-icon-volumn:before {
+  content: "\e92e";
+}
+.kft-icon-weight:before {
+  content: "\e92f";
+}
+.kft-icon-whs-code:before {
+  content: "\e930";
+}
+.kft-icon-width:before {
+  content: "\e931";
+}
+.kft-icon-zh:before {
+  content: "\e932";
+}
+.kft-icon-zoom-full:before {
+  content: "\e933";
+}
+.kft-icon-zoom-max:before {
+  content: "\e934";
+}
+.kft-icon-zoom-reset:before {
+  content: "\e935";
+}

@@ -1,0 +1,28 @@
+/* 每个选择器的布局样式 */
+
+.row {
+  padding: 0 0.3rem;
+  margin: 0.1rem 0.3rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.row label {
+  display: inline-block;
+  color: #888;
+}
+
+.row text {
+  font-size: 32rpx;
+  color: #000;
+  display: inline-block;
+  margin-left: 0.1rem;
+}
+
+/* .row image {
+  width: 0.2rem;
+  height: 0.3rem;
+  margin-left: 0.1rem;
+} */

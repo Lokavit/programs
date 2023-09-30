@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "自定义查询",
+  "usingComponents": {
+    "picker-item": "/components/picker-item/picker-item",
+    "trade-statistics": "/components/trade-statistics/trade-statistics",
+    "order-list": "/components/order-list/order-list"
+  }
+}

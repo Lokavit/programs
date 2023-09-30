@@ -1,0 +1,4 @@
+<view class="footer" style="display:{{show ? 'block' : 'none'}}">
+  <image src="{{banner}}" />
+  <text class="tell_phone"> 客服电话:{{phone }}</text>
+</view >

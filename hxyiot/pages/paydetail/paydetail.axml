@@ -1,0 +1,57 @@
+<view>
+  <!--<text>交易单号：{{test}}</text> -->
+  <!-- 账单明细 -->
+  <view class="order_info">
+    <view>
+      <label>商家实收</label>
+      <text>{{ orderInfo.totalAmountDesc}}</text>
+    </view>
+    <view>
+      <label>付款方式</label>
+      <text> {{orderInfo.waysSourceDesc}}</text>
+    </view>
+    <view>
+      <label>商品金额</label>
+      <text> {{orderInfo.shopPrice}}</text>
+    </view>
+    <view>
+      <label>退款金额</label>
+      <text> {{orderInfo.refundAmount}}</text>
+    </view>
+    <view>
+      <label>交易时间</label>
+      <text> {{orderInfo.payTime}}</text>
+    </view>
+    <view>
+      <label>订单状态</label>
+      <text> {{orderInfo.payStatusDesc}}</text>
+    </view>
+    <view>
+      <label>订单号</label>
+      <text> {{orderInfo.outTradeNo}}</text>
+    </view>
+  </view>
+  <!-- 按钮组 -->
+  <view class="btn_search_wrapper">
+    <button type="ghost" onTap='onRefund' size="mini">退款</button>
+    <button type="ghost" onTap='onPrint' size="mini">打印小票</button>
+  </view>
+  <!-- 密码输入框 -->
+  <view class="mask" style="display:{{isShowPwdKey?`block`:'none'}}">
+    <view class="pwd_wrapper">
+      <!-- 明文 -->
+      <label>请输入支付密码</label>
+      <text class="pwd_wrapper_btn_close" onTap="onClose">X</text>
+      <!--<label>￥ {{newRefundAmount}} 元</label> -->
+      <label>{{newRefundAmount}}</label>
+      <view class="pwd">
+        <text a:for="{{codeList}}">{{item.desc}}</text>
+      </view>
+      <label>忘记支付密码，请前往APP进行更改</label>
+    </view>
+    <!-- 安全键盘 -->
+    <view class="keybords">
+      <text a:for="{{keybords}}" data-index ='{{index}}' onTap="btnPwd" disabled="{{isDisabled}}">{{item.code==10?`←`:item.code}}</text>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,142 @@
+
+<view>
+  <view class='box'>
+    <view class='choiceStore' onTap='outtrade'>{{outtrade}}<view class='down'><text></text></view></view>
+    <view class='box_item' onTap='totalStore' style='margin-top:80rpx;'>
+      <label>指定门店/店员</label>
+      <view>
+        <text>{{totalstorecon}}</text>
+        <image src='../../img/zhishijiantou.png'></image>
+      </view>
+    </view>
+    <view class='box_item' onTap='paywayTap'>
+      <label>支付方式</label>
+      <view>
+        <text style='color:{{waycolor==0?"#B2B2B2":"#333333"}}'>{{payway}}</text>
+        <image src='../../img/zhishijiantou.png'></image>
+      </view>
+    </view>
+    <view class='box_item' onTap='orderstateTap'>
+      <label>订单状态</label>
+      <view>
+        <text style='color:{{ordercolor==0?"#B2B2B2":"#333333"}}'>{{orderstate}}</text>
+        <image src='../../img/zhishijiantou.png'></image>
+      </view>
+    </view>
+    <view class='box_item'>
+      <label>开始时间</label>
+      <view onTap="datePickerYMDHMSstart" style='color:{{startcolor==0?"#B2B2B2":"#333333"}}'>
+        {{start_time}}
+        <image src='../../img/zhishijiantou.png'></image>
+      </view>
+    </view>
+    <view class='box_item'>
+      <label>结束时间</label>
+      <view onTap="datePickerYMDHMSend" style='color:{{endcolor==0?"#B2B2B2":"#333333"}}'>
+        {{end_time}}
+        <image src='../../img/zhishijiantou.png'></image>
+      </view>
+    </view>
+    <view class='box_item bgwhite' onTap='search'>
+      查询    
+    </view>
+
+    <view class='box'>      
+      <view class='item'>
+        <view class='item_box'> 
+          <view class='item_list' a:for='{{collectmoney}}'  onTap='detail' data-outtradeno='{{item.out_trade_no}}' data-outorderno='{{item.out_order_no}}'> 
+            <view class='border_width'>
+              <image src='{{item.payIconSrc}}'></image>
+              <view class='detail'>
+                <view>{{item.ways_source_desc}}<text class='right'>￥{{item.amount}}</text></view>
+                <view>{{item.store_name}}</view>
+                <view>{{item.created_at}}<text>|</text>{{item.pay_status_desc}}</view>
+              </view>
+            </view>
+          </view>
+
+        </view>
+      </view>  
+    </view>
+
+
+    <view class='noorder' style='display:{{noOrder == 1?"block":"none"}}'>
+      暂无记录
+    </view>
+  </view>
+
+  <view class='mask' style='display:{{mask == 1? "none":"block"}}'>  
+    <view class='removeBox' style='display:{{show == 1? "none":"block"}}'>
+      <view>
+        <text class='left' style="padding-left:30rpx;" onTap='choiceCancel'>取消</text>
+        <text>指定门店/店员</text>
+        <text class='right mask_color' onTap='btnSure'>确定</text>
+      </view>
+      <view class='mask_box'>
+        <view class='mask_list'>
+          <image src='{{firstImg}}'></image>
+          <text onTap='storeItem' data-index='10000' data-storeid=''>全部门店</text>
+        </view>
+        <view class='mask_list' a:for='{{storeArry}}'>
+          <image src='{{item.imgUrl}}'></image>
+          <text  onTap='storeItem' data-index='{{index}}' data-storeid='{{item.store_id}}' data-pid='{{item.pid}}' data-storename='{{item.store_name}}'>{{item.store_name}}</text>
+          <view class='set' onTap='merchantTab' data-index='{{index}}' hidden='{{!item.show1}}'>指定员工</view>
+
+          <view class='user_list' hidden='{{!item.show}}' style="text-align:left;">
+            <view a:for='{{merchantArry}}' onTap='merchantItem' data-index='{{index}}' data-merchantid='{{item.merchant_id}}' data-name='{{item.name}}' class='{{item.show2 ? "cur":""}}'>{{item.name}}</view>
+          </view> 
+          
+        </view>
+        
+      </view>
+    </view>
+    <view class='removeBox' style='display:{{showpay == 1? "none":"block"}}'>
+      <view>
+        <text class='left' style="padding-left:30rpx;" onTap='choiceCancel'>取消</text>
+          <text>支付方式</text>
+          <text class='right mask_color' onTap='paywaybtnSure'>确定</text>
+        </view>
+        <view class='mask_box paycon'>
+          <view class='mask_list' onTap="paywaysTap" data-index='1000' data-payname='全部状态' data-paystatus=''>
+            <image src='{{firstImg}}'></image>
+            <text data-storeid=''>全部方式</text>
+          </view>
+          <view class='mask_list' a:for="{{payways}}" onTap="paywaysTap" data-index='{{index}}' data-paystatus='{{item.status}}' data-payname='{{item.name}}'>
+            <image src='{{item.payUrl}}'></image>
+            <text data-storeid=''>{{item.name}}</text>
+          </view>
+          
+        </view>
+    </view>
+    <view class='removeBox' style='display:{{shows == 1? "none":"block"}}'>
+      <view>
+        <text class='left' style="padding-left:30rpx;" onTap='choiceCancel'>取消</text>
+          <text>筛选状态</text>
+          <text class='right mask_color' onTap='paybtnSure'>确定</text>
+        </view>
+        <view class='mask_box paycon'>
+          <view class='mask_list' onTap="paystatusTap" data-index='1000' data-paystatus=''>
+            <image src='{{firstImg}}'></image>
+            <text data-storeid=''>全部状态</text>
+          </view>
+          <view class='mask_list' a:for="{{searchstatus}}" onTap="paystatusTap" data-index='{{index}}' data-paystatus='{{item.status}}' data-payname='{{item.name}}'>
+            <image src='{{item.payUrl}}'></image>
+            <text data-storeid=''>{{item.name}}</text>
+          </view>
+          
+        </view>
+    </view>
+
+    <view class="briefing" style='display:{{showout == 1? "none":"block"}}'>
+      <view class='mask' style='height:100%'>
+        <view class='screencontents' style='width:100%;overflow:hidden;background:#fff;'>
+          <view class='outinput'>
+            <input type='text' placeholder='请输入订单号或扫描小票二维码' onInput='tradeTap' value='{{out_order_no}}'></input>
+            <image onTap='scanTap' src='../../img/saoyisao.png'></image>
+          </view>
+          <view class='outbtn {{color == 0 ? "":"tradecur"}}' onTap='outbind'>查询</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

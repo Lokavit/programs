@@ -1,0 +1,7 @@
+<picker onChange="onChangePicker" value="{{vIndex}}" range="{{items}}" range-key="{{rkey}}">
+  <view class="row">
+    <label>{{label}}</label>
+    <text>{{text}}</text>
+    <!-- <image src='../../img/zhishijiantou.png'></image> -->
+  </view>
+</picker>

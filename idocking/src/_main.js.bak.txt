@@ -1,0 +1,29 @@
+// 国际化用途过滤器. $t() 不支持过滤器转换，只能通过常规函数转换成字典映射，再给$t使用
+import {
+  strValueSelectShow,   // 解决值为string的select显示问题  @/components/FormMod/FormModItem.vue
+  shipCertStatusMap,    // 船舶证书状态变换  @/view/information/cert/index.vue
+  projectStatusMap,     // 项目的状态映射  @/view/project/page/components/TableView.vue
+  specStatusMap,        // views\quote\page\components\TableView.vue
+  selfRepairMap,        // 规格书-坞修项-自修 @/view/specification/overview/components/SpecTreeChild.vue
+  dockDetailItemTypeMap,// 规格书-坞修细节项类型 @/view/specification/overview/components/AddDockDetailItemModal.vue
+  currencyFormat,
+  timeFormat,
+  discountFormat,       // views\quote\overview\components\TableView.vue
+  noticeStatusMap,
+  flowTypeMap,          // views\settings\flow\index.vue
+  userStatusMap,        // views\settings\users\components\TableView.vue
+  staffAllotStatusMap,  // modals\StaffAllot\multiple.vue
+} from '@/filters'
+Vue.prototype.dockDetailItemTypeMap = dockDetailItemTypeMap
+Vue.prototype.strValueSelectShow = strValueSelectShow
+Vue.prototype.shipCertStatusMap = shipCertStatusMap
+Vue.prototype.projectStatusMap = projectStatusMap
+Vue.prototype.specStatusMap = specStatusMap
+Vue.prototype.selfRepairMap = selfRepairMap
+Vue.prototype.currencyFormat = currencyFormat
+Vue.prototype.timeFormat = timeFormat
+Vue.prototype.discountFormat = discountFormat
+Vue.prototype.noticeStatusMap = noticeStatusMap
+Vue.prototype.flowTypeMap = flowTypeMap
+Vue.prototype.userStatusMap = userStatusMap
+Vue.prototype.staffAllotStatusMap = staffAllotStatusMap

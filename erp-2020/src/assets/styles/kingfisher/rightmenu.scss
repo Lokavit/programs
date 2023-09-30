@@ -1,0 +1,27 @@
+/* 右键菜单样式 */
+
+.right-menu {
+    position: fixed;
+    background: #fff;
+    /* border: solid 1px rgba(0, 0, 0, .2); */
+    border-radius: 3px;
+    z-index: 999;
+    display: none;
+    box-shadow: 0 0.5em 1em 0 rgba(0, 0, 0, .1);
+    border-radius: 4px;
+
+    a {
+        width: auto;
+        line-height: 28px;
+        text-align: center;
+        display: block;
+        color: #1a1a1a;
+        padding: 0 10px;
+        text-decoration: none;
+    }
+
+    a:hover {
+        background: #05286A;
+        color: #fff;
+    }
+}

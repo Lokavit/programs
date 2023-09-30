@@ -1,0 +1,16 @@
+.tag-button {
+  padding: 0.625rem 1rem;
+  background: #ff8800;
+  border-radius: 1.375rem;
+  color: hsla(0, 100%, 100%, 1);
+  height: 2.5rem;
+}
+
+.tag-button-icon {
+  max-width: 1rem;
+  max-height: 1rem;
+}
+
+.active {
+  background: hsla(30, 100%, 55%, 1);
+}

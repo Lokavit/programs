@@ -1,0 +1,15 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/signin/signin",
+    "pages/signout/signout",
+    "pages/cashiermode/cashiermode",
+    "pages/setting/setting",
+    "pages/storebill/storebill",
+    "pages/customsearch/customsearch",
+    "pages/paydetail/paydetail",
+    "pages/storereport/storereport",
+    "pages/print/print",
+    "pages/pay/pay"
+  ]
+}

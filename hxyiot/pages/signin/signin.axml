@@ -1,0 +1,18 @@
+<!--<view style="padding-top: 1rem;"> -->
+<!-- 账号输入框 -->
+<view class="signin_form_item">
+  <image src="../../img/shouji.png"/>
+  <input type="number" maxlength='11' placeholder="请输入手机号" value='{{userPhone}}' onFocus="onFocus" onBlur="onBlur" onInput='getPhone' />
+</view>
+<!-- 密码输入框 -->
+<view class="signin_form_item">
+  <image src="../../img/mima.png"/>
+  <input password type="text" placeholder="请输入密码" value='{{userPwd}}' onFocus="onFocus" onBlur="onBlur" onInput='getPwd' style="display:{{!showPwd?'inline-block':'none'}}"/>
+  <input type="text" placeholder="请输入密码" value='{{userPwd}}' onFocus="onFocus" onBlur="onBlur" onInput='getPwd' style="display:{{showPwd?'inline-block':'none'}}"/>
+  <image src="{{showPwd?`../../img/look.png`:`../../img/unlook.png`}}" onTap="onshowpwd"/>
+</view>
+<!-- 登入按钮 -->
+<button type="primary" class="btn_signin" onTap='onSignin' disabled="{{isDisabled}}">登入</button>
+<!-- 底部所需信息 show的boolen值表示，当键盘被唤起时，隐藏；非键盘唤起时，显示 -->
+<system-info show="{{showFooter}}" banner="{{isvBanner}}" phone="{{isvPhone}}"></system-info>
+<!--</view> -->

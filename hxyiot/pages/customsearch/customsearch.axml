@@ -1,0 +1,27 @@
+<view >
+  <view>
+    <!-- 指定门店 -->
+    <picker-item label="指定门店：" onChangePicker="onChangeStore" vIndex="{{storeNameIndex}}" items="{{storeList}}" rkey="store_name" text="{{storeList?storeList[storeNameIndex].store_name:`全部门店`}}"></picker-item>
+    <!-- 指定店员 -->
+    <picker-item label="指定店员：" onChangePicker="onChangeEmployee" vIndex="{{storeEmployeeIndex}}" items="{{storeEmployeeList}}" rkey="name" text="{{storeEmployeeList?storeEmployeeList[storeEmployeeIndex].name:`全部店员`}}"></picker-item>
+    <!-- 指定订单状态 -->
+    <picker-item label="订单状态：" onChangePicker="onChangeOrderStatus" vIndex="{{orderStatusIndex}}" items="{{orderStatus}}" rkey="desc" text="{{orderStatus?orderStatus[orderStatusIndex].desc:`全部状态`}}"></picker-item>
+    <view class="row_time" onTap="onStartDateTime">
+      <label>开始时间：</label>
+      <text>{{startDateTime}}</text>
+    </view>
+    <view class="row_time" onTap="onEndDateTime">
+      <label>结束时间：</label>
+      <text>{{endDateTime}}</text>
+    </view>
+    <button type="primary" onTap='onSearch' >查询</button>
+  </view>
+  <!-- 查询结果展示区域 交易统计 -->
+  <view style='display:{{tradeStatistics? "block":"none"}};background-color:#FFF;'>
+    <trade-statistics tradeStatisticsInfo="{{tradeStatistics}}"></trade-statistics>
+  </view>
+  <!-- 查询结果展示区域 每笔交易概览 -->
+  <scroll-view scroll-y="{{true}}" style="display:{{orderList? 'block':'none'}};height:80vh;">
+    <order-list orderList="{{orderList}}"></order-list>
+  </scroll-view>
+</view>

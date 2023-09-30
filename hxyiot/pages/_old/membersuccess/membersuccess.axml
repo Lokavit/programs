@@ -1,0 +1,38 @@
+<view class="page">
+  <image style="" src="{{logo}}" />
+  <view class="success">{{ways_source_desc}}</view>
+  <view class="paymoney"><text>￥</text>{{payMoney}}</view>
+  
+  <view class="daojishi" onTap="daojishiTap">
+    <image  src="../../img/guanbi.png" />
+    <text>{{miao}}</text>s
+  </view>
+
+  <view class="box">
+    <view class="item">
+      <label>付款方式</label>
+      <text>会员支付</text>
+    </view>
+    <!-- <view class="item fontcolor">
+      <label>积分抵扣</label>
+      <text>-{{end_dk_money}}</text>
+    </view> -->
+    <view class="item">
+      <label>会员名称</label>
+      <text>{{mb_name}}</text>
+    </view>
+    <view class="item">
+      <label>会员账号</label>
+      <text>{{mb_phone}}</text>
+    </view>
+    <view class="item">
+      <label>订单号</label>
+      <text>{{out_trade_no}}</text>
+    </view>
+    <view class="item">
+      <label>订单时间</label>
+      <text>{{pay_time}}</text>
+    </view>
+    
+  </view>
+</view>

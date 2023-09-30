@@ -1,0 +1,270 @@
+<view>
+  <view class='top index_top'>
+    <view onTap='totalStore'>
+      {{totalstorecon}}
+      <view class='down'>
+        <text></text></view>
+    </view>
+    <view class="jianbao_box">
+      <view class="{{tabArr.curHdIndex=='1'? 'jytabcur' : ''}}" id="1" data-id="1" onTap="tab">日报</view>
+      <view class="{{tabArr.curHdIndex=='2'? 'jytabcur' : ''}}" id="2" data-id="2" onTap="tab">周报</view>
+      <view class="{{tabArr.curHdIndex=='3'? 'jytabcur' : ''}}" id="3" data-id="3" onTap="tab">月报</view>
+      <view class="{{tabArr.curHdIndex=='4'? 'jytabcur' : ''}}" id="4" data-id="4" onTap="tab">自定义</view>
+    </view>
+  </view>
+  <!-- 经营日报 -->
+  <view class="briefing {{tabboxArr.curJBIndex=='1'? 'jbnone' : ''}}" id="1">
+    <view class='time'>
+      <view onTap="datePickerRItime">
+        {{RItime}}
+        <image src='../../img/rili.png'></image>
+      </view>
+    </view>
+  </view>
+  <!-- 经营周报 -->
+  <view class="briefing {{tabboxArr.curJBIndex=='2'? 'jbnone' : ''}}" id="2">
+    <view class='time'>
+      <view onTap="datePickerWeektime">
+        {{weektime}}
+        <image src='../../img/rili.png'></image>
+      </view>
+    </view>
+  </view>
+  <!-- 经营月报 -->
+  <view class="briefing {{tabboxArr.curJBIndex=='3'? 'jbnone' : ''}}" id="3">
+    <view class='time'>
+      <view onTap="datePickerYuetime">
+        {{Yuetime}}
+        <image src='../../img/rili.png'></image>
+      </view>
+    </view>
+  </view>
+  <!-- 自定义 -->
+  <view class="briefing {{tabboxArr.curJBIndex=='4'? 'jbnone' : ''}}" id="4">
+    <view class="screen" onTap="screenTap">筛选条件
+      <view class='down'>
+        <text></text></view></view>
+  </view>
+  <!-- 商家收款详情************************************** -->
+  <view style='font-size:28rpx;color:#949494;text-align:center;margin:{{margin==0?"400rpx 0 50rpx 0":"80rpx 0 50rpx 0"}}'>商家实收</view>
+  <view style="font-size:68rpx;color:#333;text-align:center;">{{getamount}}</view>
+  <view class='tongji'>
+    <view>
+      <text>交易金额</text>
+      <text>{{totalamount}}</text>
+    </view>
+    <view>
+      <text>退款金额</text>
+      <text>{{refundamount}}</text>
+    </view>
+  </view>
+  <view class='tongji'>
+    <view>
+      <text>交易笔数</text>
+      <text>{{totalcount}}</text>
+    </view>
+    <view>
+      <text>退款笔数</text>
+      <text>{{refundcount}}</text>
+    </view>
+  </view>
+  <view class='tips'>
+    <image src="../../img/zhushi.png"></image> 商家实收=交易金额-退款金额
+  </view>
+  <view class='account_box'>
+    <view class='account_title'>
+      <label class='shutiao'></label>支付方式统计
+    </view>
+    <view class='account_con'>
+      <view class='account_con_title'>
+        <image src='../../img/jb_zhifubao.png'></image>支付宝支付
+      </view>
+      <view class='account_con_jine'>
+        <view>
+          <text>交易金额/笔数</text>
+          <text>{{alipay_totalamount}}/{{alipay_totalcount}}</text>
+        </view>
+        <view>
+          <text>退款金额/笔数</text>
+          <text>{{alipay_refundamount}}/{{alipay_refundcount}}</text>
+        </view>
+        <view>
+          <text>商家实收</text>
+          <text>{{alipay_getamount}}</text>
+        </view>
+      </view>
+      <!--<view class='account_con_jine'><view><text>实收笔数</text><text>{{alipay_totalcount}}</text></view><view><text>结算手续费</text><text>{{alipay_feeamount}}</text></view><view><text>实际净额</text><text>{{alipay_receiptamount}}</text></view></view> -->
+    </view>
+    <view class='account_con'>
+      <view class='account_con_title'>
+        <image src='../../img/weixinzhifu.png'></image>微信支付
+      </view>
+      <view class='account_con_jine'>
+        <view>
+          <text>交易金额/笔数</text>
+          <text>{{weixin_totalamount}}/{{weixin_totalcount}}</text>
+        </view>
+        <view>
+          <text>退款金额/笔数</text>
+          <text>{{weixin_refundamount}}/{{weixin_refundcount}}</text>
+        </view>
+        <view>
+          <text>商家实收</text>
+          <text>{{weixin_getamount}}</text>
+        </view>
+      </view>
+      <!--<view class='account_con_jine'><view><text>实收笔数</text><text>{{weixin_totalcount}}</text></view><view><text>结算手续费</text><text>{{weixin_feeamount}}</text></view><view><text>实际净额</text><text>{{weixin_receiptamount}}</text></view></view> -->
+    </view>
+    <view class='account_con'>
+      <view class='account_con_title'>
+        <image src='../../img/jindongzhifu.png'></image>京东支付
+      </view>
+      <view class='account_con_jine'>
+        <view>
+          <text>交易金额/笔数</text>
+          <text>{{jd_totalamount}}/{{jd_totalcount}}</text>
+        </view>
+        <view>
+          <text>退款金额/笔数</text>
+          <text>{{jd_refundamount}}/{{jd_refundcount}}</text>
+        </view>
+        <view>
+          <text>商家实收</text>
+          <text>{{jd_getamount}}</text>
+        </view>
+      </view>
+      <!--<view class='account_con_jine'><view><text>实收笔数</text><text>{{jd_totalcount}}</text></view><view><text>结算手续费</text><text>{{jd_feeamount}}</text></view><view><text>实际净额</text><text>{{jd_receiptamount}}</text></view></view> -->
+    </view>
+    <view class='account_con'>
+      <view class='account_con_title'>
+        <image src='../../img/yunshanfu.png'></image>云闪付
+      </view>
+      <view class='account_con_jine'>
+        <view>
+          <text>交易金额/笔数</text>
+          <text>{{unqr_totalamount}}/{{unqr_totalcount}}</text>
+        </view>
+        <view>
+          <text>退款金额/笔数</text>
+          <text>{{unqr_refundamount}}/{{unqr_refundcount}}</text>
+        </view>
+        <view>
+          <text>商家实收</text>
+          <text>{{unqr_getamount}}</text>
+        </view>
+      </view>
+      <!--<view class='account_con_jine'><view><text>实收笔数</text><text>{{unqr_totalcount}}</text></view><view><text>结算手续费</text><text>{{unqr_feeamount}}</text></view><view><text>实际净额</text><text>{{unqr_receiptamount}}</text></view></view> -->
+    </view>
+    <view class='account_con'>
+      <view class='account_con_title'>
+        <image src='../../img/vip-zhifu-jianbao.png'></image>会员卡支付
+      </view>
+      <view class='account_con_jine'>
+        <view>
+          <text>交易金额/笔数</text>
+          <text>{{huiyuan_totalamount}}/{{huiyuan_totalcount}}</text>
+        </view>
+        <view>
+          <text>退款金额/笔数</text>
+          <text>{{huiyuan_refundamount}}/{{huiyuan_refundcount}}</text>
+        </view>
+        <view>
+          <text>商家实收</text>
+          <text>{{huiyuan_getamount}}</text>
+        </view>
+      </view>
+      <!--<view class='account_con_jine'><view><text>实收笔数</text><text>{{huiyuan_totalcount}}</text></view><view><text>积分抵扣</text><text>{{huiyuan_feeamount}}</text></view><view><text>实际净额</text><text>{{huiyuan_receiptamount}}</text></view></view> -->
+    </view>
+    <!--<view class='account_con'><view class='account_con_title'><image src='../../img/ylzf.png'></image>刷卡支付</view><view class='account_con_jine'><view><text>交易金额/笔数</text><text>{{un_totalamount}}/{{un_totalcount}}</text></view><view><text>退款金额/笔数</text><text>{{un_refundamount}}/{{un_refundcount}}</text></view><view><text>商家实收</text><text>{{un_getamount}}</text></view></view> -->
+    <!--<view class='account_con_jine'><view><text>实收笔数</text><text>{{un_totalcount}}</text></view><view><text>结算手续费</text><text>{{un_feeamount}}</text></view><view><text>实际净额</text><text>{{un_receiptamount}}</text></view></view> -->
+    <!--</view> -->
+    <!--<view class='account_con'><view class='account_con_title'><image src='../../img/huabei-icon.png'></image>花呗支付</view><view class='account_con_jine'><view><text>交易金额/笔数</text><text>{{hbfq_totalamount}}/{{hbfq_totalcount}}</text></view><view><text>退款金额/笔数</text><text>{{hbfq_refundamount}}/{{hbfq_refundcount}}</text></view><view><text>商家实收</text><text>{{hbfq_getamount}}</text></view></view> -->
+    <!--<view class='account_con_jine'><view><text>实收笔数</text><text>{{hbfq_totalcount}}</text></view><view><text>结算手续费</text><text>{{hbfq_feeamount}}</text></view><view><text>实际净额</text><text>{{hbfq_receiptamount}}</text></view></view> -->
+    <!--</view> -->
+  </view>
+  <view class='print' onTap='printTap'>打印账单</view>
+  <!-- 遮罩*************************** -->
+  <view class='mask' style='display:{{mask == 1? "none":"block"}};margin-top:{{top==1?"":"220rpx"}}'>
+    <view class='removeBox' style='display:{{show == 1? "none":"block"}}'>
+      <view class='mask_title'>
+        <text class='left' style="padding-left:30rpx;" onTap='choiceCancel'>取消</text>
+        <text>筛选门店</text>
+        <text class='right mask_color' onTap='btnSure'>确定</text>
+      </view>
+      <view class='mask_con'>
+        <view class='mask_box'>
+          <view class='mask_list'>
+            <image src='{{firstImg}}'></image>
+            <view onTap='storeItem' data-index='10000' data-storeid=''>全部门店</view>
+          </view>
+          <view class='mask_list' a:for='{{storeArry}}'>
+            <image src='{{item.imgUrl}}'></image>
+            <view onTap='storeItem' data-index='{{index}}' data-storeid='{{item.store_id}}' data-pid='{{item.pid}}' data-storename='{{item.store_name}}'>{{item.store_name}}</view>
+            <view class='set' onTap='merchantTab' data-index='{{index}}' hidden='{{!item.show1}}'>指定员工</view>
+            <view class='user_list' hidden='{{!item.show}}' style="text-align:left;">
+              <view a:for='{{merchantArry}}' onTap='merchantItem' data-index='{{index}}' data-merchantid='{{item.merchant_id}}' class='{{item.show2 ? "jycur":""}}' data-name='{{item.name}}'>{{item.name}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='removeBox' style='display:{{showweek == 1? "none":"block"}}; height:520rpx;'>
+      <view class='mask_title'>
+        <text class='left' style="padding-left:30rpx;" onTap='choiceCancel'>取消</text>
+        <text></text>
+        <text class='right mask_color' onTap='btnSurecom'>确定</text>
+      </view>
+      <view class='mask_con'>
+        <view a:for="{{array}}" class="dataitem" onTap="weekTap" data-index="{{index}}">
+          {{item}}
+        </view>
+      </view>
+    </view>
+    <view class='removeBox' style='display:{{showyue == 1? "none":"block"}}; height:420rpx;'>
+      <view class='mask_title'>
+        <text class='left' style="padding-left:30rpx;" onTap='choiceCancel'>取消</text>
+        <text></text>
+        <text class='right mask_color' onTap='btnSurecom'>确定</text>
+      </view>
+      <view class='mask_con'>
+        <view a:for="{{array2}}" class="dataitem" onTap="yueTap" data-index="{{index}}">
+          {{item}}
+        </view>
+      </view>
+    </view>
+    <view class='removeBox screen_con' style='display:{{showscreen == 1? "none":"block"}};width:750.4rpx; height:500rpx;'>
+      <view class='mask_con' style="border-bottom:none;">
+        <view class="screen_title">交易时间</view>
+        <view class="screen_time">
+          <view class='time zdy' style='margin:60rpx 0 0 30rpx;'>
+            <view onTap="datezidingyistart">
+              {{start_time_zdy}}
+              <image src='../../img/rili.png'></image>
+            </view>
+          </view>
+          <text style='margin:0rpx 20rpx -20rpx 20rpx'>-</text>
+          <view class='time zdy' style='margin:60rpx 0 0 0rpx;'>
+            <view onTap="datezidingyiend">
+              {{end_time_zdy}}
+              <image src='../../img/rili.png'></image>
+            </view>
+          </view>
+        </view>
+        <view class="screen_title">单笔交易金额（元）</view>
+        <view class="screen_time">
+          <view class='time zdy' style='margin:60rpx 0 0 30rpx;'>
+            <input placeholder="最低金额" value="{{dijine}}" onInput="dijineInput" />
+          </view>
+          <text>-</text>
+          <view class='time zdy' style='margin:60rpx 0 0 0rpx;'>
+            <input placeholder="最高金额" value="{{gaojine}}" onInput="gaojineInput"/>
+          </view>
+        </view>
+        <view class="screen_bottom">
+          <text class='left' style="" onTap='chongzhi'>重置</text>
+          <text class='right mask_color' onTap='btnSureScreen'>确定</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

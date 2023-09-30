@@ -1,0 +1,27 @@
+{
+  "name": "pro-blocks",
+  "version": "0.1.0",
+  "description": "Kid-Pro Blocks is a library for building creative computing interfaces.",
+  "author": "Satya",
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/Lokavit/kid-pro#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Lokavit/kid-pro.git"
+  },
+  "main": "./dist/vertical.js",
+  "browser": "./shim/vertical.js",
+  "scripts": {
+    "prepublish": "python build.py && webpack --colors --bail"
+  },
+  "dependencies": {
+    "exports-loader": "0.6.3",
+    "imports-loader": "0.6.5"
+  },
+  "devDependencies": {
+    "google-closure-compiler": "20180402.0.0",
+    "google-closure-library": "20180204.0.0",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12"
+  }
+}

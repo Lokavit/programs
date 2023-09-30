@@ -1,0 +1,46 @@
+<view>
+  <view class='section shoukuan'>
+    <view>商家实收</view>
+    <view>￥<text>{{totalAmount}}</text></view>
+    <view>{{item16}}</view>
+  </view>
+  <view class='section'>
+    <view onTap='openA' class='title'>账单明细
+      <view class='{{showAccount == 0?"up":"down"}}'><text></text></view>
+    </view>
+    <view class="con" style='display:{{show1 == 0 ? "none":"block"}}'>
+      <view>付款方式<text class='right'>{{item1}}</text></view>
+      <view>商品金额<text class='right'>{{item2}}元</text></view>
+      <view>分期期数<text class='right'>{{item3}}</text></view>
+      <view>服务费用<text class='right'>{{item4}}元</text></view> 
+      <view>服务费承担方<text class='right'>{{item5}}</text></view> 
+      <view>结算费用<text class='right'>{{item6}}元</text></view> 
+      <view>实际净额<text class='right'>{{item7}}元</text></view> 
+    </view> 
+  </view>
+  <view class='section'>
+    <view onTap='openD' class='title'>其他信息
+      <view class='{{showOther == 1?"up":"down"}}'><text></text></view>
+    </view>
+    <view class="con" style='display:{{show2 == 1 ? "none":"block"}}'>
+      <view>收款门店<text class='right'>{{item8}}</text></view>
+      <view>收款员工<text class='right'>{{item9}}</text></view>
+      <view>交易时间<text class='right'>{{item10}}</text></view>
+      <view>订单号<text class='right'>{{item11}}</text></view> 
+      <view>订单状态<text class='right'>{{item12}}</text></view> 
+      <view>买家姓名<text class='right'>{{item13}}</text></view> 
+      <view>联系电话<text class='right'>{{item14}}</text></view> 
+      <view>商品信息<text class='right'>{{item15}}</text></view> 
+    </view> 
+  </view>
+
+  <view class="bottom">
+    <view onTap="tuikuan" class="{{hui}}">退 款</view>
+    <view onTap="dayin">打印小票</view>
+  </view>
+</view>
+
+
+
+
+

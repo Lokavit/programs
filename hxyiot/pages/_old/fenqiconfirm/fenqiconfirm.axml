@@ -1,0 +1,31 @@
+<view>
+  <view class="top">
+    <image src="../../img/huabei-icon.png"/>
+    <view>支付金额</view>
+    <view><image src="../../img/qian.png"/>{{paymoney}}</view>
+  </view>
+  <view class="qishu">
+    <view>
+      <label>商品金额：</label>
+      <text>{{shopmoney}}元</text>
+    </view>
+    <view>
+      <label>分期期数：</label>
+      <text>{{qishu}}期</text>
+    </view>
+    <view>
+      <label>每期还款：</label>
+      <text>{{huankuan}}元</text>
+    </view>
+    <view>
+      <label>服务费承担方：</label>
+      <text>{{bear}}</text>
+    </view>
+    <view>
+      <label>支付金额：</label>
+      <text>{{paymoney}}元</text>
+    </view>
+    <view class="clear"></view>
+  </view>
+  <view class="btn bgcolor" onTap="paybutton">去支付</view>
+</view>

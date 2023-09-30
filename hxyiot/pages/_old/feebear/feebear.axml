@@ -1,0 +1,14 @@
+<view>
+  <view onTap="maiBearTapa" data-fear="0">
+    <view class="whiteBj">
+      <text>买家承担</text><image mode="scaleToFill" src="{{maia}}"/>
+    </view>
+    <view class="tip">收银员请按“0”，选择买家承担</view>
+  </view>
+  <view onTap="maiBearTapb" data-fear="100">
+    <view class="whiteBj">
+      <text>卖家承担</text><image mode="scaleToFill" src="{{maib}}"/>
+    </view>
+    <view class="tip">收银员请按“1”，选择卖家承担</view>
+  </view>
+</view>

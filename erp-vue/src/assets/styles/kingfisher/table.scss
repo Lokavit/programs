@@ -1,0 +1,120 @@
+/* el-table 样式覆写 */
+
+/* el-table在加了border之后，使用滚动，会出先多一个th
+    将其背景色设置为与表头背景同个颜色 */
+.el-table--border th.gutter:last-of-type {
+    background-color: #DDE0E6;
+}
+
+/* 因 el-table在加了border之后，使用滚动，会出先多一个th
+    table 表头倒数第二个th, 右侧边框去掉 达到隐藏掉最后一个th的问题 */
+.el-table--border th:nth-last-child(2) {
+    border-right: none;
+}
+
+/* el-table滚动条有滑道，左侧会有border，
+        通过设置每行最后一个td的右border，来达到隐藏线的效果 */
+.el-table--border th,
+.el-table--border td:last-child {
+    border-right: none;
+}
+
+
+/* el-table 在加了footer[总计]之后，多余的th
+     */
+.el-table__footer th.gutter:last-of-type {
+    background-color: #F5F7FA;
+}
+
+/* 因 el-table在加了border之后，使用滚动，会出先多一个th
+    table 表头倒数第二个td, 右侧边框去掉 达到隐藏掉最后一个th的问题 */
+.el-table__footer td:nth-last-child(2) {
+    border-right: none;
+}
+
+// .el-table__footer-wrapper {
+//     height: 30px;
+// }
+
+
+// .el-table th.gutter {
+//     display: table-cell !important;
+// }
+// .el-table colgroup.gutter{
+//     display: table-cell!important;
+// }
+
+/* 选中的行 样式 */
+.edit_table {
+    color: #6A7483;
+
+    /* 覆盖 td下 div的内边距设置 */
+    td>.cell {
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: normal;
+        word-break: break-all;
+        line-height: 23px;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    small>div .el-input__inner {
+        padding-left: 18px !important;
+        padding-right: 0 !important;
+    }
+
+    small>div>span {
+        background: grey;
+        display: none;
+    }
+
+    /*  */
+    .el-input--prefix .el-input--suffix {
+        display: none;
+    }
+}
+
+.edit_table>td {
+    height: 30px;
+
+}
+
+/* 编辑状态下 最后一个td 其div下的第一个 button 隐藏，即隐藏编辑按钮 */
+.edit_table>td:nth-last-child(1)>div>button:first-child {
+    display: none;
+}
+
+/* 编辑状态下 最后一个td 其div下的最后一个 button 外左边距改变 ，即保存按钮 */
+.edit_table>td:nth-last-child(1)>div>button:last-child {
+    margin-left: 16px !important;
+}
+
+/* 给编辑状态下的行，添加该class ，并且设置其最后一个[span]元素为none
+   因td中组件有可能带有span元素[如数字输入的按钮],所以此处用最后一个span元素 */
+.edit_table>td div span:nth-last-child(1) {
+    display: none;
+}
+
+/* 非选中行的样式 */
+.show_table {
+    color: #6A7483;
+    // display: none;
+}
+
+/* 需要 div 的  子元素  使用一个极偏的元素标签代替 
+   此处[small]标签非原本意义 而是作为[el-table]每个可编辑单元格
+   编辑时的组件包裹器  */
+.show_table>td div small {
+    // background-color: chartreuse;
+    display: none;
+    /* 非编辑下，单元格中可编辑组件设为 none */
+
+}
+
+/* 展示状态下 最后一个td 其div下的最后一个 button 隐藏，即隐藏保存按钮 */
+.show_table>td:nth-last-child(1)>div>button:last-child {
+    display: none;
+}

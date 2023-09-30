@@ -1,0 +1,45 @@
+.modal-panel{
+    width: 430px;
+    box-shadow: 0 0 20px 5px rgba(0, 0, 0, .24);
+}
+.overlay{
+    background-color: rgba(0, 0, 0, 0.52);
+}
+.modal-content{
+    height: 400px;
+    transition: height .4s;
+    background: white;
+    display: flex;
+    flex-direction: column ;
+}
+.pubBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    margin: 0 10px;
+    height: 36px;
+    color: white;
+    background-color: rgb(255, 102, 0);
+    line-height: 36px;
+    border: 1px solid #d45500;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.pubBtn svg {
+    margin-right: 5px
+}
+.baglist {
+    flex: 1;
+    overflow: auto;
+    padding: 5px;
+}
+.bag {
+    padding: 6px 5px;
+    display: flex  ;
+    align-items: center ;
+    cursor: pointer;
+}
+.bag svg{
+    margin-right: 5px;
+}

@@ -1,0 +1,1663 @@
+/*
+ * @Author: Satya 
+ * @Date: 2020-08-20 17:27:16 
+ * @Last Modified by: Satya
+ * @Last Modified time: 2020-12-24 10:29:26
+ * doc: 
+    css 变量定义
+    整合原版项目的样式，逐渐替换掉react写法
+ */
+
+/** css 变量  */
+:root {
+  /** 基准字号  */
+  /* (62.5/100) _ 16px = 10px */
+  /* font-size: 62.5%; */
+  /* --font-size--small: 1.4rem; /* 14px */
+  /* --font-size--default: 1.6rem; /* 16px */
+  /* --font-size--large: 2.4rem; /* 24px */
+  /* font-size: clamp(0.6rem, 1rem, 2.5rem); */
+  /* font-size: calc(1rem + 0.5vw); */
+
+  --main-primary: #ff8800;
+  --ui-primary: hsla(215, 100%, 95%, 1); /* #E5F0FF */
+
+  /* loading 动画所需 */
+  /* --midnight-green-eagle-green: hsla(188, 56%, 23%, 1); */
+  --medium-turquoise: hsla(176, 56%, 55%, 1);
+  /* --mint-cream: hsla(120, 100%, 98%, 1); */
+  --bittersweet: hsla(0, 100%, 71%, 1);
+  --naples-yellow: hsla(50, 100%, 71%, 1);
+  --dur: 30s;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 16px;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  overflow: hidden;
+}
+
+/* 全局所有滚动条样式 */
+/*定义滚动条高宽及背景
+   高宽分别对应横竖滚动条的尺寸*/
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  background-color: #f5f5f5;
+}
+
+/*定义滑块 内阴影+圆角*/
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.12);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+/* 通用的显隐设置，使用display属性 */
+.common_is_show {
+  display: block;
+}
+.common_is_hide {
+  display: none;
+}
+
+/* mask 遮罩，可以给多个浮层使用 */
+.common_mask {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  color: #4c4c4c;
+  background: #212326;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  opacity: 0.6;
+  z-index: 198;
+}
+
+/* a => btn */
+.a_to_btn {
+  text-decoration: none;
+  color: white;
+}
+
+/* 全遮罩加载动画 */
+.loading {
+  z-index: 999;
+  width: 100vw;
+  height: 100vh;
+  padding: 1rem 3rem;
+  text-align: center;
+  background-color: #ff8800;
+}
+/* 全遮罩加载动画 小羊动画 */
+.loading > img {
+  position: relative;
+  /* 小羊溜达动画在页面上的位置 */
+  animation: logomove 5s;
+  animation-fill-mode: forwards;
+}
+
+/* 全遮罩加载动画 文字动画 */
+.loading > h2 {
+  position: absolute;
+  left: 0;
+  right: 0;
+  animation: bouncing 1.5s linear infinite alternate;
+}
+.loading > h2 {
+  font-family: "Raleway", sans-serif;
+  font-weight: 900;
+  font-size: 4rem;
+  color: hsla(120, 100%, 98%, 1);
+  text-shadow: 0px 2px 1px hsla(188, 56%, 23%, 1);
+  text-align: center;
+  margin-top: 1.25em;
+}
+
+@keyframes bouncing {
+  50% {
+    transform: translateY(20%);
+  }
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes logomove {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(500px);
+  }
+}
+
+/* header 页首 使用固定定位 */
+.header {
+  height: 3rem;
+  max-height: 5rem;
+  line-height: 3rem;
+  width: 100vw;
+  padding: 0 1rem;
+  z-index: 9;
+  color: #f5f5f5;
+  font-weight: 700;
+  background-color: #ff8c1a;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* 左侧LOGO */
+.kid_logo {
+  flex: none;
+}
+.kid_logo > a > img {
+  height: 3rem;
+}
+
+/* header 导航 */
+.header > nav {
+  flex: auto;
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 9rem;
+}
+.header > nav > div {
+  flex: none;
+  min-width: 5rem;
+  text-align: center;
+  margin-right: 0.7rem;
+  position: relative;
+}
+.header > nav > div:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.24);
+}
+
+/* nav所有子项 ul元素标签 */
+.header > nav > div > ul {
+  position: absolute;
+  border: 1px solid hsla(0, 0%, 0%, 0.15);
+  border-radius: 0 0 0.6rem 0.6rem;
+  background-color: #ff8800;
+  overflow: visible;
+  color: hsla(0, 100%, 100%, 1);
+  box-shadow: 0 8px 8px 0 hsla(0, 0%, 0%, 0.15);
+  z-index: 99;
+}
+.header > nav > div > ul:hover {
+  cursor: pointer;
+}
+.header > nav > div > ul > li {
+  background-color: #ff8800;
+  list-style: none;
+  font-size: 0.6rem;
+  line-height: 3;
+  width: 5rem;
+}
+.header > nav > div > ul > li:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.24);
+}
+.header > nav > div > ul > li:last-child {
+  border-radius: 0 0 0.6rem 0.6rem;
+}
+
+/* 登入按钮 */
+.header > nav > .btn_sign {
+  position: absolute;
+  right: 1rem;
+}
+.header > nav > .account {
+  position: absolute;
+  right: 1rem;
+  line-height: 3rem;
+}
+.header > nav > .account > img {
+  width: 1rem;
+  height: 1rem;
+  margin: 0 0.7rem;
+}
+
+/* nav最后一个元素作为 右侧登入按钮 */
+/* .header > nav > div:last-child {
+  position: absolute;
+  right: 1rem;
+} */
+
+/* 登入窗体浮层容器 */
+.sign_warpper {
+  background: hsla(0, 100%, 100%, 1);
+  /* padding: 1rem; */
+  z-index: 199;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  width: auto;
+  height: auto;
+  background-color: hsla(0, 100%, 100%, 1);
+  margin: 9rem 15rem;
+  border-radius: 1rem;
+  text-align: center;
+}
+.sign_warpper > header {
+  color: #d45500;
+  font-size: 1.5rem;
+  padding: 0rem 1rem;
+  background-image: url(https://i.loli.net/2020/07/29/vCoweN1RHd8M4GF.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 55%;
+  position: relative;
+}
+.sign_warpper > header > span {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  display: block;
+  width: 3rem;
+  height: 3rem;
+  font-size: x-large;
+  transform: scale(0.9);
+}
+.sign_warpper > header > span:hover {
+  cursor: pointer;
+  transform: scale(1);
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.24);
+}
+.sign_warpper > main {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.sign_warpper > main > div {
+  margin: 1rem;
+}
+.sign_warpper > button {
+  width: 9rem;
+  height: 3rem;
+  color: white;
+  background-color: hsla(38, 100%, 55%, 1);
+  line-height: 36px;
+  border: 1px solid #d45500;
+  border-radius: 4px;
+  margin: 1.5rem;
+}
+.sign_warpper > button:hover {
+  cursor: pointer;
+  background-color: hsla(38, 100%, 55%, 0.5);
+}
+
+/* main 主体 */
+.main {
+  width: 100vw;
+  height: calc(100vh - 3rem);
+  background-color: hsla(215, 100%, 95%, 0.5);
+  display: flex;
+  flex-direction: row;
+  overflow-y: hidden;
+  z-index: 96;
+  position: absolute;
+  top: 3rem;
+}
+/* 主体 左 */
+.main > .main_flex_left {
+  flex: auto;
+  /* 相对 用于扩展库按钮 */
+  position: relative;
+  background-color: #2487ff64;
+}
+/* 主体 中 */
+.main > .main_flex_center {
+  position: relative;
+  text-align: center;
+  width: 8rem;
+  background-color: #8cbc1372;
+  padding: 0.5rem 0.3rem;
+}
+
+/* 主体 中间 第一个元素作为扩展按钮 (居顶居底可调) */
+.main > .main_flex_center > div:first-child {
+  height: 2rem;
+  background: center / contain no-repeat
+      url(https://kid.leadersir.net/kid/icon_add_costume.svg),
+    #ff8800;
+  position: relative;
+  cursor: pointer;
+  padding: 0 1rem;
+  border-radius: 1rem;
+}
+
+/* nav所有子项 ul元素标签 */
+.main > .main_flex_center > div:first-child > ul {
+  position: absolute;
+  /* border: 1px solid hsla(0, 0%, 0%, 0.15); */
+  border-radius: 0 0 0.6rem 0.6rem;
+  background-color: #ff8800;
+  overflow: visible;
+  color: hsla(0, 100%, 100%, 1);
+  /* box-shadow: 0 8px 8px 0 hsla(0, 0%, 0%, 0.15); */
+  z-index: 99;
+  top: 2rem;
+}
+.main > .main_flex_center > div:first-child > ul:hover {
+  cursor: pointer;
+}
+.main > .main_flex_center > div:first-child > ul > li {
+  background-color: #ff8800;
+  list-style: none;
+  font-size: 0.6rem;
+  line-height: 3;
+  width: 5rem;
+}
+.main > .main_flex_center > div:first-child > ul > li:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.24);
+}
+.main > .main_flex_center > div:first-child > ul > li:last-child {
+  border-radius: 0 0 0.6rem 0.6rem;
+}
+/* 元素列表 含背景及其他元素 */
+.main > .main_flex_center > div:last-child {
+  padding: 0.5rem 0;
+}
+/* 元素列表 之 背景 */
+.main > .main_flex_center > div:last-child > .material_backdrop {
+  background-color: hsla(215, 50%, 90%, 0.7);
+}
+.main > .main_flex_center > div:last-child > .material_backdrop > section {
+  height: 5rem;
+  border: 1px solid hsla(215, 100%, 95%, 0.5);
+  position: relative;
+}
+/* 第一个元素用作图像展示 */
+.main
+  > .main_flex_center
+  > div:last-child
+  > .material_backdrop
+  > section
+  > div:first-child {
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100%;
+  background-size: cover;
+}
+/* 元素名称 */
+.material_name {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-size: 0.6rem;
+  background-color: hsla(38, 100%, 55%, 0.6);
+}
+
+/* 元素列表 之 非背景元素列表 */
+.main > .main_flex_center > div:last-child > .material_list_warpper {
+  height: calc(100vh - 3rem - 3rem - 6rem);
+  width: auto;
+  margin-top: 0.5rem;
+  overflow-y: scroll;
+}
+/* 元素列表 之 非背景元素列表 */
+.main
+  > .main_flex_center
+  > div:last-child
+  > .material_list_warpper::-webkit-scrollbar {
+  /* width: 6px;
+  height: 6px;
+  background-color: #f5f5f5; */
+  width: 0;
+  height: 0;
+  background-color: rgba(0, 0, 0, 0);
+}
+/*定义滑块 内阴影+圆角*/
+.main
+  > .main_flex_center
+  > div:last-child
+  > .material_list_warpper::-webkit-scrollbar-thumb {
+  border-radius: 0;
+  background-color: rgba(0, 0, 0, 0);
+  /* box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3); */
+}
+
+.main
+  > .main_flex_center
+  > div:last-child
+  > .material_list_warpper
+  > .material_list
+  > section {
+  height: 5rem;
+  border: 1px solid hsla(182, 77%, 41%, 0.5);
+  position: relative;
+  margin-top: 0.3rem;
+  background-color: aliceblue;
+}
+
+/* 第一个元素用作图像展示 */
+.main
+  > .main_flex_center
+  > div:last-child
+  > .material_list_warpper
+  > .material_list
+  > section
+  > div:first-child {
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100%;
+  background-size: contain;
+}
+
+/* 选中的元素 */
+.selected_material {
+  background-color: antiquewhite !important;
+}
+/* 
+    主体 右 
+
+
+*/
+.main > .main_flex_right {
+  display: flex;
+  flex-direction: column;
+  background-color: #bc261252;
+  width: 30rem;
+  position: relative;
+}
+/* 右侧布局 之 首 */
+.main > .main_flex_right > header {
+  height: 2rem;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  position: relative;
+}
+
+/* 右侧布局 之 舞台 */
+.main > .main_flex_right > main {
+}
+
+/* 右侧布局 之 信息 */
+.main > .main_flex_right > footer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.main > .main_flex_right > footer > div {
+  margin: 0.5rem;
+}
+/* 元素信息 下拉选择 */
+.main > .main_flex_right > footer > div > .rotate_mode {
+  width: 4rem;
+  height: 34px;
+  font-size: 12px;
+  padding-left: 10px;
+  -webkit-appearance: none;
+  color: #3d3d3d;
+  background-repeat: no-repeat;
+  outline: none;
+  border-radius: 0.1rem;
+}
+.toggle input {
+  display: none;
+}
+.toggle {
+  position: relative;
+  display: inline-block;
+  width: 68px;
+  height: 30px;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #bc2612;
+  border: 1px solid #aaa;
+  border-radius: 30px;
+  transition: all 0.4s;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  width: 24px;
+  height: 24px;
+  left: 2px;
+  top: 2px;
+  background-color: #eee;
+  border-radius: 24px;
+  transition: 0.4s;
+}
+input:checked + .slider {
+  background-color: #8cbc13;
+}
+input:checked + .slider:before {
+  transform: translateX(37px);
+}
+.slider:after {
+  position: absolute;
+  content: "HIDE";
+  top: 6px;
+  right: 5px;
+  color: #fff;
+  font-size: 0.7em;
+}
+input:checked + .slider:after {
+  content: "SHOW";
+  left: 4px;
+}
+
+/* stage-wrapper */
+.stage_canvas_wrapper {
+  /* 选中时，在圆角边缘+容器之间隐藏负空间 */
+  user-select: none;
+  position: relative;
+}
+
+/* #stage_parent {
+  width: 30rem;
+  height: calc(100vh - 3rem - 2rem - 9rem);
+} */
+
+.stage_size {
+  width: 30rem;
+  height: calc(100vh - 3rem - 2rem - 9rem);
+}
+
+/* 大绿旗 */
+.start_run {
+  padding: 1rem;
+  border-radius: 100%;
+  background: rgba(255, 255, 255, 0.75);
+  border: 3px solid hsla(0, 100%, 100%, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  width: 5rem;
+  height: 5rem;
+}
+
+.start_run > img {
+  width: 100%;
+  object-fit: contain;
+}
+
+/*
+
+
+=============
+
+
+
+
+
+
+
+
+
+
+
+
+=============
+
+
+
+*/
+
+/* 主体 左 */
+.main_left {
+  flex: auto;
+  /* 相对 用于扩展库按钮 */
+  position: relative;
+  background-color: #2487ff64;
+}
+/* 主体 中 */
+.main_center {
+  position: relative;
+  text-align: center;
+  width: 8rem;
+  background-color: #8cbc1372;
+}
+
+/* 主体 右 */
+.main_right {
+  display: flex;
+  flex-direction: column;
+  background-color: #bc261252;
+  width: 30rem;
+  position: relative;
+}
+/* 原生 nav的显示控制 */
+.nav_item_show {
+  position: absolute;
+  background-color: darkcyan;
+  /* z-index: 99; */
+}
+
+.nav_item_show > ul {
+  background-color: darkcyan;
+  border-bottom-left-radius: 0.6rem;
+  border-bottom-right-radius: 0.6rem;
+}
+.nav_item_show > ul > li {
+  list-style: none;
+  font-size: 0.6rem;
+  line-height: 2;
+  width: 5rem;
+}
+.nav_item_show > ul > li:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.24);
+}
+
+#app {
+  /* 可能是不必要的，在重构布局之前过渡 */
+  width: 100%;
+  height: 100%;
+  /* 设置最小高度/宽度使得这些尺寸低于UI滚动 */
+  /* min-width: 1024px; */
+  /* 最低高度，以适应精灵/背景按钮 */
+  /* min-height: 640px;  */
+}
+
+/* flex 横向等分布局 */
+.flex_space_evenly {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  /* justify-content: space-evenly; */
+}
+/* 替代 space-evenly 的ios端兼容性方案 */
+.flex_space_evenly:before,
+.flex_space_evenly:after {
+  content: "";
+  display: block;
+}
+
+/* flex 垂直居中布局 */
+.flex_col_center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn_other_signin_mode {
+  margin: 1rem;
+}
+
+.sign_out {
+  position: absolute;
+  top: 3rem;
+  right: 5rem;
+}
+.sign_out > ul > li {
+  text-align: center;
+}
+
+/* 语言选择 select */
+.l10n_lang > select {
+  cursor: pointer;
+  margin: 0 1rem;
+  width: 100%;
+  border: none;
+  background: transparent;
+  background-image: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  color: #f5f5f5;
+  font-weight: 700;
+}
+
+.l10n_lang > select:focus {
+  outline: none;
+}
+.l10n_lang > select:invalid {
+  color: #f5f5f5;
+  font-weight: 700;
+}
+
+.l10n_lang > select > option {
+  color: #000;
+  width: 15%;
+  background-color: sandybrown;
+}
+
+/* 元素的选择操作区域 */
+
+/* 元素操作区域 添加元素 */
+.add_menu_container {
+  display: flex;
+  flex-direction: column-reverse;
+  transition: 0.2s;
+  position: absolute;
+  bottom: 0.75rem;
+  left: 0;
+  right: 0;
+}
+
+/* 按钮通用样式 */
+.button_common {
+  cursor: pointer;
+  outline: none;
+  border: none;
+  transition: background-color 0.2s;
+  text-align: center;
+  color: dimgrey;
+}
+button::-moz-focus-inner {
+  border: 0;
+}
+.button_common:hover {
+  background-color: hsla(163, 85%, 40%, 0.3) !important;
+}
+.button_common:active {
+  padding: inherit;
+}
+
+/* 主按钮样式 */
+.button_main {
+  height: 2rem;
+  z-index: 46;
+  transform: scale(0.9);
+  border-radius: 3rem;
+  background: center / contain no-repeat
+      url(https://kid.leadersir.net/kid/icon_add_costume.svg),
+    #ff8800;
+}
+.button_main:hover {
+  transform: scale(1);
+}
+
+/* 上浮按钮组 容器 */
+.more_buttons_outer {
+  overflow-y: hidden;
+  background-color: hsla(32, 100%, 46%, 0);
+  z-index: 99;
+  padding: 0 1rem;
+}
+
+.more_buttons {
+  max-height: 1000px;
+  transition: max-height 1s;
+  overflow-x: visible;
+  z-index: 10;
+}
+
+.file_input {
+  display: none;
+}
+
+.more_buttons > button {
+  display: block;
+  width: 4rem;
+  height: 3rem;
+}
+
+.more_buttons > button:first-child {
+  border-top-right-radius: 2rem;
+  border-top-left-radius: 2rem;
+}
+
+/* main_right 内容flex布局 */
+.stage_header,
+.stage_header_overlay {
+  display: flex;
+  justify-content: space-between;
+}
+/* main_right 右侧 舞台操作板 (注:该板在舞台包裹区之外) */
+.stage_header {
+  position: relative;
+  height: 1.8rem;
+}
+/* main_right 点击切换到全屏 */
+.stage_header_overlay {
+  position: fixed;
+  background-color: rgb(232, 237, 241);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 5000;
+  justify-content: space-around;
+}
+/* main_right 舞台操作板按钮 */
+.stage_header_button {
+  width: calc(2rem + 2px);
+  padding: 0.375rem;
+  user-select: none;
+}
+/* main_right 舞台操作板按钮 滑入 */
+.stage_header_button:hover {
+  cursor: pointer;
+  background-color: hsla(25, 100%, 65%, 0.15);
+}
+
+/* main_right 舞台选择包裹器 */
+.stage_selector_wrapper {
+  display: flex;
+  /* flex-basis: 72px; */
+  flex-shrink: 0;
+  /* margin-left: calc(0.5rem / 2); */
+}
+
+/* 左侧 扩展按钮 */
+.extension_button {
+  width: 2.75rem;
+  height: 2.25rem;
+  position: absolute;
+  bottom: 0.5rem;
+  left: 0.5rem;
+  right: 0;
+  z-index: 42;
+  background: var(--main-primary);
+  border: 1px solid var(--main-primary);
+  text-align: center;
+}
+/* 扩展库按钮滑入 */
+.extension_button:hover {
+  cursor: pointer;
+}
+/* 扩展按钮的图标 */
+.extension_button_icon {
+  width: 100%;
+  height: 100%;
+}
+
+/* 造型包裹器 */
+.asset_panel_wrapper {
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid hsla(0, 0%, 0%, 0.15);
+  background: hsla(215, 50%, 90%, 0.7);
+  font-size: 0.85rem;
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 50;
+  padding: 9rem;
+}
+
+/* 元素序列帧 */
+.asset_panel_selector_wrapper {
+  width: 7rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: hsla(215, 50%, 90%, 1);
+}
+/* 非左侧序列帧之外的区域 */
+.asset_panel_detail_area {
+  display: flex;
+  flex-grow: 1;
+  flex-shrink: 1;
+  overflow: visible;
+  border: 1px solid hsla(0, 0%, 0%, 0.15);
+  background-color: white;
+}
+/*  */
+.asset_panel_selector_list_area {
+  height: 0;
+  flex-grow: 1;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid hsla(0, 0%, 0%, 0.15);
+}
+.asset_panel_selector_list_area:after {
+  /* Make sure there is room to scroll beyond the last tile */
+  content: "";
+  display: block;
+  height: 70px;
+  width: 100%;
+  flex-shrink: 0;
+  order: 99999999;
+}
+.asset_panel_selector_list_item {
+  width: 5rem;
+  height: 5rem;
+  margin: 0.5rem auto;
+}
+.placeholder {
+  background: white;
+  filter: opacity(15%) brightness(0%);
+}
+
+/* 造型区域的底部按钮 */
+.custom_button {
+  position: absolute;
+  bottom: 3rem;
+  left: 2rem;
+}
+
+/* gui->blocks 工具容器 */
+.blocks_wrapper {
+  position: relative;
+  flex-grow: 1;
+}
+
+/* 积木编辑区右上角 显示当前选中精灵 */
+.sprite_image {
+  margin: auto;
+  user-select: none;
+  max-width: 48px;
+  max-height: 48px;
+  opacity: 0.35;
+}
+
+.publish_modal_cover {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 5px;
+  margin-right: 1rem;
+}
+.publish_modal_cover > img {
+  height: 360px;
+  width: 480px;
+}
+
+/* :placeholder-shown 实现占位符过渡效果实例 */
+
+.input-fill-x,
+.input-outline-x,
+.textarea-outline-x {
+  /* fit-content见文章：https://www.zhangxinxu.com/wordpress/?p=5392 */
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  position: relative;
+}
+
+.input-fill-x {
+  border-bottom: 1px solid #d0d0d5;
+}
+
+.input-fill-x::after {
+  content: "";
+  position: absolute;
+  border-bottom: 2px solid #2486ff;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  transform: scaleX(0);
+  transition: transform 0.25s;
+}
+
+/* :focus-within见文章：https://www.zhangxinxu.com/wordpress/?p=7327 */
+.input-fill-x:focus-within::after {
+  transform: scaleX(1);
+}
+
+.input-control {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  outline: none;
+}
+
+.input-fill {
+  padding: 20px 16px 6px;
+  border: 1px solid transparent;
+  background: #f5f5f5;
+}
+
+.input-outline,
+.textarea-outline {
+  padding: 13px 16px 13px;
+  border: 1px solid #d0d0d5;
+  border-radius: 4px;
+  transition: border-color 0.25s;
+}
+
+.input-outline:focus,
+.textarea-outline:focus {
+  border-color: #2486ff;
+}
+
+/* 默认placeholder颜色透明不可见 */
+.input-control:placeholder-shown::placeholder {
+  color: transparent;
+}
+
+.input-label {
+  position: absolute;
+  font-size: 16px;
+  line-height: 1.5;
+  left: 16px;
+  top: 14px;
+  color: #a2a9b6;
+  padding: 0 2px;
+  transform-origin: 0 0;
+  pointer-events: none;
+  transition: all 0.25s;
+}
+
+/* 线框样式label定位 */
+.input-control:not(:placeholder-shown) ~ .input-label,
+.input-control:focus ~ .input-label {
+  color: #2486ff;
+  transform: scale(0.75) translate(-2px, -32px);
+}
+
+/* 填充样式下label定位 */
+.input-fill:not(:placeholder-shown) ~ .input-label,
+.input-fill:focus ~ .input-label {
+  transform: scale(0.75) translateY(-14px);
+}
+
+/* 线框交互下有个白色背景 */
+.input-outline ~ .input-label,
+.textarea-outline ~ .input-label {
+  background-color: #fff;
+}
+
+.checkbox_list {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  padding-top: 6px;
+}
+.checkbox_list > div {
+  /* background-color: aqua; */
+  flex: 0 0 25%;
+  padding-bottom: 6px;
+}
+
+/* 显示视频 按钮的样式 */
+.btn_show_video {
+  position: fixed;
+  right: 0.2rem;
+  top: 10%;
+  z-index: 98;
+}
+/* 按钮下的图片，鼠标滑入时，有点儿动效 */
+.btn_show_video > img:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+}
+
+/* 隐藏 */
+.hide {
+  opacity: 0;
+}
+.show {
+  opacity: 1;
+}
+
+/* 可拖放的窗体 */
+.dnd_modal {
+  width: 480px;
+  height: 320px;
+  border: 1px dashed #ccc;
+  left: 50%;
+  top: 10vh;
+  transform: translateX(-50%);
+  border: 0.5rem solid #333;
+  border-radius: 0.5rem;
+  /* 使用宽边做出一个顶部承载标题效果 */
+  border-top: 3rem solid #333;
+  z-index: 19999;
+}
+/* 窗体的标题 */
+.title {
+  position: absolute;
+  top: -40px;
+  left: 20px;
+  color: #ffd205;
+  /* 视口计算的方式设置字体，使用计算，已保证移动端字号不能超出最小 */
+  font-size: calc(12px + 1vw);
+}
+
+/* 窗体中的内容 需设置其宽高100% 便于缩放 */
+.content {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+/* 拖拽标识区域 */
+.drag_area {
+  width: 84%;
+  height: 16%;
+  position: absolute;
+  left: -5px;
+  top: -58px;
+}
+/* 缩放标识区域 */
+.resize_area {
+  display: block;
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-right: 6px solid #b2b2b2;
+  border-bottom: 6px solid #b2b2b2;
+  right: -6px;
+  bottom: -6px;
+  overflow: hidden;
+  cursor: nw-resize;
+}
+
+/* 最小化，关闭 按钮 */
+.min,
+.close {
+  position: absolute;
+  top: -40px;
+  cursor: pointer;
+  color: #ffd205;
+  line-height: 2rem;
+}
+/* 最小化按钮 */
+.min {
+  right: 60px;
+  font-weight: 900;
+}
+/* 关闭按钮 */
+.close {
+  right: 20px;
+}
+/* 最小化，关闭 鼠标滑入效果 */
+.min:hover,
+.close:hover {
+  color: aqua;
+}
+
+/* .menu-section {
+  border-top: 1px solid hsla(0, 0%, 0%, 0.15);
+} */
+
+/* 弹出的发布作品窗体 容器 */
+.push_modal_wrapper {
+  z-index: 99999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 3rem 0;
+}
+/* 窗体 */
+.push_modal {
+  background-color: white;
+  width: auto;
+  height: auto;
+  margin: 13rem;
+  margin-top: 5rem;
+  border: 5px solid hsla(0, 100%, 100%, 0.25);
+  border-radius: 0.3rem;
+  box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.24);
+  -webkit-box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.24);
+  /* 设置元素的背景（背景图片或颜色）是否延伸到边框下面 */
+  background-clip: padding-box;
+  position: relative;
+}
+
+/* 窗体右上角 X */
+.push_modal > .close {
+  color: white;
+  background-color: rgba(85, 84, 84, 0.3);
+  position: absolute;
+  right: 1rem;
+  top: 0.6rem;
+  font-size: 1.5rem;
+  border-radius: 100%;
+  width: 2rem;
+  transform: scale(0.8);
+}
+.push_modal > .close:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+/* 窗体 标题 */
+.push_modal > h1 {
+  background-color: #ff8c1a;
+  text-align: center;
+  font-weight: 900;
+  font-size: 1.2rem;
+  color: white;
+  padding: 0.71rem;
+  border-top-left-radius: 0.3rem;
+  border-top-right-radius: 0.3rem;
+}
+/* 主体 */
+.push_modal > section {
+  display: flex;
+  justify-content: center;
+}
+
+.push_modal > section > div {
+  margin: 0.5rem;
+}
+.img_wrapper {
+  padding: 0.3rem;
+  border: 1px solid #ccc;
+  border-radius: 0.3rem;
+}
+/* 底部操作 */
+.push_modal > footer {
+  line-height: 3.5rem;
+  display: flex;
+  justify-content: center;
+}
+/*  */
+.push_modal > footer > button {
+  margin: 1rem;
+  padding: 0 1rem;
+  border-radius: 0.5rem;
+  min-width: 10rem;
+  color: white;
+  background-color: rgb(255, 102, 0);
+  line-height: 36px;
+  border: 1px solid #d45500;
+}
+/*  */
+.push_modal > footer > button:hover {
+  cursor: pointer;
+  border: 1px solid rgb(255, 102, 0);
+  background-color: #d45500;
+}
+
+/* 按钮禁用时的样式 */
+.disable-button {
+  /* 设置蒙版效果 */
+  opacity: 0.5;
+  /* 禁止鼠标事件 */
+  pointer-events: none;
+}
+
+.msg_box {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 999999;
+  font-size: 3rem;
+  color: white;
+  margin: 27rem;
+  margin-top: 11rem;
+  background-color: #ff8c1a;
+  border-radius: 0.5rem;
+  border: 0.1rem solid #d45500;
+  height: 15vh;
+  padding: 2rem;
+}
+
+/* 单个元素操作按钮，统一样式部分 */
+.sprite_btn_common {
+  width: 1.2rem;
+  height: 1.2rem;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  border-radius: 1rem;
+  opacity: 1;
+}
+
+/* 单个元素操作按钮 复制按钮 */
+.btn_copy {
+  top: 0;
+  left: 0;
+  background-color: #cc7d40cb;
+}
+
+/* 单个元素操作按钮 导出按钮 */
+.btn_export {
+  bottom: 0;
+  left: 0;
+  background-color: #57c5ddcb;
+}
+
+/* 单个元素操作按钮 删除按钮 */
+.btn_delete {
+  top: 0;
+  right: 0;
+  background-color: #ff0101cb;
+}
+
+/* 精灵内的精灵图像 */
+.sprite_image_show {
+  user-select: none;
+  pointer-events: none;
+  width: 6rem;
+  height: 5rem;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-origin: border-box;
+}
+
+/* 元素名字 */
+.sprite_name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+  background-color: #d4550059;
+}
+
+/* 元素信息 */
+.sprite_info {
+  padding: 0.3rem;
+  padding-bottom: 0;
+  background-color: white;
+  color: hsla(225, 15%, 40%, 1);
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  border-bottom: 1px solid hsla(0, 0%, 0%, 0.15);
+  position: absolute;
+  bottom: 0;
+}
+/* 元素信息分行 */
+.sprite_info_row {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+/* .sprite_row >div {
+  border: 1px solid #2486ff;
+} */
+
+/* green-flag */
+.start_or_stop {
+  width: 2rem;
+  height: 2rem;
+  padding: 0.375rem;
+  border-radius: 0.25rem;
+  user-select: none;
+  user-drag: none;
+  cursor: pointer;
+}
+
+.start_or_stop:hover {
+  background-color: hsla(25, 100%, 65%, 0.15);
+}
+
+.turbo_container {
+  display: flex;
+  align-items: center;
+  padding: 0.25rem;
+  user-select: none;
+}
+
+.turbo_icon {
+  margin: 0.25rem;
+}
+
+.turbo_label {
+  font-size: 0.625rem;
+  font-weight: bold;
+  font-family: "Helvetica Neue", Helvetica, Arial;
+  color: hsla(38, 100%, 55%, 1);
+  white-space: nowrap;
+}
+
+/* 元素选择区域的元素列表 */
+.sprite_selector {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  /* 除了指示该元素不是鼠标事件的目标之外，值none表示鼠标事件“穿透”该元素并且指定该元素“下面”的任何东西 */
+  /* pointer-events: none; */
+  user-select: none;
+}
+/* 元素操作区域 单个元素 */
+.sprite_selector > section {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+  font-size: 0.8rem;
+  color: hsla(225, 15%, 40%, 1);
+  border: 2px solid hsla(0, 0%, 0%, 0.15);
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  /* 把每个元素的层级调低，否则会挡住上浮按钮组 */
+  z-index: 0;
+  /* 每个元素的最外层背景色 */
+  background-color: #d9d9d9;
+  margin-bottom: 0.5rem;
+  /* pointer-events: auto; */
+}
+/* 元素操作区域 滑入单个元素 */
+.sprite_selector > section:hover {
+  border: 2px solid #ff8800;
+  /* background: $ui-white; */
+}
+/* 元素操作区域 选中单个元素 */
+.sprite_selector > .is_selected {
+  border: 2px solid #ff8800;
+  background: hsla(0, 100%, 100%, 1);
+}
+
+/* MaterialLibrary 素材库 */
+.material_library {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 51;
+  width: auto;
+  height: auto;
+  background-color: hsla(0, 100%, 100%, 1);
+  margin: 7rem;
+  border-radius: 1rem;
+}
+
+/* 素材库 header 内容水平布局 */
+.material_library > header {
+  height: 3rem;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  color: #4c4c4c;
+  text-align: center;
+  font-size: 1.5rem;
+  line-height: 3rem;
+  border-bottom: 0.1rem solid hsla(0, 0%, 0%, 0.15);
+}
+/* 素材库 header 每个内容块 */
+.material_library > header > div {
+  margin: 0 3rem;
+  cursor: pointer;
+  padding: 0 1rem;
+}
+/* 素材库 header 每个内容块 下划线 */
+.material_library > header > div:hover {
+  background-color: hsla(0, 0%, 0%, 0.15);
+}
+/* 素材库 header 右上角关闭按钮 */
+.material_library > header > div:last-child {
+  position: absolute;
+  right: 0;
+  margin: 0 1rem;
+}
+
+/* 素材库 main */
+.material_library > main {
+  display: flex;
+  flex-direction: row;
+  min-height: calc(100vh - 33rem);
+  min-width: calc(100vw - 30rem);
+}
+/* 素材库 main 左侧[搜索、分类 etc] */
+.material_library > main > aside {
+  padding: 1rem;
+  border-right: 0.1rem solid hsla(0, 0%, 0%, 0.15);
+  width: 13rem;
+}
+
+.search {
+  padding: 2px 8px;
+  border: 2px solid #333;
+  border-radius: 20px;
+  background: #fff;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.search > svg {
+  display: inline-block;
+  flex: 0 0 25px;
+  fill: #333;
+}
+.search > label {
+  cursor: pointer;
+}
+.search > label {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute !important;
+  width: 1px;
+}
+.search > input[type="search"] {
+  -moz-appearance: textfield;
+  -webkit-appearance: textfield;
+  appearance: textfield;
+}
+.search > input {
+  flex: auto;
+  color: #333;
+  border-width: 0;
+  background: 0 0;
+}
+.search > input:focus,
+.search > input:invalid {
+  border: 0;
+  outline: 0;
+  box-shadow: none;
+}
+
+.material_default {
+  text-align: center;
+}
+.material_default > h1 {
+  padding-top: 1rem;
+}
+.material_default > h3 {
+  padding: 0.7rem;
+}
+.material_default > h5 {
+  margin-bottom: 0.5rem;
+}
+/* 用户鼠标悬停 */
+.material_default > h3:hover,
+.material_default > h5:hover {
+  background: hsla(38, 100%, 55%, 0.15);
+  cursor: pointer;
+}
+/* 激活链接 */
+.material_default > h3:active,
+.material_default > h5:active {
+  color: red;
+}
+
+/* 素材库 main 右侧 */
+.material_library > main > section {
+  padding: 1rem;
+  width: auto;
+  /* max-height:calc(100vh - 19rem) ; */
+  max-height: 70vh;
+  overflow: auto;
+}
+
+/* 素材库 素材列表内容器支持滚动 */
+.material_scroll {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-flow: row wrap;
+}
+/* 素材库 素材列表 每个素材 */
+.material_lib_item {
+  background-color: hsla(38, 100%, 55%, 0.15);
+  text-align: center;
+  width: 9rem;
+  height: 9rem;
+  max-width: 15rem;
+  max-height: 15rem;
+  display: flex;
+  flex-flow: column nowrap;
+  position: relative;
+  margin: 1rem 0 0 1rem;
+  border: 0.1rem solid hsla(38, 100%, 55%, 0.15);
+}
+/* 素材库 素材列表 每个素材 图像 */
+.material_lib_item > img {
+  width: 100%;
+  height: 100%;
+}
+/* 素材库 素材列表 每个素材 鼠标滑入时 */
+.material_lib_item > img:hover {
+  background-color: hsla(38, 100%, 55%, 0.3);
+  cursor: pointer;
+}
+/* 素材库 素材列表 每个素材 素材名 */
+.material_lib_item > span {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: hsla(0, 0%, 0%, 0.5);
+  color: white;
+}
+/* 素材库 素材列表为空时 */
+.material_lib_null {
+  width: 70vw;
+  height: 70vh;
+  background: center / contain no-repeat
+    url(https://i.loli.net/2020/07/29/vCoweN1RHd8M4GF.jpg);
+  text-align: center;
+}

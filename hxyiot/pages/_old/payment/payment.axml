@@ -1,0 +1,34 @@
+<view>
+  <view class="paymoney">
+    <view>付款金额</view>
+    <view>￥<text>{{jine}}</text></view>
+  </view>
+
+  <view class="payWay">
+    <view onTap="memberPayTap" hover-class="small">
+      <image src="../../img/huiyuanzhifu.png"/>
+      <image src="../../img/huiyuanzhifu.gif" class='wait' a:if="{{show}}" style="width:40rpx;height:40rpx" />
+    </view>
+    <view onTap="faceTap"  hover-class="small">
+      <image src="../../img/shualian.png"/>
+      <image src="../../img/huiyuanzhifu.gif" class='waitb' a:if="{{show2}}" style="width:40rpx;height:40rpx" />
+    </view>    
+  </view>
+
+  <!-- <view class="lb">
+    <swiper style="width:675rpx;height:150rpx"          
+      indicator-dots="{{indicatorDots}}"
+      autoplay="{{autoplay}}"
+      vertical="{{vertical}}"
+      interval="{{interval}}"
+      circular="{{circular}}">
+      <block a:for="{{banner}}">
+        <swiper-item key="swiper-item-{{index}}">
+          <image onTap="tptap" data-name="{{item.mode}}" data-url="{{item.ad_url}}" class="bannergg" src="{{item.ad_file}}" />
+          <view class="swiper-item bc_{{item}}"></view>
+        </swiper-item>
+      </block>
+    </swiper>  
+  </view> -->
+  
+</view>

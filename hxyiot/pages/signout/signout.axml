@@ -1,0 +1,7 @@
+<view style="margin:0.3rem;">
+  <label>当前账号</label>
+  <text>{{userInfo.USER_PHONE}}</text>
+  <label>认证门店</label>
+  <text>{{userInfo.STORE_NAME}}</text>
+  <button type="primary" onTap='onSignout'>登出</button>
+</view>

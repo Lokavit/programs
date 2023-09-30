@@ -1,0 +1,27 @@
+page{
+  background-color: #f5f5f5;
+}
+.whiteBj{
+  background-color: #ffffff;
+  width:750.4rpx;
+  height:120rpx;
+  line-height: 120rpx;
+  margin-top:60rpx;
+  font-size:34rpx;
+  font-weight:500;
+  color:#333333;
+}
+.whiteBj text{
+  margin-left:30rpx;
+}
+.whiteBj image{
+  width:54rpx;
+  height:54rpx;
+  float:right;
+  margin:33rpx 32rpx 0 0;
+}
+.tip{
+  font-size:24rpx;
+  color:#666666;
+  margin:20rpx 0 0 30rpx;
+}

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DEMO</title>
+    <!-- 提取 util -->
+    <script src="./utility.js"></script>
+    <!-- 打包vm -->
+    <script src="../dist/web/kid-vm.js"></script>
+    <script src="./blockly_compressed.js"></script>
+    <script src="./blocks_compressed.js"></script>
+    <script src="./messages.js"></script>
+    <script src="./kid-storage.js"></script>
+    <script src="./kid-svg-renderer.js"></script>
+    <script src="./kid-render.js"></script>
+    <style>
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        background-color: #fff;
+        font-family: sans-serif;
+        overflow: hidden;
+      }
+      h1 {
+        font-weight: normal;
+        font-size: 140%;
+      }
+      #blocklyDiv {
+        height: 95%;
+        width: 60%;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="float: right; width: 30%">
+      <canvas
+        id="test"
+        width="480"
+        height="360"
+        style="background-color: black"
+      ></canvas>
+      <input type="file" id="file" name="file" />
+    </div>
+    <div id="blocklyDiv"></div>
+    <!-- 工具箱类别具有类别菜单和自动关闭弹出按钮。 变量类别使用类型变量块. -->
+    <xml id="toolbox-categories" style="display: none">
+      <category name="Colour" categorystyle="colour_category">
+        <block type="colour_picker"></block>
+        <block type="motion_movesteps">
+          <value name="STEPS">
+            <shadow type="math_number">
+              <field name="NUM">10</field>
+            </shadow>
+          </value>
+        </block>
+        <block type="colour_random"></block>
+        <block type="event_whenflagclicked"></block>
+      </category>
+      <sep></sep>
+    </xml>
+    <script>
+      console.log("utils:", Utility);
+
+      console.log("kid-storage", KidStorage);
+      console.log("kid-svg-renderer", KidSVGRenderer);
+      console.log("kid-render", KidRender.default);
+
+      // 新增块 可以将pro-blocks及jr-blocks全部作为外挂积木显示，如以下方式:
+      Blockly.defineBlocksWithJsonArray([
+        {
+          type: "motion_movesteps",
+          message0: "移动 %1",
+          args0: [
+            {
+              type: "input_value",
+              name: "STEPS",
+            },
+          ],
+          colour: Blockly.Msg["COLOUR_HUE"],
+        },
+        {
+          type: "event_whenflagclicked",
+          message0: "FLAG",
+          colour: Blockly.Msg["COLOUR_HUE"],
+        },
+      ]);
+
+      // 实例化
+      const vm = new VirtualMachine();
+      console.log("vm:", vm);
+      console.log("runtime:", vm.runtime);
+      console.log("_primitives:", vm.runtime._primitives);
+
+      let canvas = document.getElementById("test");
+      let render = new KidRender.default(canvas);
+      let storage = new KidStorage();
+      let mockMouse = (data) =>
+        vm.runtime.postIOData("mouse", {
+          canvasWidth: canvas.width,
+          canvasHeight: canvas.height,
+          ...data,
+        });
+
+      vm.attachStorage(storage);
+      vm.attachRenderer(render);
+      vm.attachV2SVGAdapter(new KidSVGRenderer.SVGRenderer());
+      vm.attachV2BitmapAdapter(new KidSVGRenderer.BitmapAdapter());
+
+      document.getElementById("file").addEventListener("click", (e) => {
+        // document.body.removeChild(document.getElementById("loaded"));
+      });
+
+      document.getElementById("file").addEventListener("change", (e) => {
+        let reader = new FileReader();
+        let thisFileInput = e.target;
+        reader.onload = () => {
+          vm.start();
+          vm.loadProject(reader.result).then(() => {
+            // we add a `#loaded` div to our document, the integration suite
+            // waits for that element to show up to assume the vm is ready
+            // to play!
+            const div = document.createElement("div");
+            div.id = "loaded";
+            document.body.appendChild(div);
+            vm.greenFlag(); // 执行程序
+          });
+        };
+        reader.readAsArrayBuffer(thisFileInput.files[0]);
+      });
+
+      // 舞台渲染
+      const workspace = Blockly.inject("blocklyDiv", {
+        comments: true,
+        collapse: true,
+        disable: true,
+        grid: {
+          spacing: 25,
+          length: 3,
+          colour: "#ccc",
+          snap: true,
+        },
+        horizontalLayout: false,
+        maxBlocks: Infinity,
+        maxInstances: { test_basic_limit_instances: 3 },
+        maxTrashcanContents: 256,
+        media: "./media/",
+        oneBasedIndex: true,
+        readOnly: false,
+        //   rtl: rtl,
+        move: {
+          scrollbars: true,
+          drag: true,
+          wheel: false,
+        },
+        /* "toolbox-categories", "toolbox-categories-typed-variables", "toolbox-simple" */
+        toolbox: document.getElementById("toolbox-categories"),
+        toolboxPosition: "start",
+        renderer: "zelos",
+        zoom: {
+          controls: true,
+          wheel: true,
+          startScale: 1.0,
+          maxScale: 4,
+          minScale: 0.25,
+          scaleSpeed: 1.1,
+        },
+      });
+
+      // // 4. 为工作空间设置事件，flyout设置事件
+      // workspace.addChangeListener(vm.blockListener);
+      // workspace.addChangeListener(vm.variableListener);
+      // const flyoutWorkspace = workspace.getFlyout().getWorkspace();
+      // flyoutWorkspace.addChangeListener(vm.flyoutBlockListener);
+      // flyoutWorkspace.addChangeListener(vm.monitorBlockListener);
+
+      // // 获取当前运行的线程数据和当前角色的积木数据
+      // vm.on("playgroundData", (data) => {
+      //   updateThreadExplorer(data.threads);
+      //   updateBlockExplorer(data.blocks);
+      // });
+
+      // // 工作空间更新时，重新渲染脚本区
+      // vm.on("workspaceUpdate", (data) => {
+      //   workspace.clear();
+      //   const dom = Blockly.Xml.textToDom(data.xml);
+      //   Blockly.Xml.domToWorkspace(dom, workspace);
+      // });
+
+      // // 运行积木时，设置Scratch-Blocks> 积木变化
+      // // 积木块是否高亮显示
+      // vm.on("SCRIPT_GLOW_ON", (data) => {
+      //   workspace.glowStack(data.id, true);
+      // });
+      // vm.on("SCRIPT_GLOW_OFF", (data) => {
+      //   workspace.glowStack(data.id, false);
+      // });
+      // // 积木是否高亮显示
+      // vm.on("BLOCK_GLOW_ON", (data) => {
+      //   workspace.glowBlock(data.id, true);
+      // });
+      // vm.on("BLOCK_GLOW_OFF", (data) => {
+      //   workspace.glowBlock(data.id, false);
+      // });
+      // vm.on("VISUAL_REPORT", (data) => {
+      //   workspace.reportValue(data.id, data.value);
+      // });
+
+      // // 开始运行vm
+      // vm.start();
+    </script>
+  </body>
+</html>

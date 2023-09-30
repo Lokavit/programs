@@ -1,0 +1,14 @@
+<view>
+
+   <view class="maber">
+     <view id="one">{{timeStr}}</view>
+     <!-- <view id="two">0</view>
+     <view id="three">:</view>
+     <view id="for">0</view>
+     <view id="five">0</view> -->
+     <!-- <view id="six">0</view>
+     <view id="seven">0</view> -->
+   </view>
+   <button class="button"  data-id='{{id}}' onTap="start">GO</button>
+
+</view>

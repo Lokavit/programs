@@ -1,0 +1,82 @@
+/*
+    choose 样式
+*/
+.choose {
+    box-sizing: border-box;
+    border: 1px solid #dcdfe6;
+    border-radius: 4px;
+    // min-width: 120px;
+
+    /* 整个choose 滑入为蓝边 */
+    &:hover {
+        // box-sizing: border-box;
+        // height: 26px;
+        border: 1px solid #093284;
+        // outline-color: #093284;
+    }
+
+    &:active {
+        border: 1px solid #093284;
+    }
+
+    // &:active{
+    //     border: 1px solid #093284;
+    // }
+
+    /* el-input 前置插槽 放置按钮 用于点击查看详情 */
+    .el-input-group__prepend {
+        background-color: #fff;
+        border: #fff;
+        padding: 0;
+
+        .el-button--info {
+            height: 28px; // 左侧点击查看详情的按钮
+        }
+
+        /* 前置插槽中按钮的 滑入 样式 */
+        .el-button--info:focus,
+        .el-button--info:hover {
+            i {
+                color: #093284;
+            }
+        }
+    }
+
+    /* el-input 后置插槽 放置按钮 用于点击选择数据 */
+    .el-input-group__append {
+        background-color: #fff;
+        border: #fff;
+        padding: 0;
+        width: 26px;
+
+        /* 后置插槽中的按钮样式 */
+        .el-button--primary {
+            border-radius: 2px;
+            width: 26px;
+            height: 28px;
+            border: 0;
+            margin: 0;
+            padding-left: 9px;
+        }
+
+        /* 后置插槽中按钮的 滑入 样式 */
+        .el-button--primary:focus,
+        .el-button--primary:hover {
+            background-color: #093284;
+
+            i {
+                color: #fff;
+            }
+        }
+    }
+
+    .el-input__inner {
+        border: 1px solid #fff;
+        padding: 0;
+    }
+}
+
+
+.choose_list {
+    background-color: aqua;
+}

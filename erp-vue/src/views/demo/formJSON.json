@@ -1,0 +1,25 @@
+{
+    "gc": {
+        "formItem": [{
+            "prop": "itemCode",
+            "label": "物料编码",
+            "type": "INPUT",
+            "isDisabled": false
+        }, {
+            "prop": "itemGroupCode",
+            "label": "物料组编码",
+            "type": "INPUT",
+            "isDisabled": false
+        }, {
+            "prop": "WHCode",
+            "label": "仓库编码",
+            "type": "INPUT",
+            "isDisabled": false
+        }, {
+            "prop": "UomCode",
+            "label": "计量单位编码",
+            "type": "INPUT",
+            "isDisabled": false
+        }]
+    }
+}

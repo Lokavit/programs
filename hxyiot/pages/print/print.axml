@@ -1,0 +1,17 @@
+<view class="print_setting">
+  <view class="switch_print">
+    <text>打印功能</text>
+    <switch checked="{{isPrint}}" onChange="onChangePrint" aria-label="{{isPrint ? 'switch opened' : 'switch closed'}}"/>
+  </view>
+  <view style='display:{{isPrint?"block":"none"}}'>
+    <view class="switch_print" a:for="{{printList}}" data-code="{{item.code}}" onTap="onSelectedPrint">
+      <text style="color:{{item.code == currentPrint?' #29A1F7':'#000'}}">{{item.name}}</text>
+      <label>{{item.desc}}</label>
+    </view>
+    <!-- <view class="switch_print">
+      <text>打印二维码</text>
+      <switch checked="{{isPrintQR}}" onChange="onChangePrintQR" aria-label="{{isPrintQR ? 'switch opened' : 'switch closed'}}"/>
+    </view> -->
+    <button type="primary" onTap='onPrintTest' disabled="{{isDisabled}}">打印测试</button>
+  </view>
+</view>

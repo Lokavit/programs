@@ -1,0 +1,76 @@
+
+.section{
+    width:716.25rpx;
+    height:1075rpx;
+    padding:16.875rpx;
+    background-image: url("/img/bg-huiyuanzhifu.png");
+    background-size:100% 100%;
+    background-position:center;
+    color:#333333;
+    text-align: center;
+    background-color:#fff;
+    margin:0 auto;
+    font-weight:400;
+    position: relative
+}
+.section>view:first-child{
+    font-size:28rpx;
+    font-family:PingFangSC-Regular,PingFang SC;
+    line-height:40rpx; 
+    margin-top:280rpx;
+}
+.section>view:nth-child(2){
+    font-size:30rpx;
+    font-family:SourceHanSansCN-Regular,SourceHanSansCN;
+    color:rgba(178,178,178,1);
+    line-height:46px;
+}
+.section>view:nth-child(3){
+    font-size:60rpx;
+    font-family:WeChat-Sans-SS-Medium,WeChat-Sans-SS;
+    font-weight:500;
+    line-height:66rpx;
+    margin-bottom:100rpx;
+}
+.item{
+    width:640rpx;height:90rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between; 
+    font-size:30rpx;
+    margin: 0 auto;
+}
+.btn{
+    width:640rpx;
+    height:90rpx;
+    background:#108EE9;
+    background:rgba(16,142,233,1);
+    border-radius:10rpx;
+    font-size:34rpx;
+    font-family:PingFangSC-Regular,PingFang SC;
+    color:rgba(255,255,255,1);
+    line-height:90rpx;
+    letter-spacing:1rpx;
+    margin:0 auto;
+    position: relative;
+    z-index: 1
+}
+.bgwhite{
+    color:rgba(16,142,233,1);
+    background-color: #fff;
+    margin-top:40rpx;
+}
+.redfont{
+    color:#FA5151;
+}
+.wait{
+    width:40rpx;height:40rpx;
+    z-index: 999;
+    position:absolute;
+    bottom:185rpx;
+    left:357rpx;
+}
+.blue{
+  background-color: #0679CC !important; 
+}
+

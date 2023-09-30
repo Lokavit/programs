@@ -1,0 +1,82 @@
+<view class="store_report_wrapper">
+  <view>
+    <!-- 指定门店 -->
+    <picker-item label="指定门店：" onChangePicker="onChangeStore" vIndex="{{storeNameIndex}}" items="{{storeList}}" rkey="store_name" text="{{storeList?storeList[storeNameIndex].store_name:`全部门店`}}"></picker-item>
+    <!-- 指定店员 -->
+    <picker-item label="指定店员：" onChangePicker="onChangeEmployee" vIndex="{{storeEmployeeIndex}}" items="{{storeEmployeeList}}" rkey="name" text="{{storeEmployeeList?storeEmployeeList[storeEmployeeIndex].name:`全部店员`}}"></picker-item>
+    <!-- 指定简报模式 -->
+    <picker-item label="简报模式：" onChangePicker="onChangeReportMode" vIndex="{{reportModeIndex}}" items="{{reportMode}}" rkey="desc" text="{{reportMode?reportMode[reportModeIndex].desc:`日报`}}"></picker-item>
+    <!-- 日期选择 -->
+    <view class="row_time" onTap="onDayDatePicker" style="display:{{reportModeIndex==0?`flex`:`none`}}">
+      <label>指定日期：</label>
+      <text>{{dayDate?dayDate:today}}</text>
+    </view>
+    <!-- 周期选择 -->
+    <view style="display:{{reportModeIndex==1?`block`:`none`}}">
+      <picker-item label="指定周期：" onChangePicker="onChangeWeek" vIndex="{{weekIndex}}" items="{{weekList}}" rkey="desc" text="{{weekList?weekList[weekIndex].desc:``}}"></picker-item>
+    </view>
+    <!-- 月份选择 -->
+    <view class="row_time" onTap="onMonthDatePicker" style="display:{{reportModeIndex==2?`flex`:`none`}}">
+      <label>指定月份：</label>
+      <text>{{monthDate?monthDate:currentMonth}}</text>
+    </view>
+    <!-- 自定义选择 -->
+    <view style="display:{{reportModeIndex==3?`block`:`none`}}">
+      <!-- 交易时间 区间选择 -->
+      <view class="row_time" onTap="onStartDateTime">
+        <label>开始时间：</label>
+        <text>{{startDateTime}}</text>
+      </view>
+      <view class="row_time" onTap="onEndDateTime">
+        <label>结束时间：</label>
+        <text>{{endDateTime}}</text>
+      </view>
+      <!-- 单笔交易金额(元) 暂时没写，因为post请求体没有该属性 -->
+    </view>
+  </view>
+  <!-- 查询结果展示区域 交易统计 -->
+  <view style='display:{{tradeStatistics? "block":"none"}};background-color:#FFF;'>
+    <trade-statistics tradeStatisticsInfo="{{tradeStatistics}}"></trade-statistics>
+  </view>
+  <!-- 查询结果展示区域 每笔交易概览 -->
+  <view class="pay_list" style='display:{{tradeStatistics? "block":"none"}}'>
+    <view class="pay_list_title">
+      <label>支付方式统计</label>
+      <text>商家实收+退款金额=交易金额</text>
+    </view>
+    <view class="pay_list_item">
+      <image src="{{`../../assets/alipay.png`}}"/>
+      <view class="pay_list_item_info">
+        <view class="pay_list_item_info_item">
+          <label>商家实收</label>
+          <text>{{alipayInfo.alipayActualAmount}}</text>
+        </view>
+        <view class="pay_list_item_info_item">
+          <label>交易金额/笔数</label>
+          <text>{{`${alipayInfo.alipayIncomeAmount}/${alipayInfo.alipayIncomeCount}`}}</text>
+        </view>
+        <view class="pay_list_item_info_item">
+          <label>退款金额/笔数</label>
+          <text>{{`${alipayInfo.alipayRefundAmount}/${alipayInfo.alipayRefundCount}`}}</text>
+        </view>
+      </view>
+    </view>
+    <view class="pay_list_item">
+      <image src="{{`../../assets/weixin.png`}}"/>
+      <view class="pay_list_item_info">
+        <view class="pay_list_item_info_item">
+          <label>商家实收</label>
+          <text>{{wechatInfo.wechatActualAmount}}</text>
+        </view>
+        <view class="pay_list_item_info_item">
+          <label>交易金额/笔数</label>
+          <text>{{`${wechatInfo.wechatIncomeAmount} / ${wechatInfo.wechatIncomeCount}`}}</text>
+        </view>
+        <view class="pay_list_item_info_item">
+          <label>退款金额/笔数</label>
+          <text>{{`${wechatInfo.wechatRefundAmount} / ${wechatInfo.wechatRefundCount}`}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

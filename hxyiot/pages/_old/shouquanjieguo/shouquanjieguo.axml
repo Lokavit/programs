@@ -1,0 +1,9 @@
+<view class='box'>
+  <image src='../../img/wancheng.png'></image>
+  <view>支付成功</view>
+  <view class='jine'>￥{{jine}}</view>
+
+  <view>剩余金额将会原路返回</view>
+
+  <view class='btn login' onTap='btnTap'>确认</view>
+</view>

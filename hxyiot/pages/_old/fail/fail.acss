@@ -1,0 +1,50 @@
+.page{
+  width:100%;
+  text-align: center;
+  background-color: #ffffff;
+}
+image{
+  display: inline-block;
+  width:101.30rpx;
+  height:101.30rpx;
+  margin:200rpx auto 40rpx;
+}
+.fail{
+  font-size: 44rpx;
+  color: #FA5151;
+  text-align: center;
+}
+.zhifu{
+  width:300.16rpx;
+  height:75.04rpx;
+  line-height: 75.04rpx;
+  text-align: center;
+  margin:12.5% auto 0;
+  background-color: #29A1F7;
+  color:#fff;
+  border-radius: 53.6rpx;
+  font-size:32rpx;
+}
+
+
+.daojishi{
+  position: fixed;
+  left:6%;
+  font-size: 36rpx;
+  color: #B2B2B2;
+  top:8%;
+  width:120rpx;
+  height:56rpx;
+}
+.daojishi image{
+  width:52rpx;
+  height:52rpx;
+  float:left;
+  margin:0;
+}
+.daojishi text{
+  display: inline-block;
+  height:52rpx;
+  line-height: 52rpx;
+  padding-right:6rpx;
+}

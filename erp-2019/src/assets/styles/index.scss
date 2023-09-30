@@ -1,0 +1,10 @@
+/* 项目样式主文件，引入其他文件 */
+
+/* 封装组件中的样式主文件 */
+@import './kingfisher/kingfisher-element-ui-custom.scss';
+/* 全局样式 */
+@import './global.scss';
+/* 全局icon-font */
+@import '../fonts/style.css';
+/* 采购向导所需样式 */
+@import './guide.scss';

@@ -1,0 +1,20 @@
+@each $el in el-select,
+el-input-number,
+el-input,
+kft-line-choose {
+  .kft-edit-table {
+    .#{$el} {
+      display: none;
+    }
+
+    &.kft-edit .current-row {
+      .#{$el} {
+        display: inline-table;
+
+        &+span {
+          display: none;
+        }
+      }
+    }
+  }
+}

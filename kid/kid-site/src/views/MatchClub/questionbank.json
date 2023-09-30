@@ -1,0 +1,882 @@
+{
+  "lv1": [
+    {
+      "questnum": 1,
+      "quest": {
+        "title": "以下哪段程序可以实现洋洋向左移动？"
+      },
+      "options": [
+        {
+          "src": "lv1_1_o_0.jpg"
+        },
+        {
+          "src": "lv1_1_o_1.jpg"
+        },
+        {
+          "src": "lv1_1_o_2.jpg"
+        },
+        {
+          "src": "lv1_1_o_3.jpg"
+        }
+      ],
+      "correct": 2
+    },
+    {
+      "questnum": 2,
+      "quest": {
+        "title": "洋洋给公园设计了如下的平面图，它想把黑色的路变成棕色，请问需要点击几次油漆桶按钮？",
+        "src": "lv1_2_q.jpg"
+      },
+      "options": [
+        { "title": "3" },
+        { "title": "9" },
+        { "title": "1" },
+        { "title": "10" }
+      ],
+      "correct": 0
+    },
+    {
+      "questnum": 3,
+      "quest": {
+        "title": "假如默认的洋洋有两个造型（分别为造型1和造型2）。在运行下面的程序后，没有看到造型的切换，下面哪一项可以修复这个问题？",
+        "src": "lv1_3_q.jpg"
+      },
+      "options": [
+        { "title": "编辑洋洋的造型" },
+        { "title": "删除洋洋第一个造型(造型1)" },
+        { "title": "修改为", "src": "lv1_3_o_2.jpg" },
+        { "title": "修改为", "src": "lv1_3_o_3.jpg" }
+      ],
+      "correct": 3
+    },
+    {
+      "questnum": 4,
+      "quest": {
+        "title": "下面哪个区域是“舞台”？",
+        "src": "lv1_4_q.jpg"
+      },
+      "options": [
+        { "title": "A" },
+        { "title": "B" },
+        { "title": "C" },
+        { "title": "D" }
+      ],
+      "correct": 1
+    },
+    {
+      "questnum": 5,
+      "quest": {
+        "title": "下面地图中每格的长度是 50 步长，洋洋要想拿到苹果，下面哪组程序可以实现？",
+        "src": "lv1_5_q.jpg"
+      },
+      "options": [
+        { "src": "lv1_5_o_0.jpg" },
+        { "src": "lv1_5_o_1.jpg" },
+        { "src": "lv1_5_o_2.jpg" },
+        { "src": "lv1_5_o_3.jpg" }
+      ],
+      "correct": 0
+    },
+    {
+      "questnum": 6,
+      "quest": {
+        "title": "以下哪个可以实现洋洋向上移动？"
+      },
+      "options": [
+        { "src": "lv1_6_o_0.jpg" },
+        { "src": "lv1_6_o_1.jpg" },
+        { "src": "lv1_6_o_2.jpg" },
+        { "src": "lv1_6_o_3.jpg" }
+      ],
+      "correct": 0
+    },
+    {
+      "questnum": 7,
+      "quest": {
+        "title": "下面地图中每格的长度是50 步长，洋洋要想拿到苹果，下面哪组程序可以实现？",
+        "src": "lv1_7_q.jpg"
+      },
+      "options": [
+        { "src": "lv1_7_o_0.jpg" },
+        { "src": "lv1_7_o_1.jpg" },
+        { "src": "lv1_7_o_2.jpg" },
+        { "src": "lv1_7_o_3.jpg" }
+      ],
+      "correct": 1
+    },
+    {
+      "questnum": 8,
+      "quest": {
+        "title": "以下哪个按钮可以实现造型水平翻转功能？"
+      },
+      "options": [
+        { "src": "lv1_8_o_0.jpg" },
+        { "src": "lv1_8_o_1.jpg" },
+        { "src": "lv1_8_o_2.jpg" },
+        { "src": "lv1_8_o_3.jpg" }
+      ],
+      "correct": 0
+    },
+    {
+      "questnum": 9,
+      "quest": {
+        "title": "关于造型的说法正确的是？"
+      },
+      "options": [
+        { "title": "角色中有且只有一个造型" },
+        { "title": "角色中必须有多个造型" },
+        { "title": "角色中至少有一个造型" },
+        { "title": "角色中可以没有造型" }
+      ],
+      "correct": 2
+    },
+    {
+      "questnum": 10,
+      "quest": {
+        "title": "在下面图形基础上，只能移动一根火柴棍，不能变成下面哪个选项的图形？",
+        "src": "lv1_10_q.jpg"
+      },
+      "options": [
+        { "src": "lv1_10_o_0.jpg" },
+        { "src": "lv1_10_o_1.jpg" },
+        { "src": "lv1_10_o_2.jpg" },
+        { "src": "lv1_10_o_3.jpg" }
+      ],
+      "correct": 0
+    },
+    {
+      "questnum": 11,
+      "quest": {
+        "title": "以下哪组积木块可以实现播放4 次声音“喵”？"
+      },
+      "options": [
+        { "src": "lv1_11_o_0.jpg" },
+        { "src": "lv1_11_o_1.jpg" },
+        { "src": "lv1_11_o_2.jpg" },
+        { "src": "lv1_11_o_3.jpg" }
+      ],
+      "correct": 0
+    },
+    {
+      "questnum": 12,
+      "quest": {
+        "title": "如果将声音的音量设定为最大，那么音量的最大值是？"
+      },
+      "options": [
+        { "title": "240" },
+        { "title": "180" },
+        { "title": "255" },
+        { "title": "100" }
+      ],
+      "correct": 3
+    },
+    {
+      "questnum": 13,
+      "quest": {
+        "title": "从背景库中选择一个背景，应该点击下面哪一个按钮？"
+      },
+      "options": [
+        { "src": "lv1_13_o_0.jpg" },
+        { "src": "lv1_13_o_1.jpg" },
+        { "src": "lv1_13_o_2.jpg" },
+        { "src": "lv1_13_o_3.jpg" }
+      ],
+      "correct": 0
+    },
+    {
+      "questnum": 14,
+      "quest": {
+        "title": "地图中每格的长度是50 步长，洋洋要想拿到苹果，下面哪组程序可以实现？",
+        "src": "lv1_14_q.jpg"
+      },
+      "options": [
+        { "src": "lv1_14_o_0.jpg" },
+        { "src": "lv1_14_o_1.jpg" },
+        { "src": "lv1_14_o_2.jpg" },
+        { "src": "lv1_14_o_3.jpg" }
+      ],
+      "correct": 0
+    },
+    {
+      "questnum": 15,
+      "quest": {
+        "title": "在菜单栏中以下哪个可以实现语言的切换？"
+      },
+      "options": [
+        { "src": "lv1_15_o_0.jpg" },
+        { "src": "lv1_15_o_1.jpg" },
+        { "src": "lv1_15_o_2.jpg" },
+        { "src": "lv1_15_o_3.jpg" }
+      ],
+      "correct": 0
+    },
+    {
+      "questnum": 16,
+      "quest": {
+        "title": "舞台背景与角色相比，哪个模块是没有的？"
+      },
+      "options": [
+        { "title": "运动模块" },
+        { "title": "外观模块" },
+        { "title": "声音模块" },
+        { "title": "事件模块" }
+      ],
+      "correct": 0
+    },
+    {
+      "questnum": 17,
+      "quest": {
+        "title": "下图为造型的编辑界面，以下哪个可以实现变形功能？",
+        "src": "lv1_17_q.jpg"
+      },
+      "options": [
+        { "src": "lv1_17_o_0.jpg" },
+        { "src": "lv1_17_o_1.jpg" },
+        { "src": "lv1_17_o_2.jpg" },
+        { "src": "lv1_17_o_3.jpg" }
+      ],
+      "correct": 1
+    },
+    {
+      "questnum": 18,
+      "quest": {
+        "title": "找规律填数 17，12，15，14，13，（ ），（ ）。"
+      },
+      "options": [
+        { "title": "16，11" },
+        { "title": "12，11" },
+        { "title": "14，15" },
+        { "title": "12，7" }
+      ],
+      "correct": 0
+    },
+    {
+      "questnum": 19,
+      "quest": {
+        "title": "想要录制一个声音，应该点击哪个按钮？",
+        "src": "lv1_19_q.jpg"
+      },
+      "options": [
+        { "src": "lv1_19_o_0.jpg" },
+        { "src": "lv1_19_o_1.jpg" },
+        { "src": "lv1_19_o_2.jpg" },
+        { "src": "lv1_19_o_3.jpg" }
+      ],
+      "correct": 1
+    },
+    {
+      "questnum": 20,
+      "quest": {
+        "title": "以下哪组积木块可以实现洋洋面向下移动？"
+      },
+      "options": [
+        { "src": "lv1_20_o_0.jpg" },
+        { "src": "lv1_20_o_1.jpg" },
+        { "src": "lv1_20_o_2.jpg" },
+        { "src": "lv1_20_o_3.jpg" }
+      ],
+      "correct": 0
+    },
+    {
+      "questnum": 21,
+      "quest": {
+        "title": "在声音编辑器中，能够实现声音头和尾互换，应该选择以下哪一个？"
+      },
+      "options": [
+        { "src": "lv1_21_o_0.jpg" },
+        { "src": "lv1_21_o_1.jpg" },
+        { "src": "lv1_21_o_2.jpg" },
+        { "src": "lv1_21_o_3.jpg" }
+      ],
+      "correct": 2
+    },
+    {
+      "questnum": 22,
+      "quest": {
+        "title": "下图为造型编辑界面，以下哪个可以实现造型垂直翻转功能？"
+      },
+      "options": [
+        { "src": "lv1_22_o_0.jpg" },
+        { "src": "lv1_22_o_1.jpg" },
+        { "src": "lv1_22_o_2.jpg" },
+        { "src": "lv1_22_o_3.jpg" }
+      ],
+      "correct": 1
+    },
+    {
+      "questnum": 23,
+      "quest": {
+        "title": "下面哪个区域是角色列表区？",
+        "src": "lv1_23_q.jpg"
+      },
+      "options": [
+        { "title": "A" },
+        { "title": "B" },
+        { "title": "C" },
+        { "title": "D" }
+      ],
+      "correct": 2
+    },
+    {
+      "questnum": 24,
+      "quest": {
+        "title": "下面哪个区域是角色列表区？",
+        "src": "lv1_24_q.jpg"
+      },
+      "options": [
+        { "title": "1" },
+        { "title": "2" },
+        { "title": "3" },
+        { "title": "4" }
+      ],
+      "correct": 2
+    },
+    {
+      "questnum": 25,
+      "quest": {
+        "title": "以下哪组积木块可以实现洋洋面向上移动？"
+      },
+      "options": [
+        { "src": "lv1_25_o_0.jpg" },
+        { "src": "lv1_25_o_1.jpg" },
+        { "src": "lv1_25_o_2.jpg" },
+        { "src": "lv1_25_o_3.jpg" }
+      ],
+      "correct": 3
+    },
+    {
+      "questnum": 26,
+      "quest": {
+        "title": "用以下积木可以实现角色的位置移动",
+        "src": "lv1_26_q.jpg"
+      },
+      "options": [{ "title": "正确" }, { "title": "错误" }],
+      "correct": 1
+    },
+    {
+      "questnum": 27,
+      "quest": {
+        "title": "添加舞台背景可以在角色列表区找到相应的选项"
+      },
+      "options": [{ "title": "正确" }, { "title": "错误" }],
+      "correct": 1
+    },
+    {
+      "questnum": 28,
+      "quest": {
+        "title": "在洋洋角色下执行下列程序，洋洋一边叫一声“喵”一边向前走50步",
+        "src": "lv1_28_q.jpg"
+      },
+      "options": [{ "title": "正确" }, { "title": "错误" }],
+      "correct": 1
+    },
+    {
+      "questnum": 29,
+      "quest": {
+        "title": "要获取当前音量大小值可以用以下积木",
+        "src": "lv1_29_q.jpg"
+      },
+      "options": [{ "title": "正确" }, { "title": "错误" }],
+      "correct": 1
+    },
+    {
+      "questnum": 30,
+      "quest": {
+        "title": "要实现角色切换到指定的造型可以用以下积木",
+        "src": "lv1_30_q.jpg"
+      },
+      "options": [{ "title": "正确" }, { "title": "错误" }],
+      "correct": 1
+    },
+    {
+      "questnum": 31,
+      "quest": {
+        "title": "在角色列表区的任意空白区域点击鼠标右键，会弹出一个菜单，可以对角色进行“复制”"
+      },
+      "options": [{ "title": "正确" }, { "title": "错误" }],
+      "correct": 1
+    },
+    {
+      "questnum": 32,
+      "quest": {
+        "title": "如下图积木的运算结果是 35",
+        "src": "lv1_32_q.jpg"
+      },
+      "options": [{ "title": "正确" }, { "title": "错误" }],
+      "correct": 0
+    },
+    {
+      "questnum": 33,
+      "quest": {
+        "title": "用以下积木可以实现角色瞬间移动到指定坐标位置",
+        "src": "lv1_33_q.jpg"
+      },
+      "options": [{ "title": "正确" }, { "title": "错误" }],
+      "correct": 1
+    },
+    {
+      "questnum": 34,
+      "quest": {
+        "title": "绘制背景可以选择以下按钮",
+        "src": "lv1_34_q.jpg"
+      },
+      "options": [{ "title": "正确" }, { "title": "错误" }],
+      "correct": 1
+    },
+    {
+      "questnum": 35,
+      "quest": {
+        "title": "要实现音量的减小可以用以下积木",
+        "src": "lv1_35_q.jpg"
+      },
+      "options": [{ "title": "正确" }, { "title": "错误" }],
+      "correct": 1
+    }
+  ],
+  "lv2": [
+    {
+      "questnum": 1,
+      "quest": {
+        "title": "要让角色移动过程中碰到舞台边缘说“你撞到我啦”，下图红框处应该选择哪个指令？",
+        "src": "lv2_1_q.jpg"
+      },
+      "options": [
+        {
+          "src": "lv2_1_o_0.jpg"
+        },
+        {
+          "src": "lv2_1_o_1.jpg"
+        },
+        {
+          "src": "lv2_1_o_2.jpg"
+        },
+        {
+          "src": "lv2_1_o_3.jpg"
+        }
+      ],
+      "correct": 0
+    },
+    {
+      "questnum": 2,
+      "quest": {
+        "title": "制作“火箭发射”的动画，在动画初始状态需要选择哪个积木指令，实现静音的效果？"
+      },
+      "options": [
+        {
+          "src": "lv2_2_o_0.jpg"
+        },
+        {
+          "src": "lv2_2_o_1.jpg"
+        },
+        {
+          "src": "lv2_2_o_2.jpg"
+        },
+        {
+          "src": "lv2_2_o_3.jpg"
+        }
+      ],
+      "correct": 3
+    },
+    {
+      "questnum": 3,
+      "quest": {
+        "title": "下列程序的运行效果描述正确的是？",
+        "src": "lv2_3_q.jpg"
+      },
+      "options": [
+        { "title": "面向鼠标指针" },
+        { "title": "移到鼠标指针位置" },
+        { "title": "重复执行移到鼠标指针位置" },
+        { "title": "重复操作鼠标" }
+      ],
+      "correct": 2
+    },
+    {
+      "questnum": 4,
+      "quest": {
+        "title": "制作“开心苹果”的动画，当前“苹果”角色的大小为30，下面哪组指令能够使得“苹果”角色的大小增加10？"
+      },
+      "options": [
+        { "src": "lv2_4_o_0.jpg" },
+        { "src": "lv2_4_o_1.jpg" },
+        { "src": "lv2_4_o_2.jpg" },
+        { "src": "lv2_4_o_3.jpg" }
+      ],
+      "correct": 2
+    },
+    {
+      "questnum": 5,
+      "quest": {
+        "title": "下图中程序运行后，角色的坐标为？",
+        "src": "lv2_5_q.jpg"
+      },
+      "options": [
+        { "title": "（0，0）" },
+        { "title": "（100，100）" },
+        { "title": "（100，0）" },
+        { "title": "（0，100）" }
+      ],
+      "correct": 1
+    },
+    {
+      "questnum": 6,
+      "quest": {
+        "title": " 运行下面指令时，角色会说出？",
+        "src": "lv2_6_q.jpg"
+      },
+      "options": [
+        { "title": "apple" },
+        { "title": "banana" },
+        { "title": "applebanana" },
+        { "title": "bananaapple" }
+      ],
+      "correct": 2
+    },
+    {
+      "questnum": 7,
+      "quest": {
+        "title": "下列哪个指令角色运行完程序之后回到最开始的状态的是？"
+      },
+      "options": [
+        { "src": "lv2_7_o_0.jpg" },
+        { "src": "lv2_7_o_1.jpg" },
+        { "src": "lv2_7_o_2.jpg" },
+        { "src": "lv2_7_o_3.jpg" }
+      ],
+      "correct": 1
+    },
+    {
+      "questnum": 8,
+      "quest": {
+        "title": "角色的程序如下图，运行效果是？",
+        "src": "lv2_8_q.jpg"
+      },
+      "options": [
+        { "title": "没有任何效果" },
+        { "title": "角色大小增加10" },
+        { "title": "角色大小增加20" },
+        { "title": "角色大小增加30" }
+      ],
+      "correct": 2
+    },
+    {
+      "questnum": 9,
+      "quest": {
+        "title": "角色初始状态面向左边（-90°），下列选项中程序运行后哪个选项和下图的最终效果一样？",
+        "src": "lv2_9_q.jpg"
+      },
+      "options": [
+        { "src": "lv2_9_o_0.jpg" },
+        { "src": "lv2_9_o_1.jpg" },
+        { "src": "lv2_9_o_2.jpg" },
+        { "src": "lv2_9_o_3.jpg" }
+      ],
+      "correct": 2
+    },
+    {
+      "questnum": 10,
+      "quest": {
+        "title": "该模块的作用是？",
+        "src": "lv2_10_q.jpg"
+      },
+      "options": [
+        { "title": "如果不满足条件，执行指令包含的脚本模块" },
+        { "title": "如果满足条件，执行指令包含的脚本模块" },
+        { "title": "如果满足条件，重复执行指令包含的脚本模块" },
+        { "title": "如果不满足条件，重复执行指令包含的脚本模块" }
+      ],
+      "correct": 2
+    },
+    {
+      "questnum": 11,
+      "quest": {
+        "title": "下列程序指令中，能正确计算出正方形的面积的是？"
+      },
+      "options": [
+        { "src": "lv2_11_o_0.jpg" },
+        { "src": "lv2_11_o_1.jpg" },
+        { "src": "lv2_11_o_2.jpg" },
+        { "src": "lv2_11_o_3.jpg" }
+      ],
+      "correct": 3
+    },
+    {
+      "questnum": 12,
+      "quest": {
+        "title": "在十六进制中，10用小写字母a表示,15用小写字母()表示？"
+      },
+      "options": [
+        { "title": "b" },
+        { "title": "d" },
+        { "title": "e" },
+        { "title": "f" }
+      ],
+      "correct": 3
+    },
+    {
+      "questnum": 13,
+      "quest": {
+        "title": "要实现如果键盘输入的数大于10就改变角色大小，否则就改变角色特效，应选择下列哪个指令？"
+      },
+      "options": [
+        { "src": "lv2_13_o_0.jpg" },
+        { "src": "lv2_13_o_1.jpg" },
+        { "src": "lv2_13_o_2.jpg" },
+        { "src": "lv2_13_o_3.jpg" }
+      ],
+      "correct": 1
+    },
+    {
+      "questnum": 14,
+      "quest": {
+        "title": "下面的数中，可以表示为二进制的数是？"
+      },
+      "options": [
+        { "title": "2" },
+        { "title": "10111" },
+        { "title": "32768" },
+        { "title": "1024" }
+      ],
+      "correct": 1
+    },
+    {
+      "questnum": 15,
+      "quest": {
+        "title": "洋洋在玩一个旋转三角形的游戏，三角形的三个顶点的编号分别为1、2、3。顶部编号为1，旋转1次如下图所示，旋转100圈以后，顶部编号为？",
+        "src": "lv2_15_q.jpg"
+      },
+      "options": [
+        { "title": "1" },
+        { "title": "2" },
+        { "title": "3" },
+        { "title": "0" }
+      ],
+      "correct": 1
+    },
+    {
+      "questnum": 16,
+      "quest": {
+        "title": "下面哪个指令的运算结果为假false？"
+      },
+      "options": [
+        { "src": "lv2_16_o_0.jpg" },
+        { "src": "lv2_16_o_1.jpg" },
+        { "src": "lv2_16_o_2.jpg" },
+        { "src": "lv2_16_o_3.jpg" }
+      ],
+      "correct": 0
+    },
+    {
+      "questnum": 17,
+      "quest": {
+        "title": " 一只小球从舞台顶部落下，舞台底部分为绿色的草地和蓝色的河流两种，我们可以通过哪种程序结构实现判断出落在草地还是河流中？"
+      },
+      "options": [
+        { "src": "lv2_17_o_0.jpg" },
+        { "src": "lv2_17_o_1.jpg" },
+        { "src": "lv2_17_o_2.jpg" },
+        { "src": "lv2_17_o_3.jpg" }
+      ],
+      "correct": 1
+    },
+    {
+      "questnum": 18,
+      "quest": {
+        "title": " 想让小猫一直在舞台上移动，应采用下列哪种程序结构?"
+      },
+      "options": [
+        { "src": "lv2_18_o_0.jpg" },
+        { "src": "lv2_18_o_1.jpg" },
+        { "src": "lv2_18_o_2.jpg" },
+        { "src": "lv2_18_o_3.jpg" }
+      ],
+      "correct": 2
+    },
+    {
+      "questnum": 19,
+      "quest": {
+        "title": "运行下面指令模块，输入100，正确的显示效果是？",
+        "src": "lv2_19_q.jpg"
+      },
+      "options": [
+        { "title": "全票" },
+        { "title": "半票" },
+        { "title": "全票半票" },
+        { "title": "半票全票" }
+      ],
+      "correct": 1
+    },
+    {
+      "questnum": 20,
+      "quest": {
+        "title": "播放“喵”的声音时，下面那组指令能够精确定位声音的大小？"
+      },
+      "options": [
+        { "src": "lv2_20_o_0.jpg" },
+        { "src": "lv2_20_o_1.jpg" },
+        { "src": "lv2_20_o_2.jpg" },
+        { "src": "lv2_20_o_3.jpg" }
+      ],
+      "correct": 1
+    },
+    {
+      "questnum": 21,
+      "quest": {
+        "title": "要使Scratch中的角色切换造型，可选用下列哪一条指令？"
+      },
+      "options": [
+        { "src": "lv2_21_o_0.jpg" },
+        { "src": "lv2_21_o_1.jpg" },
+        { "src": "lv2_21_o_2.jpg" },
+        { "src": "lv2_21_o_3.jpg" }
+      ],
+      "correct": 1
+    },
+    {
+      "questnum": 22,
+      "quest": {
+        "title": "下面哪个指令的运算结果为5."
+      },
+      "options": [
+        { "src": "lv2_22_o_0.jpg" },
+        { "src": "lv2_22_o_1.jpg" },
+        { "src": "lv2_22_o_2.jpg" },
+        { "src": "lv2_22_o_3.jpg" }
+      ],
+      "correct": 2
+    },
+    {
+      "questnum": 23,
+      "quest": {
+        "title": "观察下方方阵图中的变化规律，虚线框中应该填入的图形是？",
+        "src": "lv2_23_q.jpg"
+      },
+      "options": [
+        { "src": "lv2_23_o_0.jpg" },
+        { "src": "lv2_23_o_1.jpg" },
+        { "src": "lv2_23_o_2.jpg" },
+        { "src": "lv2_23_o_3.jpg" }
+      ],
+      "correct": 1
+    },
+    {
+      "questnum": 24,
+      "quest": {
+        "title": "如图所示，制作走迷宫的游戏，设计红色区域为目的地，我们可以通过哪组积木指令实现达到目的地的效果？",
+        "src": "lv2_24_q.jpg"
+      },
+      "options": [
+        { "src": "lv2_24_o_0.jpg" },
+        { "src": "lv2_24_o_1.jpg" },
+        { "src": "lv2_24_o_2.jpg" },
+        { "src": "lv2_24_o_3.jpg" }
+      ],
+      "correct": 0
+    },
+    {
+      "questnum": 25,
+      "quest": {
+        "title": "下列关于红绿灯流程图符合实际的是？"
+      },
+      "options": [
+        { "src": "lv2_25_o_0.jpg" },
+        { "src": "lv2_25_o_1.jpg" },
+        { "src": "lv2_25_o_2.jpg" },
+        { "src": "lv2_25_o_3.jpg" }
+      ],
+      "correct": 1
+    },
+    {
+      "questnum": 26,
+      "quest": {
+        "title": "运行如下所示程序，当鼠标指针位于屏幕左下角时，角色不会旋转",
+        "src": "lv2_26_q.jpg"
+      },
+      "options": [{ "title": "正确" }, { "title": "错误" }],
+      "correct": 0
+    },
+    {
+      "questnum": 27,
+      "quest": {
+        "title": "以下程序的计算结果是4。",
+        "src": "lv2_27_q.jpg"
+      },
+      "options": [{ "title": "正确" }, { "title": "错误" }],
+      "correct": 1
+    },
+    {
+      "questnum": 28,
+      "quest": {
+        "title": "下面循环中的程序模块将被重复执行20次",
+        "src": "lv2_28_q.jpg"
+      },
+      "options": [{ "title": "正确" }, { "title": "错误" }],
+      "correct": 1
+    },
+    {
+      "questnum": 29,
+      "quest": {
+        "title": "如下图：点击“复制” 可以创建新的角色副本，包含相同的脚本、造型和声音。",
+        "src": "lv2_29_q.jpg"
+      },
+      "options": [{ "title": "正确" }, { "title": "错误" }],
+      "correct": 0
+    },
+    {
+      "questnum": 30,
+      "quest": {
+        "title": "下面的程序运行完以后，a的值为10.",
+        "src": "lv2_30_q.jpg"
+      },
+      "options": [{ "title": "正确" }, { "title": "错误" }],
+      "correct": 1
+    },
+    {
+      "questnum": 31,
+      "quest": {
+        "title": "下列程序的运行结果是完全相同的。",
+        "src": "lv2_31_q.jpg"
+      },
+      "options": [{ "title": "正确" }, { "title": "错误" }],
+      "correct": 1
+    },
+    {
+      "questnum": 32,
+      "quest": {
+        "title": "角色在舞台的中央，给角色编写如下程序，当按下空格键时，角色的大小会增加10。",
+        "src": "lv2_32_q.jpg"
+      },
+      "options": [{ "title": "正确" }, { "title": "错误" }],
+      "correct": 1
+    },
+    {
+      "questnum": 33,
+      "quest": {
+        "title": "如下图，该程序的计算结果是-3。",
+        "src": "lv2_33_q.jpg"
+      },
+      "options": [{ "title": "正确" }, { "title": "错误" }],
+      "correct": 1
+    },
+    {
+      "questnum": 34,
+      "quest": {
+        "title": "运行下面的程序后，X的值为“true”。",
+        "src": "lv2_34_q.jpg"
+      },
+      "options": [{ "title": "正确" }, { "title": "错误" }],
+      "correct": 0
+    },
+    {
+      "questnum": 35,
+      "quest": {
+        "title": "我们使用下面的取色工具，可以在舞台以外的区域选取颜色。",
+        "src": "lv2_35_q.jpg"
+      },
+      "options": [{ "title": "正确" }, { "title": "错误" }],
+      "correct": 1
+    }
+  ],
+  "lv3": [],
+  "lv4": []
+}
